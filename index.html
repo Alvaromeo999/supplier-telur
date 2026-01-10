@@ -112,7 +112,6 @@ nav{
 
 <section class="hero">
  <div>
-
   <h1>
    KAMI MEMBELI HASIL PRODUKSI<br>
    TELUR AYAM NEGERI<br>
@@ -133,11 +132,9 @@ nav{
    ❌ BUKAN makelar
   </div>
 
-  <a href="#daftar" class="btn">
-   JUAL PRODUKSI TELUR ANDA
-  </a>
+  <a href="#daftar" class="btn">JUAL PRODUKSI TELUR ANDA</a>
 
-   <div class="trust">
+  <div class="trust">
    <div>≥ 5–10 Ton / Hari</div>
    <div>Pengambilan Terjadwal</div>
    <div>Kontrak Panjang</div>
@@ -145,63 +142,52 @@ nav{
   </div>
  </div>
 
- <!-- PATH AMAN GITHUB PAGES -->
- <img 
- src="assets/img/farm.jpg"
- alt="Farm telur ayam negeri"
- loading="lazy">
-
-
+ <img src="assets/img/farm.jpg" alt="Farm telur ayam negeri" loading="lazy">
 </section>
 
 <section class="section-light">
- <<section>
  <h2>Skema Kerja Sama</h2>
-
  <p>
-  Kami berperan sebagai <strong>penyerap / offtaker produksi</strong> telur ayam negeri (Leghorn)
-  untuk kebutuhan distribusi volume besar dan berkelanjutan.
+  Kami berperan sebagai <strong>penyerap / offtaker produksi</strong>
+  telur ayam negeri (Leghorn) untuk kebutuhan distribusi volume besar.
  </p>
-
- <div class="trust" style="margin-top:30px">
-  <div>📦 Pembelian rutin & terjadwal</div>
-  <div>📄 Kerja sama kontrak</div>
-  <div>🚚 Pengambilan langsung ke farm</div>
-  <div>💰 Sistem pembayaran profesional</div>
- </div>
-
- <div class="note" style="margin-top:30px">
-  ⚠️ Kerja sama difokuskan untuk peternak & farm dengan
-  <strong>kapasitas produksi stabil dan konsisten</strong>.
- </div>
 </section>
 
+<section class="cta" id="daftar">
+ <h2>Daftarkan Produksi Telur Anda</h2>
+
+ <p style="font-size:14px;opacity:.9;margin-top:10px">
+  ⚠️ Pendaftaran akan diseleksi berdasarkan kapasitas & konsistensi produksi
+ </p>
+
+ <form class="form" onsubmit="kirimWA(event)">
+  <input id="perusahaan" placeholder="Nama Farm" required>
+  <input id="pic" placeholder="Penanggung Jawab" required>
+  <input id="wa" placeholder="WhatsApp" required>
+  <input id="kebutuhan" placeholder="Ton / Hari" required>
+  <button>KIRIM</button>
+ </form>
+</section>
 
 <a href="https://wa.me/628121515633" class="wa-float">WhatsApp</a>
 
 <script>
 function kirimWA(e){
  e.preventDefault();
-
  const pesan =
 `Halo FreshEgg 👋
 
-Saya *PETERNak / FARM AKTIF PRODUKSI* dan ingin MENJUAL hasil produksi telur ayam negeri (Leghorn).
+Saya PETERNak / FARM AKTIF PRODUKSI dan ingin MENJUAL hasil produksi telur ayam negeri (Leghorn).
 
-DATA PRODUKSI:
-🏢 Nama Farm        : ${perusahaan.value}
-👤 Penanggung Jawab: ${pic.value}
-📱 WhatsApp        : ${wa.value}
-📦 Kapasitas       : ${kebutuhan.value} ton / hari
+DATA:
+Farm : ${perusahaan.value}
+PIC  : ${pic.value}
+WA   : ${wa.value}
+Kapasitas : ${kebutuhan.value} ton / hari
 
-KETERANGAN:
-✔ Produksi rutin
-✔ Siap kerja sama jangka panjang
-✔ Bukan eceran / sekali jual
+⚠️ Siap diseleksi berdasarkan kapasitas & konsistensi produksi.
 
-⚠️ Pendaftaran akan diseleksi berdasarkan kapasitas & konsistensi produksi
-
-Mohon info tahapan seleksi kemitraan selanjutnya.`;
+Mohon info tahapan seleksi selanjutnya.`;
 
  window.open(
   "https://wa.me/628121515633?text=" + encodeURIComponent(pesan),
@@ -209,11 +195,6 @@ Mohon info tahapan seleksi kemitraan selanjutnya.`;
  );
 }
 </script>
-
-<p style="font-size:13px;opacity:.85;margin-top:10px">
-⚠️ Pendaftaran akan diseleksi berdasarkan kapasitas & konsistensi produksi
-</p>
-
 
 </body>
 </html>
