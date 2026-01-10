@@ -175,15 +175,32 @@ nav{
 <script>
 function kirimWA(e){
  e.preventDefault();
+
  const pesan =
 `Halo FreshEgg 👋
-Farm: ${perusahaan.value}
-PIC: ${pic.value}
-WA: ${wa.value}
-Produksi: ${kebutuhan.value} ton/hari`;
- window.open("https://wa.me/628121515633?text="+encodeURIComponent(pesan));
+
+Saya *PETERNak / FARM AKTIF PRODUKSI* dan ingin MENJUAL hasil produksi telur ayam negeri (Leghorn).
+
+DATA PRODUKSI:
+🏢 Nama Farm        : ${perusahaan.value}
+👤 Penanggung Jawab: ${pic.value}
+📱 WhatsApp        : ${wa.value}
+📦 Kapasitas       : ${kebutuhan.value} ton / hari
+
+KETERANGAN:
+✔ Produksi rutin
+✔ Siap kerja sama jangka panjang
+✔ Bukan eceran / sekali jual
+
+Mohon info tahapan seleksi kemitraan selanjutnya.`;
+
+ window.open(
+  "https://wa.me/628121515633?text=" + encodeURIComponent(pesan),
+  "_blank"
+ );
 }
 </script>
+
 
 </body>
 </html>
