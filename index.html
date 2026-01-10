@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kemitraan Penyerapan Telur Ayam Negeri (Leghorn) | Volume Besar</title>
-<meta name="description" content="Kemitraan penyerapan produksi telur ayam negeri (Leghorn). Khusus peternak & farm aktif produksi. Penyerapan rutin, volume besar, kontrak jangka panjang.">
+<title>Offtaker Telur Ayam Negeri (Leghorn) | Penyerapan Volume Besar</title>
+<meta name="description" content="Kami adalah offtaker telur ayam negeri (Leghorn). Menyerap hasil produksi peternak & farm skala menengah–besar secara rutin dan berkelanjutan.">
 <meta name="robots" content="index, follow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +25,7 @@ h1,h2{font-family:Montserrat,sans-serif}
 section{padding:90px 10%}
 a{text-decoration:none;color:inherit}
 
+/* NAV */
 nav{
  position:fixed;top:0;width:100%;height:72px;
  display:flex;align-items:center;
@@ -34,6 +35,7 @@ nav{
 }
 .logo{font-size:1.5rem;font-weight:700;color:var(--primary)}
 
+/* HERO */
 .hero{
  padding-top:140px;
  display:grid;
@@ -51,12 +53,17 @@ nav{
  border-left:5px solid var(--primary);
  border-radius:8px;
  font-size:.95rem;
+ margin-top:10px;
 }
 
 .btn{
- display:inline-block;margin-top:25px;
- padding:18px 42px;border-radius:14px;
- background:var(--primary);color:#fff;font-weight:700;
+ display:inline-block;
+ margin-top:25px;
+ padding:18px 42px;
+ border-radius:14px;
+ background:var(--primary);
+ color:#fff;
+ font-weight:700;
 }
 
 .hero img{
@@ -67,6 +74,7 @@ nav{
  box-shadow:0 12px 24px rgba(0,0,0,.15);
 }
 
+/* TRUST */
 .trust{
  margin-top:35px;
  display:grid;
@@ -75,29 +83,48 @@ nav{
 }
 .trust div{
  background:var(--light);
- padding:20px;border-radius:14px;
- text-align:center;font-weight:600;
-}
-
-.section-light{background:var(--light)}
-
-.cta{background:var(--primary);color:#fff;text-align:center}
-.form{
- max-width:520px;margin:30px auto;
- display:grid;gap:14px;
-}
-.form input,.form button{
- padding:16px;border-radius:12px;border:none;
-}
-.form button{background:#fff;font-weight:700}
-
-.wa-float{
- position:fixed;bottom:22px;right:22px;
- background:var(--success);color:#fff;
- padding:14px 20px;border-radius:50px;
+ padding:20px;
+ border-radius:14px;
+ text-align:center;
  font-weight:600;
 }
 
+/* SECTIONS */
+.section-light{background:var(--light)}
+
+/* CTA */
+.cta{background:var(--primary);color:#fff;text-align:center}
+.form{
+ max-width:520px;
+ margin:30px auto;
+ display:grid;
+ gap:14px;
+}
+.form input,.form button{
+ padding:16px;
+ border-radius:12px;
+ border:none;
+}
+.form button{
+ background:#fff;
+ font-weight:700;
+ cursor:pointer;
+}
+
+/* WA FLOAT */
+.wa-float{
+ position:fixed;
+ bottom:22px;
+ right:22px;
+ background:var(--success);
+ color:#fff;
+ padding:14px 20px;
+ border-radius:50px;
+ font-weight:600;
+ z-index:999;
+}
+
+/* MOBILE */
 @media(max-width:768px){
  section{padding:70px 6%}
  .hero{grid-template-columns:1fr;text-align:center}
@@ -108,64 +135,95 @@ nav{
 
 <body>
 
-<nav><div class="logo">FRESHEGG</div></nav>
+<nav>
+ <div class="logo">FRESHEGG</div>
+</nav>
 
+<!-- HERO -->
 <section class="hero">
  <div>
+
   <h1>
-   KAMI MEMBELI HASIL PRODUKSI<br>
-   TELUR AYAM NEGERI<br>
+   OFFTAKER TELUR AYAM NEGERI<br>
+   SKALA BESAR & BERKELANJUTAN<br>
    <span style="color:var(--primary)">(LEGHORN)</span>
   </h1>
 
-  <p><strong>Khusus Peternak & Farm Aktif Produksi</strong></p>
+  <p><strong>Khusus Peternak & Farm Produksi Menengah–Besar</strong></p>
 
   <p>
-   Kami mencari peternak dan farm telur ayam negeri (Leghorn)
-   yang siap <strong>MENJUAL hasil produksi secara rutin</strong>
-   dengan sistem pembelian profesional dan kontrak kerja sama.
+   Kami adalah <strong>penyerap (offtaker)</strong> hasil produksi
+   telur ayam negeri (Leghorn) untuk kebutuhan distribusi
+   volume besar dan berkelanjutan.
   </p>
 
+  <p>
+   Fokus kami <strong>MEMBELI HASIL PRODUKSI</strong> dari peternak
+   yang siap memasok secara rutin dengan sistem kerja sama profesional.
+  </p>
+
+  <!-- FILTER -->
   <div class="note">
-   ❌ BUKAN jual beli eceran<br>
-   ❌ BUKAN pembelian satu kali<br>
-   ❌ BUKAN makelar
+   🚫 Bukan jual beli eceran<br>
+   🚫 Bukan pembelian satu kali<br>
+   🚫 Bukan makelar / perantara<br>
+   🚫 Bukan peternak skala kecil
   </div>
 
-  <a href="#daftar" class="btn">JUAL PRODUKSI TELUR ANDA</a>
+  <a href="#daftar" class="btn">
+   AJUKAN PENYERAPAN PRODUKSI
+  </a>
 
+  <!-- KRITERIA -->
   <div class="trust">
-   <div>≥ 5–10 Ton / Hari</div>
+   <div>Minimal ±5 Ton / Hari</div>
+   <div>Produksi Rutin & Konsisten</div>
+   <div>Siap Kontrak Kerja Sama</div>
    <div>Pengambilan Terjadwal</div>
-   <div>Kontrak Panjang</div>
-   <div>Sistem Profesional</div>
   </div>
+
  </div>
 
  <img src="assets/img/farm.jpg" alt="Farm telur ayam negeri" loading="lazy">
 </section>
 
+<!-- SKEMA -->
 <section class="section-light">
  <h2>Skema Kerja Sama</h2>
  <p>
-  Kami berperan sebagai <strong>penyerap / offtaker produksi</strong>
-  telur ayam negeri (Leghorn) untuk kebutuhan distribusi volume besar.
+  Kami berperan sebagai <strong>offtaker / pembeli langsung</strong>
+  yang menyerap hasil produksi telur ayam negeri secara terjadwal
+  dan berkelanjutan.
  </p>
+
+ <div class="trust" style="margin-top:30px">
+  <div>📦 Pembelian rutin</div>
+  <div>📄 Kerja sama kontrak</div>
+  <div>🚚 Pengambilan ke farm</div>
+  <div>💰 Sistem pembayaran profesional</div>
+ </div>
+
+ <div class="note" style="margin-top:30px">
+  ⚠️ Kerja sama difokuskan untuk peternak dengan
+  <strong>kapasitas & konsistensi produksi stabil</strong>.
+ </div>
 </section>
 
+<!-- CTA -->
 <section class="cta" id="daftar">
- <h2>Daftarkan Produksi Telur Anda</h2>
+ <h2>Pengajuan Penyerapan Produksi Telur</h2>
 
  <p style="font-size:14px;opacity:.9;margin-top:10px">
-  ⚠️ Pendaftaran akan diseleksi berdasarkan kapasitas & konsistensi produksi
+ ⚠️ Pengajuan akan diseleksi berdasarkan kapasitas,
+ konsistensi produksi, dan kesiapan kerja sama jangka panjang
  </p>
 
  <form class="form" onsubmit="kirimWA(event)">
-  <input id="perusahaan" placeholder="Nama Farm" required>
+  <input id="perusahaan" placeholder="Nama Farm / Peternakan" required>
   <input id="pic" placeholder="Penanggung Jawab" required>
-  <input id="wa" placeholder="WhatsApp" required>
-  <input id="kebutuhan" placeholder="Ton / Hari" required>
-  <button>KIRIM</button>
+  <input id="wa" placeholder="WhatsApp Aktif" required>
+  <input id="kebutuhan" placeholder="Kapasitas (Ton / Hari)" required>
+  <button>KIRIM PENGAJUAN</button>
  </form>
 </section>
 
@@ -174,20 +232,26 @@ nav{
 <script>
 function kirimWA(e){
  e.preventDefault();
+
  const pesan =
 `Halo FreshEgg 👋
 
-Saya PETERNak / FARM AKTIF PRODUKSI dan ingin MENJUAL hasil produksi telur ayam negeri (Leghorn).
+Saya PETERNak / FARM AKTIF PRODUKSI
+dan mengajukan penyerapan hasil produksi
+telur ayam negeri (Leghorn).
 
-DATA:
-Farm : ${perusahaan.value}
-PIC  : ${pic.value}
-WA   : ${wa.value}
-Kapasitas : ${kebutuhan.value} ton / hari
+DATA PRODUKSI:
+🏢 Farm        : ${perusahaan.value}
+👤 PIC         : ${pic.value}
+📱 WhatsApp    : ${wa.value}
+📦 Kapasitas   : ${kebutuhan.value} ton / hari
 
-⚠️ Siap diseleksi berdasarkan kapasitas & konsistensi produksi.
+Keterangan:
+✔ Produksi rutin & konsisten
+✔ Siap kerja sama jangka panjang
+✔ Bukan eceran / satu kali jual
 
-Mohon info tahapan seleksi selanjutnya.`;
+Mohon informasi tahapan seleksi kemitraan selanjutnya.`;
 
  window.open(
   "https://wa.me/628121515633?text=" + encodeURIComponent(pesan),
