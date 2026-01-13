@@ -3,110 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | FreshEgg Monitoring</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-    
+    <title>Internal Monitoring | FreshEgg</title>
     <style>
-        :root {
-            --primary: #F5A623;
-            --dark: #1f2933;
-            --bg: #f0f2f5;
-        }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            margin: 0; 
-            background-color: var(--bg); 
-            color: var(--dark);
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f0f2f5; color: #333; }
         nav { 
-            background: #fff; 
+            background: #F5A623; 
             padding: 15px 5%; 
+            color: white; 
             display: flex; 
             justify-content: space-between; 
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); }
-        
-        .container { padding: 30px 5%; }
-        
-        .header-info { margin-bottom: 20px; }
-        .header-info h1 { margin: 0; font-size: 1.5rem; }
-        .status-tag { 
-            display: inline-block; 
-            background: #fff3cd; 
-            color: #856404; 
-            padding: 5px 12px; 
-            border-radius: 20px; 
-            font-size: 0.8rem; 
-            font-weight: 500;
-            margin-top: 5px;
-        }
-
-        .dashboard-card {
+        .container { padding: 25px 5%; }
+        .dashboard-container {
             background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #e1e4e8;
-        }
-
-        /* Iframe styling */
-        .iframe-container {
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: relative;
-            width: 100%;
-            height: 850px; /* Tinggi optimal untuk Looker Studio */
+            /* Membuat rasio layar yang pas untuk dashboard */
+            min-height: 850px; 
         }
+        h2 { margin-top: 0; font-size: 1.4rem; color: #1f2933; }
         iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
+            height: 850px;
             border: 0;
+            border-radius: 8px;
         }
-
-        .back-link {
+        .btn-back {
+            color: white;
             text-decoration: none;
-            color: var(--dark);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            font-size: 0.85rem;
+            border: 1px solid white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: 0.3s;
         }
-        .back-link:hover { color: var(--primary); }
-
-        @media (max-width: 768px) {
-            .iframe-container { height: 600px; }
-        }
+        .btn-back:hover { background: white; color: #F5A623; }
+        footer { text-align: center; padding: 20px; color: #888; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo-text">FRESHEGG ADMIN</div>
-    <a href="index.html" class="back-link">← Kembali ke Landing Page</a>
+    <div style="font-weight: bold; letter-spacing: 1px;">FRESHEGG ADMIN SYSTEM</div>
+    <a href="index.html" class="btn-back">Kembali ke Beranda</a>
 </nav>
 
 <div class="container">
-    <div class="header-info">
-        <h1>Monitoring Supply & Demand</h1>
-        <div class="status-tag">● Live Automated Data</div>
-    </div>
-
-    <div class="dashboard-card">
-        <div class="iframe-container">
-            <iframe 
-                src="https://lookerstudio.google.com/embed/reporting/6e4a6f5b-9cfe-4dfd-9383-456b7ed97a0a/page/Ax8kF" 
-                allowfullscreen 
-                sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-            </iframe>
-        </div>
+    <h2>Monitoring Supply & Demand (Real-Time)</h2>
+    
+    <div class="dashboard-container">
+        <iframe 
+            src="https://lookerstudio.google.com/embed/reporting/6e4a6f5b-9cfe-4dfd-9383-456b7ed97a0a/page/Ax8kF" 
+            allowfullscreen 
+            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+        </iframe>
     </div>
 </div>
 
-<footer style="text-align: center; padding: 30px; color: #888; font-size: 0.8rem;">
-    &copy; 2026 FreshEgg Internal System. Authorized Access Only.
+<footer>
+    &copy; 2026 FreshEgg - Agregator Produksi Telur Nasional
 </footer>
 
 </body>
