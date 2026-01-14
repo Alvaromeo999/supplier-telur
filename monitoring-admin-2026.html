@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreshEgg | Admin Monitoring 2026</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f4f4; overflow: hidden; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f4f4f4; overflow: hidden; }
         
-        /* Header & Navigasi */
+        /* Navigasi Responsif */
         nav { 
             background: #F5A623; 
             padding: 10px 15px; 
@@ -18,7 +18,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .nav-title { font-weight: bold; font-size: 1rem; text-align: center; letter-spacing: 1px; }
+        .nav-title { font-weight: bold; font-size: 1rem; text-align: center; }
 
         .nav-links { 
             display: flex; 
@@ -27,7 +27,7 @@
             flex-wrap: wrap; 
         }
 
-        /* Tombol Style */
+        /* Styling Tombol */
         .btn { 
             color: white; 
             text-decoration: none; 
@@ -38,26 +38,23 @@
             cursor: pointer;
             background: transparent;
             transition: all 0.3s ease;
-            white-space: nowrap;
         }
 
         .btn:hover { background: rgba(255,255,255,0.2); }
         .btn.active { background: white; color: #F5A623; font-weight: bold; }
-        
-        /* Tombol Khusus */
         .btn-neraca { border-color: #00E676; color: #00E676; }
         .btn-neraca.active { background: #00E676; color: white; }
         .btn-exit { border-color: #ffeb3b; color: #ffeb3b; }
 
-        /* Area Dashboard */
+        /* Container Dashboard */
         .dashboard-container {
             width: 100%;
-            height: calc(100vh - 110px); /* Menyesuaikan tinggi mobile */
+            height: calc(100vh - 110px); 
         }
 
         iframe { width: 100%; height: 100%; border: 0; transition: opacity 0.3s; }
 
-        /* Tampilan Desktop (Layar Lebar) */
+        /* Mode Desktop */
         @media (min-width: 768px) {
             nav { flex-direction: row; justify-content: space-between; height: 60px; padding: 0 20px; align-items: center; }
             .nav-title { font-size: 1.1rem; }
@@ -69,14 +66,11 @@
 <body>
 
 <nav>
-    <div class="nav-title">FRESHEGG - INTERNAL MONITORING</div>
+    <div class="nav-title">FRESHEGG - AGREGATOR NASIONAL</div>
     <div class="nav-links">
-        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/1158caa9-314d-4858-a6c5-2c0f7f2b52d6/page/page_12345', this)">DATA FARM</button>
-        
-        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF', this)">DATA BUYER</button>
-        
         <button class="btn btn-neraca active" onclick="changePage('https://lookerstudio.google.com/embed/reporting/03a63208-fbff-4366-9a5e-b0d8887117a4/page/YkClF', this)">NERACA</button>
-        
+        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/1158caa9-314d-4858-a6c5-2c0f7f2b52d6/page/page_1', this)">DATA FARM</button>
+        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF', this)">DATA BUYER</button>
         <a href="index.html" class="btn btn-exit">KELUAR</a>
     </div>
 </nav>
@@ -92,8 +86,6 @@
 <script>
     function changePage(fullUrl, btn) {
         const frame = document.getElementById('dashFrame');
-        
-        // Efek loading halus
         frame.style.opacity = "0.3";
         frame.src = fullUrl;
         
@@ -101,7 +93,6 @@
             frame.style.opacity = "1";
         };
 
-        // Update status aktif tombol
         document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
