@@ -45,7 +45,7 @@
     <strong>FRESHEGG - MONITORING</strong>
     <div class="nav-links">
         <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/1158caa9-314d-4858-a6c5-2c0f7f2b52d6/page/page_12345', this)">DATA FARM</button>
-        <button class="btn active" onclick="changePage('DZ9kF', this)">DATA BUYER</button>
+        <button class="btn active" onclick="changePage('https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF', this)">DATA BUYER</button>
         <a href="index.html" class="btn">KELUAR</a>
     </div>
 </nav>
@@ -59,12 +59,12 @@
 </div>
 
 <script>
-    function changePage(pageId, btn) {
-        // Update URL Iframe
+    function changePage(fullUrl, btn) {
+        // Update URL Iframe secara langsung dengan URL lengkap
         const frame = document.getElementById('dashFrame');
-        frame.src = "https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/" + pageId;
+        frame.src = fullUrl;
         
-        // Update Active Button Style
+        // Update Style tombol agar terlihat mana yang aktif
         document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
