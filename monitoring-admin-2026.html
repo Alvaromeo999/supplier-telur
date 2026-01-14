@@ -15,6 +15,7 @@
             align-items: center;
             height: 60px;
         }
+        .nav-links { display: flex; gap: 10px; }
         .dashboard-container {
             width: 100%;
             height: calc(100vh - 60px); 
@@ -24,30 +25,50 @@
             height: 100%;
             border: 0;
         }
-        .btn-back { 
+        .btn { 
             color: white; 
             text-decoration: none; 
             font-size: 0.8rem; 
             border: 1px solid white; 
-            padding: 5px 10px; 
+            padding: 5px 12px; 
             border-radius: 4px; 
+            cursor: pointer;
+            background: transparent;
         }
-        .btn-back:hover { background: rgba(255,255,255,0.2); }
+        .btn:hover { background: rgba(255,255,255,0.2); }
+        .btn.active { background: white; color: #F5A623; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <nav>
-    <strong>FRESHEGG - INTERNAL SYSTEM (FARM & BUYER)</strong>
-    <a href="index.html" class="btn-back">Beranda</a>
+    <strong>FRESHEGG - MONITORING</strong>
+    <div class="nav-links">
+        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/1158caa9-314d-4858-a6c5-2c0f7f2b52d6/page/page_12345', this)">DATA FARM</button>
+        <button class="btn active" onclick="changePage('DZ9kF', this)">DATA BUYER</button>
+        <a href="index.html" class="btn">KELUAR</a>
+    </div>
 </nav>
 
 <div class="dashboard-container">
     <iframe 
-    src="https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF?config=%7B%22nav%22%3A%22bottom%22%7D" 
-    allowfullscreen>
-</iframe>
+        id="dashFrame"
+        src="https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF" 
+        allowfullscreen>
+    </iframe>
 </div>
+
+<script>
+    function changePage(pageId, btn) {
+        // Update URL Iframe
+        const frame = document.getElementById('dashFrame');
+        frame.src = "https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/" + pageId;
+        
+        // Update Active Button Style
+        document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+</script>
 
 </body>
 </html>
