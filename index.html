@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshEgg | Pioneer Agregator & Ketahanan Pangan Nasional</title>
+    <title>FreshEgg | Pioneer Agregator & Rantai Pasok Nasional</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
@@ -22,8 +22,8 @@
         .glass-nav { background: rgba(253, 252, 251, 0.95); backdrop-filter: blur(10px); }
         h1, h2, h3, b { font-weight: 800 !important; letter-spacing: -0.02em; }
         
-        .mission-card { background: #FFFFFF; border-left: 8px solid #D35400; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .csr-gradient { background: linear-gradient(135deg, #2D2D2D 0%, #1A1A1A 100%); color: white; }
+        .card-pioneer { background: #FFFFFF; border: 3px solid #F1EDE9; transition: all 0.3s ease; }
+        .card-pioneer:hover { border-color: #D35400; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -35,18 +35,18 @@
                     <i class="fas fa-egg text-xl"></i>
                 </div>
                 <div class="leading-none text-left">
-                    <span class="text-2xl font-extrabold tracking-tighter text-[#4A2F1B] block uppercase">FRESHEGG</span>
-                    <span class="text-[9px] font-extrabold text-[#D35400] tracking-[0.2em] uppercase">Pioneer Digital Agregator</span>
+                    <span class="text-2xl font-black tracking-tighter text-[#4A2F1B] block uppercase">FRESHEGG</span>
+                    <span class="text-[9px] font-extrabold text-[#D35400] tracking-[0.2em] uppercase">Digital Supply Chain Pioneer</span>
                 </div>
             </div>
-            <div class="hidden md:flex gap-8 text-xs font-black text-[#A35D36] tracking-widest uppercase">
-                <a href="#misi" class="hover:text-[#D35400] transition">Misi Strategis</a>
-                <a href="#csr" class="hover:text-[#D35400] transition text-red-600">Egg Donation</a>
-                <a href="monitoring-admin-2026.html" class="text-[#D35400] font-black italic">Live Monitoring</a>
+            <div class="hidden md:flex gap-8 text-[11px] font-black text-[#A35D36] tracking-widest uppercase">
+                <a href="#ekosistem" class="hover:text-[#D35400] transition">Kemitraan</a>
+                <a href="#csr" class="hover:text-red-600 transition">EggDonation</a>
+                <a href="monitoring-admin-2026.html" class="text-[#D35400] italic">Live Monitoring</a>
             </div>
             <div class="flex gap-4">
                 <button onclick="bukaModal('login')" class="text-sm font-black text-[#4A2F1B] uppercase">Login</button>
-                <button onclick="bukaModal('reg')" class="bg-[#D35400] text-white px-7 py-3 rounded-xl font-extrabold text-sm shadow-lg hover:bg-[#A35D36] transition uppercase">Join Partner</button>
+                <button onclick="bukaModal('reg')" class="bg-[#D35400] text-white px-7 py-3 rounded-xl font-black text-sm shadow-lg hover:scale-105 transition uppercase">Gabung Mitra</button>
             </div>
         </div>
     </nav>
@@ -54,73 +54,76 @@
     <main class="flex-grow">
         <section class="pt-52 pb-24 px-6 text-center">
             <div class="max-w-5xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-5 py-2 bg-[#FEF5ED] text-[#D35400] rounded-full text-xs font-extrabold tracking-widest uppercase mb-10 border-2 border-[#FAD7BB]">
-                    <i class="fas fa-rocket"></i> PIONEER DIGITAL KETAHANAN PANGAN
-                </div>
                 <h1 class="text-5xl md:text-8xl font-black text-[#4A2F1B] mb-8 leading-[1] tracking-tighter uppercase">
-                    Agregator <br><span class="text-[#D35400] italic underline decoration-orange-200 text-6xl md:text-9xl">Telur Nasional</span>
+                    Pioneer Agregator <br><span class="text-[#D35400] italic underline decoration-orange-200">Telur Nasional</span>
                 </h1>
-                <p class="text-[#6D5D50] text-xl md:text-2xl mb-14 max-w-4xl mx-auto leading-relaxed font-bold">
-                    Menjadi jembatan teknologi informasi bagi Farm Tradisional melalui sistem Offtaker terintegrasi untuk stabilitas pangan Indonesia.
+                <p class="text-[#6D5D50] text-xl md:text-2xl mb-14 max-w-4xl mx-auto leading-relaxed font-bold italic">
+                    "Menjembatani Farm Tradisional dengan teknologi informasi melalui sistem Offtaker terpadu demi ketahanan pangan nasional."
                 </p>
             </div>
         </section>
 
-        <section id="misi" class="py-24 px-6 bg-white border-y-2 border-[#F1EDE9]">
+        <section id="ekosistem" class="py-24 px-6 bg-white border-y-2 border-[#F1EDE9]">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-4xl font-black text-[#4A2F1B] mb-16 uppercase italic text-center underline decoration-orange-500 underline-offset-8">Misi Strategis FreshEgg</h2>
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-black text-[#4A2F1B] uppercase italic mb-4">Integrasi Rantai Pasok</h2>
+                    <p class="text-[#A35D36] text-sm font-bold uppercase tracking-widest italic">Memangkas Jalur Distribusi, Mengendalikan Harga</p>
+                </div>
                 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="mission-card">
-                        <i class="fas fa-microchip text-3xl text-[#D35400] mb-6"></i>
-                        <h3 class="text-xl font-black text-[#4A2F1B] mb-4 uppercase">Teknologi Untuk Farm</h3>
-                        <p class="text-[#6D5D50] leading-relaxed">Berperan sebagai <b>Offtaker</b> yang menjembatani Farm Tradisional dengan pengembangan teknologi informasi untuk efisiensi produksi.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-pioneer p-10 rounded-[2.5rem]">
+                        <i class="fas fa-tractor text-4xl text-[#D35400] mb-6"></i>
+                        <h3 class="text-xl font-black text-[#4A2F1B] mb-4 uppercase">Hulu: Mitra Farm</h3>
+                        <p class="text-sm text-[#6D5D50] leading-relaxed">Pemberdayaan farm tradisional dengan bantuan teknologi informasi untuk kepastian serapan hasil panen.</p>
                     </div>
-                    <div class="mission-card">
-                        <i class="fas fa-route text-3xl text-[#D35400] mb-6"></i>
-                        <h3 class="text-xl font-black text-[#4A2F1B] mb-4 uppercase">Efisiensi Rantai Pasok</h3>
-                        <p class="text-[#6D5D50] leading-relaxed">Memangkas mata rantai distribusi yang panjang sehingga harga dapat terkendali dari hulu hingga ke tangan konsumen akhir.</p>
+
+                    <div class="card-pioneer p-10 rounded-[2.5rem] bg-[#2D2D2D] !border-[#2D2D2D]">
+                        <i class="fas fa-truck-fast text-4xl text-orange-400 mb-6"></i>
+                        <h3 class="text-xl font-black text-white mb-4 uppercase">Kanal: Mitra Cargo</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Kolaborasi vendor logistik nasional untuk memangkas mata rantai distribusi yang panjang dan tidak efisien.</p>
+                        <button onclick="infoLogistik()" class="mt-8 text-[10px] font-black text-orange-400 border-b-2 border-orange-400 uppercase tracking-widest italic">Pendaftaran Cargo</button>
+                    </div>
+
+                    <div class="card-pioneer p-10 rounded-[2.5rem]">
+                        <i class="fas fa-store text-4xl text-[#D35400] mb-6"></i>
+                        <h3 class="text-xl font-black text-[#4A2F1B] mb-4 uppercase">Hilir: Mitra Buyer</h3>
+                        <p class="text-sm text-[#6D5D50] leading-relaxed">Kepastian stok dan stabilitas harga bagi distributor serta retailer melalui satu pintu platform digital.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="csr" class="py-24 px-6 csr-gradient">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row items-center gap-16">
-                    <div class="md:w-1/2">
-                        <div class="inline-block px-5 py-2 bg-red-600 rounded-full text-xs font-black tracking-widest uppercase mb-6 shadow-lg">Social Program</div>
-                        <h2 class="text-5xl md:text-7xl font-black mb-8 italic tracking-tighter leading-none">>>>EGG<br>DONATION<<<</h2>
-                        <p class="text-xl text-gray-300 font-bold leading-relaxed mb-8 italic">
-                            Ketahanan pangan dimulai dari telur. FreshEgg berkomitmen memberantas stunting pada balita melalui program donasi telur berkelanjutan.
-                        </p>
-                        <div class="flex items-center gap-4 border-l-4 border-red-600 pl-6">
-                            <span class="text-xs font-black uppercase tracking-widest text-red-500">Target 2026: Zero Stunting Area</span>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 bg-white/10 p-12 rounded-[3rem] backdrop-blur-sm border border-white/20 text-center">
-                        <i class="fas fa-child-reaching text-7xl text-red-500 mb-8"></i>
-                        <h3 class="text-2xl font-black mb-4 uppercase tracking-tighter">Support Our CSR</h3>
-                        <p class="text-sm text-gray-300 mb-8 font-bold uppercase italic tracking-widest">Setiap transaksi di FreshEgg berkontribusi pada asupan gizi balita nasional.</p>
-                        <button onclick="window.open('https://wa.me/628121515633?text=Saya+tertarik+mendukung+EggDonation', '_blank')" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-red-600 hover:text-white transition">Partisipasi EggDonation</button>
-                    </div>
+        <section id="csr" class="py-24 px-6 bg-black text-white overflow-hidden relative">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
+                <div class="md:w-3/5">
+                    <div class="bg-red-600 inline-block px-4 py-1 rounded mb-6 text-[10px] font-black uppercase tracking-widest italic">CSR Commitment</div>
+                    <h2 class="text-6xl md:text-8xl font-black mb-8 italic tracking-tighter leading-none text-red-600">>>>EGG<br>DONATION<<<</h2>
+                    <p class="text-xl font-bold leading-relaxed text-gray-300 italic">
+                        FreshEgg percaya ketahanan pangan dimulai dari asupan gizi. Program khusus bantuan telur bagi anak balita stunting untuk masa depan Indonesia.
+                    </p>
+                </div>
+                <div class="md:w-2/5 text-center p-10 border-4 border-red-600 rounded-[3rem]">
+                    <i class="fas fa-heart-pulse text-6xl text-red-600 mb-6"></i>
+                    <h3 class="text-2xl font-black uppercase italic mb-4">Zero Stunting</h3>
+                    <p class="text-xs font-bold text-gray-400 uppercase mb-8 tracking-widest italic">Wujudkan Ketahanan Pangan Dari Telur</p>
+                    <button onclick="window.open('https://wa.me/628121515633?text=Program+EggDonation', '_blank')" class="w-full bg-red-600 py-5 rounded-2xl font-black uppercase text-xs tracking-[0.2em] shadow-2xl">Donasi Sekarang</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-16 text-center bg-white border-t-2 border-[#F1EDE9] mt-auto">
-        <p class="text-xs font-extrabold text-[#A35D36] uppercase tracking-[0.5em] px-6">
+    <footer class="py-12 bg-white text-center border-t-2 border-[#F1EDE9]">
+        <p class="text-[10px] font-black text-[#A35D36] uppercase tracking-[0.5em] px-6">
             Copyright 2026 FreshEgg. <br class="md:hidden"> Hak Cipta Dilindungi Undang-undang
         </p>
     </footer>
 
-    <a href="https://wa.me/628121515633" target="_blank" class="fixed bottom-8 right-8 w-20 h-20 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl z-[60]">
+    <a href="https://wa.me/628121515633" target="_blank" class="fixed bottom-8 right-8 w-20 h-20 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl z-[60] transition hover:scale-110">
         <i class="fab fa-whatsapp text-4xl"></i>
     </a>
 
-    <div id="modalWrap" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-[#4A2F1B]/70 backdrop-blur-md">
-        <div class="bg-white w-full max-w-lg rounded-[3rem] p-10 md:p-14 relative shadow-2xl border-t-[10px] border-[#D35400]">
+    <div id="modalWrap" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-[#4A2F1B]/80 backdrop-blur-md">
+        <div class="bg-white w-full max-w-lg rounded-[3rem] p-10 relative shadow-2xl border-t-[10px] border-[#D35400]">
             <button onclick="tutupModal()" class="absolute top-8 right-8 text-[#A35D36] text-3xl font-black">&times;</button>
             <div id="modalIsi"></div>
         </div>
@@ -133,33 +136,45 @@
             const i = document.getElementById('modalIsi');
             m.classList.remove('hidden');
             if(t === 'login') {
-                i.innerHTML = `<h2 class="text-3xl font-black text-center mb-10 uppercase italic">Admin Access</h2>
-                    <form onsubmit="event.preventDefault(); location.href='monitoring-admin-2026.html'" class="space-y-5">
-                        <input type="email" placeholder="Email" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl font-black text-sm" required>
-                        <input type="password" placeholder="Password" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl font-black text-sm" required>
-                        <button class="w-full bg-[#2D2D2D] text-white py-6 rounded-2xl font-black uppercase text-xs">Enter System</button>
+                i.innerHTML = `<h2 class="text-3xl font-black text-center mb-8 uppercase italic">Login System</h2>
+                    <form onsubmit="event.preventDefault(); location.href='monitoring-admin-2026.html'" class="space-y-4">
+                        <input type="email" placeholder="Email" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl font-black text-xs" required>
+                        <input type="password" placeholder="Password" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl font-black text-xs" required>
+                        <button class="w-full bg-[#2D2D2D] text-white py-5 rounded-2xl font-black uppercase text-[10px]">Akses Monitoring</button>
                     </form>`;
             } else {
-                i.innerHTML = `<h2 class="text-3xl font-black text-center mb-10 uppercase italic">Join Network</h2>
+                i.innerHTML = `<h2 class="text-3xl font-black text-center mb-10 uppercase italic tracking-tighter leading-none">Pendaftaran<br>Partner 2026</h2>
                     <div class="grid gap-4">
-                        <button onclick="formLengkap('Farm')" class="p-6 border-[3px] border-[#F1EDE9] rounded-2xl text-left hover:border-[#D35400] transition"><b class="uppercase text-sm block">Mitra Farm</b></button>
-                        <button onclick="formLengkap('Buyer')" class="p-6 border-[3px] border-[#F1EDE9] rounded-2xl text-left hover:border-[#D35400] transition"><b class="uppercase text-sm block">Mitra Buyer</b></button>
+                        <button onclick="formLengkap('Farm')" class="p-6 border-[3px] border-[#F1EDE9] rounded-[2rem] text-left hover:border-[#D35400] transition group shadow-sm">
+                            <b class="text-[#4A2F1B] uppercase text-xs block tracking-wider font-black">Mitra Farm</b>
+                            <span class="text-[9px] text-[#A35D36] font-extrabold uppercase italic mt-1 block">Offtaker Produksi</span>
+                        </button>
+                        <button onclick="formLengkap('Cargo')" class="p-6 border-[3px] border-[#F1EDE9] rounded-[2rem] text-left hover:border-[#D35400] transition group shadow-sm">
+                            <b class="text-[#4A2F1B] uppercase text-xs block tracking-wider font-black">Mitra Cargo</b>
+                            <span class="text-[9px] text-[#A35D36] font-extrabold uppercase italic mt-1 block">Vendor Logistik Nasional</span>
+                        </button>
+                        <button onclick="formLengkap('Buyer')" class="p-6 border-[3px] border-[#F1EDE9] rounded-[2rem] text-left hover:border-[#D35400] transition group shadow-sm">
+                            <b class="text-[#4A2F1B] uppercase text-xs block tracking-wider font-black">Mitra Buyer</b>
+                            <span class="text-[9px] text-[#A35D36] font-extrabold uppercase italic mt-1 block">Grosir & Retailer</span>
+                        </button>
                     </div>`;
             }
         }
-        function formLengkap(k) {
-            document.getElementById('modalIsi').innerHTML = `<h2 class="text-2xl font-black mb-8 uppercase italic border-l-8 border-[#D35400] pl-4">Form ${k}</h2>
-                <form onsubmit="kirimWA(event, '${k}')" class="space-y-4">
-                    <input type="text" placeholder="Nama PIC" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl font-black text-sm" required>
-                    <input type="text" placeholder="Kota" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl font-black text-sm" required>
-                    <input type="number" placeholder="No. WhatsApp" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl font-black text-sm" required>
-                    <button class="w-full bg-[#D35400] text-white py-6 rounded-2xl font-black uppercase text-xs">Register via WhatsApp</button>
+        function infoLogistik() { bukaModal('reg'); }
+        function formLengkap(kat) {
+            document.getElementById('modalIsi').innerHTML = `<h2 class="text-2xl font-black mb-8 border-l-[10px] border-[#D35400] pl-5 uppercase italic">Pendaftaran ${kat}</h2>
+                <form onsubmit="kirimWA(event, '${kat}')" class="space-y-4">
+                    <input type="text" placeholder="Nama PIC" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl text-xs font-black" required>
+                    <input type="text" placeholder="Kota Operasional" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl text-xs font-black" required>
+                    <input type="number" placeholder="No. WhatsApp" class="w-full p-5 bg-[#FDFCFB] border-2 border-[#F1EDE9] rounded-2xl text-xs font-black" required>
+                    <button class="w-full bg-[#D35400] text-white py-6 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-xl mt-4">Kirim Pendaftaran</button>
                 </form>`;
         }
         function kirimWA(e, k) {
             e.preventDefault();
             const i = e.target.querySelectorAll('input');
-            window.open(`https://wa.me/${WA_ADMIN}?text=*REGISTER ${k}*%0ANama: ${i[0].value}%0AKota: ${i[1].value}`, '_blank');
+            const m = `*DAFTAR MITRA FRESHEGG 2026*%0A*Kat:* ${k}%0A*PIC:* ${i[0].value}%0A*Kota:* ${i[1].value}%0A*WA:* ${i[2].value}`;
+            window.open(`https://wa.me/${WA_ADMIN}?text=${m}`, '_blank');
             tutupModal();
         }
         function tutupModal() { document.getElementById('modalWrap').classList.add('hidden'); }
