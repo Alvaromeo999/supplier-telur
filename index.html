@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshEgg | Data Intelligence & Supply Chain</title>
-    
+    <title>FreshEgg | Pioneer Agregator & Intelligence Supply Chain</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FDFCFB; color: #2D2D2D; scroll-behavior: smooth; font-weight: 700; }
         .bg-freshegg { background: linear-gradient(135deg, #E67E22 0%, #D35400 100%); }
         .glass-nav { background: rgba(253, 252, 251, 0.95); backdrop-filter: blur(10px); }
         h1, h2, h3, b { font-weight: 800 !important; letter-spacing: -0.02em; }
-        input, select { border: 2px solid #F1EDE9 !important; font-weight: 800 !important; }
-        input:focus { border-color: #D35400 !important; outline: none; }
+        .card-stat { background: #FFFFFF; border: 3px solid #F1EDE9; transition: all 0.3s ease; }
+        .alur-line { position: relative; }
+        .alur-line::after { content: ''; position: absolute; top: 50%; left: 100%; width: 50px; height: 4px; background: #D35400; display: none; }
+        @media (min-width: 768px) { .alur-line::after { display: block; } }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -24,69 +24,122 @@
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-11 h-11 bg-freshegg rounded-xl flex items-center justify-center text-white shadow-xl">
-                    <i class="fas fa-database text-xl"></i>
+                    <i class="fas fa-network-wired text-xl"></i>
                 </div>
                 <div class="leading-none text-left">
-                    <span class="text-2xl font-black tracking-tighter text-[#4A2F1B] block uppercase">FRESHEGG</span>
-                    <span class="text-[9px] font-extrabold text-[#D35400] tracking-[0.2em] uppercase">Management System 2026</span>
+                    <span class="text-2xl font-black tracking-tighter text-[#4A2F1B] block uppercase text-sm md:text-2xl">FRESHEGG</span>
+                    <span class="text-[8px] font-extrabold text-[#D35400] tracking-[0.2em] uppercase">National Supply Chain 2026</span>
                 </div>
             </div>
-            <div class="flex gap-4">
-                <button onclick="bukaModal('login')" class="text-[10px] font-black text-gray-400 hover:text-[#4A2F1B] uppercase tracking-widest border-2 border-gray-100 px-4 py-2 rounded-lg">Internal MGMT Only</button>
-                <button onclick="bukaModal('reg')" class="bg-[#D35400] text-white px-7 py-3 rounded-xl font-black text-sm shadow-lg hover:bg-black transition uppercase">Update Data Mitra</button>
+            <div class="hidden lg:flex gap-8 text-[10px] font-black text-[#A35D36] tracking-widest uppercase">
+                <a href="#statistik" class="hover:text-[#D35400]">Statistik</a>
+                <a href="#alur" class="hover:text-[#D35400]">Alur Kerja</a>
+                <a href="#kemitraan" class="hover:text-[#D35400]">Kemitraan & Cargo</a>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="bukaModal('login')" class="hidden md:block text-[10px] font-black text-gray-400 border-2 border-gray-100 px-4 py-2 rounded-lg uppercase">MGMT Login</button>
+                <button onclick="bukaModal('reg')" class="bg-[#D35400] text-white px-6 py-3 rounded-xl font-black text-xs shadow-lg hover:bg-black transition uppercase">Join Partner</button>
             </div>
         </div>
     </nav>
 
     <main class="flex-grow">
-        <section class="pt-52 pb-24 px-6 text-center">
+        <section class="pt-48 pb-20 px-6 text-center">
             <div class="max-w-5xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-5 py-2 bg-[#FEF5ED] text-[#D35400] rounded-full text-[10px] font-black tracking-widest uppercase mb-10 border-2 border-[#FAD7BB]">
-                    <i class="fas fa-microchip"></i> AUTOMATED DATA ACQUISITION
-                </div>
-                <h1 class="text-5xl md:text-7xl font-black text-[#4A2F1B] mb-8 leading-[1.1] tracking-tighter uppercase">
-                    Digitalisasi <br><span class="text-[#D35400] italic underline decoration-orange-200">Data Suplai</span> Nasional
+                <h1 class="text-5xl md:text-8xl font-black text-[#4A2F1B] mb-8 leading-[1] tracking-tighter uppercase">
+                    Pioneer <span class="text-[#D35400] italic">Agregator</span> <br>Telur Nasional
                 </h1>
-                <p class="text-[#6D5D50] text-xl mb-14 max-w-3xl mx-auto font-bold italic">
-                    "Otomasi rantai pasok dimulai dari akurasi data Farm dan Buyer. FreshEgg memproses data secara sistematis untuk efisiensi distribusi."
+                <p class="text-[#6D5D50] text-xl md:text-2xl mb-12 max-w-4xl mx-auto font-bold italic">
+                    "Menjembatani Farm Tradisional dengan teknologi melalui sistem Offtaker terpadu & efisiensi rantai pasok."
                 </p>
-                
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button onclick="formLengkap('Farm')" class="bg-[#4A2F1B] text-white px-8 py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl hover:scale-105 transition">Update Data Produksi Farm</button>
-                    <button onclick="formLengkap('Buyer')" class="bg-[#D35400] text-white px-8 py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl hover:scale-105 transition">Update Kuota Kebutuhan Buyer</button>
+            </div>
+        </section>
+
+        <section id="statistik" class="py-16 bg-white border-y-2 border-[#F1EDE9]">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl md:text-6xl font-black text-[#D35400] mb-2 tracking-tighter">12.5M</div>
+                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest italic">Butir / Bulan</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-6xl font-black text-[#4A2F1B] mb-2 tracking-tighter">850+</div>
+                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest italic">Mitra Farm NKV</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-6xl font-black text-[#4A2F1B] mb-2 tracking-tighter">42</div>
+                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest italic">Kota Distribusi</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-6xl font-black text-[#D35400] mb-2 tracking-tighter">100%</div>
+                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest italic">Otomasi Suplai</p>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 bg-white border-t-2 border-[#F1EDE9]">
-            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-3xl font-black text-[#4A2F1B] uppercase italic mb-8 border-l-8 border-[#D35400] pl-6">Kendali Mutu & NKV</h2>
-                    <p class="text-[#6D5D50] leading-relaxed mb-6">
-                        Data Farm yang masuk wajib menyertakan status **NKV (Nomor Kontrol Veteriner)**. Ini adalah basis data kami untuk menjamin bahwa otomasi distribusi hanya menyalurkan produk dari produsen yang tersertifikasi secara higienitas dan sanitasi.
-                    </p>
-                    <div class="p-6 bg-[#FEF5ED] rounded-2xl border-2 border-[#FAD7BB]">
-                        <i class="fas fa-certificate text-2xl text-[#D35400] mb-4"></i>
-                        <h4 class="font-black text-[#4A2F1B] uppercase text-sm mb-2 text-left">Standar NKV Produsen</h4>
-                        <p class="text-xs text-[#A35D36]">FreshEgg memprioritaskan farm dengan NKV Level 1 & 2 untuk pemenuhan kebutuhan industri dan retail modern.</p>
+        <section id="alur" class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-black text-[#4A2F1B] text-center mb-16 uppercase italic">Alur Otomasi Distribusi</h2>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center alur-line">
+                        <div class="w-20 h-20 bg-[#4A2F1B] text-white rounded-3xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-xl"><i class="fas fa-file-invoice"></i></div>
+                        <h4 class="font-black uppercase text-sm mb-2">1. Input Data</h4>
+                        <p class="text-[11px] text-[#6D5D50] uppercase italic">Farm input kapasitas & NKV</p>
                     </div>
-                </div>
-                <div class="bg-[#2D2D2D] p-10 rounded-[3rem] text-white shadow-2xl">
-                    <h3 class="text-2xl font-black uppercase italic mb-6 text-orange-400">CSR >>>EggDonation<<<</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed mb-8 font-bold">Setiap data transaksi yang diolah sistem secara otomatis menyisihkan margin untuk program nutrisi balita stunting.</p>
-                    <div class="flex items-center gap-4 text-xs font-black uppercase tracking-tighter border-t border-white/10 pt-6">
-                        <i class="fas fa-heart text-red-500"></i>
-                        <span>Ketahanan Pangan Berbasis Data & Kepedulian</span>
+                    <div class="text-center alur-line">
+                        <div class="w-20 h-20 bg-[#D35400] text-white rounded-3xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-xl"><i class="fas fa-microchip"></i></div>
+                        <h4 class="font-black uppercase text-sm mb-2">2. Matching System</h4>
+                        <p class="text-[11px] text-[#6D5D50] uppercase italic">Otomasi stok vs kebutuhan</p>
+                    </div>
+                    <div class="text-center alur-line">
+                        <div class="w-20 h-20 bg-[#4A2F1B] text-white rounded-3xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-xl"><i class="fas fa-truck-ramp-box"></i></div>
+                        <h4 class="font-black uppercase text-sm mb-2">3. Cargo Dispatch</h4>
+                        <p class="text-[11px] text-[#6D5D50] uppercase italic">Logistik jemput ke lokasi</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-[#D35400] text-white rounded-3xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-xl"><i class="fas fa-check-double"></i></div>
+                        <h4 class="font-black uppercase text-sm mb-2">4. Quality Arrived</h4>
+                        <p class="text-[11px] text-[#6D5D50] uppercase italic">Buyer terima telur segar</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id="kemitraan" class="py-24 px-6 bg-[#2D2D2D] text-white rounded-[4rem] mx-4 mb-24 shadow-2xl">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-black uppercase italic mb-4">Ekosistem Kemitraan</h2>
+                    <p class="text-orange-400 text-xs font-black uppercase tracking-[0.3em]">Memangkas Rantai Distribusi Nasional</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-10 text-center">
+                    <div class="p-8 border-2 border-white/10 rounded-3xl hover:border-orange-500 transition">
+                        <i class="fas fa-tractor text-5xl text-orange-400 mb-6"></i>
+                        <h3 class="text-xl font-black uppercase mb-4">Mitra Farm</h3>
+                        <p class="text-sm text-gray-400 italic">Offtaker bagi peternak tradisional dengan jaminan serapan 100%.</p>
+                    </div>
+                    <div class="p-8 bg-white/5 border-2 border-orange-500 rounded-3xl">
+                        <i class="fas fa-truck-fast text-5xl text-orange-400 mb-6"></i>
+                        <h3 class="text-xl font-black uppercase mb-4">Mitra Cargo</h3>
+                        <p class="text-sm text-gray-400 italic">Vendor logistik kunci untuk efisiensi pergerakan stok antar kota.</p>
+                        <button onclick="formLengkap('Cargo')" class="mt-6 text-[10px] font-black text-orange-400 border-b-2 border-orange-400 uppercase italic">Daftar Armada</button>
+                    </div>
+                    <div class="p-8 border-2 border-white/10 rounded-3xl hover:border-orange-500 transition">
+                        <i class="fas fa-store text-5xl text-orange-400 mb-6"></i>
+                        <h3 class="text-xl font-black uppercase mb-4">Mitra Buyer</h3>
+                        <p class="text-sm text-gray-400 italic">Distributor & retail yang membutuhkan kepastian kuota rutin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-red-600 text-white text-center">
+            <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter uppercase leading-none">>>>EGG DONATION<<<</h2>
+            <p class="text-xl md:text-2xl font-black mb-12 italic uppercase max-w-3xl mx-auto">Mewujudkan ketahanan pangan melalui nutrisi balita stunting Indonesia.</p>
+            <button onclick="window.open('https://wa.me/628121515633', '_blank')" class="bg-black text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-[0.2em] shadow-2xl">Dukung Program CSR</button>
         </section>
     </main>
 
     <footer class="py-12 bg-white text-center border-t-2 border-[#F1EDE9]">
-        <p class="text-[10px] font-black text-[#A35D36] uppercase tracking-[0.5em] px-6">
-            Copyright 2026 FreshEgg. <br class="md:hidden"> Hak Cipta Dilindungi Undang-undang
-        </p>
+        <p class="text-[10px] font-black text-[#A35D36] uppercase tracking-[0.5em]">Copyright 2026 FreshEgg. Hak Cipta Dilindungi</p>
     </footer>
 
     <div id="modalWrap" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-[#4A2F1B]/80 backdrop-blur-md">
@@ -98,83 +151,47 @@
 
     <script>
         const WA_ADMIN = "628121515633";
-
         function bukaModal(t) {
             const m = document.getElementById('modalWrap');
             const i = document.getElementById('modalIsi');
             m.classList.remove('hidden');
             if(t === 'login') {
-                i.innerHTML = `
-                    <div class="text-center mb-10">
-                        <i class="fas fa-lock text-4xl text-[#D35400] mb-4"></i>
-                        <h2 class="text-2xl font-black uppercase italic tracking-tighter">Management Internal</h2>
-                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Restricted Access Only</p>
-                    </div>
+                i.innerHTML = `<h2 class="text-2xl font-black uppercase italic text-center mb-8">Internal Management Login</h2>
                     <form onsubmit="event.preventDefault(); location.href='monitoring-admin-2026.html'" class="space-y-4">
-                        <input type="email" placeholder="Management ID" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                        <input type="password" placeholder="Access Token" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                        <button class="w-full bg-[#2D2D2D] text-white py-5 rounded-2xl font-black uppercase text-xs shadow-xl">Masuk Dashboard MGMT</button>
+                        <input type="email" placeholder="MGMT ID" class="w-full p-5 bg-[#FDFCFB] border-2 border-gray-100 rounded-2xl font-black text-xs" required>
+                        <input type="password" placeholder="Access Token" class="w-full p-5 bg-[#FDFCFB] border-2 border-gray-100 rounded-2xl font-black text-xs" required>
+                        <button class="w-full bg-[#2D2D2D] text-white py-5 rounded-2xl font-black uppercase text-xs">Enter Dashboard</button>
                     </form>`;
             } else {
-                i.innerHTML = `
-                    <h2 class="text-3xl font-black text-center mb-10 uppercase italic">Input Data Mitra</h2>
+                i.innerHTML = `<h2 class="text-2xl font-black uppercase italic text-center mb-8">Pilih Kategori Mitra</h2>
                     <div class="grid gap-4">
-                        <button onclick="formLengkap('Farm')" class="p-8 border-[3px] border-[#F1EDE9] rounded-[2rem] text-left hover:border-[#D35400] transition">
-                            <b class="text-[#4A2F1B] uppercase text-sm block">Update Produksi Farm</b>
-                            <span class="text-[9px] text-[#A35D36] font-extrabold uppercase italic">Kapasitas, NKV, & Domisili</span>
-                        </button>
-                        <button onclick="formLengkap('Buyer')" class="p-8 border-[3px] border-[#F1EDE9] rounded-[2rem] text-left hover:border-[#D35400] transition">
-                            <b class="text-[#4A2F1B] uppercase text-sm block">Update Kebutuhan Buyer</b>
-                            <span class="text-[9px] text-[#A35D36] font-extrabold uppercase italic">Kuota Rutin & Jadwal Stok</span>
-                        </button>
+                        <button onclick="formLengkap('Farm')" class="p-6 border-2 rounded-2xl text-left hover:border-[#D35400] font-black uppercase text-xs">Update Data Farm & NKV</button>
+                        <button onclick="formLengkap('Cargo')" class="p-6 border-2 rounded-2xl text-left hover:border-[#D35400] font-black uppercase text-xs">Update Data Armada Cargo</button>
+                        <button onclick="formLengkap('Buyer')" class="p-6 border-2 rounded-2xl text-left hover:border-[#D35400] font-black uppercase text-xs">Update Kebutuhan Buyer</button>
                     </div>`;
             }
         }
-
-        function formLengkap(kat) {
+        function formLengkap(k) {
             let fields = "";
-            if(kat === 'Farm') {
-                fields = `
-                    <input type="text" placeholder="Nama Farm / Perusahaan" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                    <input type="text" placeholder="Nomor NKV (Wajib)" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm border-orange-200" required>
-                    <input type="number" placeholder="Kapasitas Produksi (Butir/Hari)" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                    <input type="text" placeholder="Wilayah Operasional" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                `;
-            } else {
-                fields = `
-                    <input type="text" placeholder="Nama Perusahaan Buyer" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                    <input type="number" placeholder="Kebutuhan Rutin (Butir/Minggu)" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                    <select class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm">
-                        <option>Tipe Buyer: Distributor</option>
-                        <option>Tipe Buyer: Retail Modern</option>
-                        <option>Tipe Buyer: Industri / Pabrik</option>
-                    </select>
-                    <input type="text" placeholder="Titik Drop Pengiriman" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                `;
-            }
-
-            document.getElementById('modalIsi').innerHTML = `
-                <h2 class="text-2xl font-black mb-8 border-l-[10px] border-[#D35400] pl-5 uppercase italic">Update Data ${kat}</h2>
-                <form onsubmit="kirimWA(event, '${kat}')" class="space-y-4 text-left">
-                    <input type="text" placeholder="Nama PIC" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
+            if(k === 'Farm') fields = `<input type="text" placeholder="No NKV Farm" class="w-full p-5 bg-[#FDFCFB] rounded-2xl border-2 text-xs" required><input type="number" placeholder="Kapasitas Harian" class="w-full p-5 bg-[#FDFCFB] rounded-2xl border-2 text-xs" required>`;
+            else if(k === 'Cargo') fields = `<input type="text" placeholder="Jenis Armada (CDE/CDD/Fuso)" class="w-full p-5 bg-[#FDFCFB] rounded-2xl border-2 text-xs" required><input type="number" placeholder="Jumlah Unit" class="w-full p-5 bg-[#FDFCFB] rounded-2xl border-2 text-xs" required>`;
+            else fields = `<input type="number" placeholder="Kebutuhan Mingguan" class="w-full p-5 bg-[#FDFCFB] rounded-2xl border-2 text-xs" required><input type="text" placeholder="Lokasi Drop" class="w-full p-5 bg-[#FDFCFB] rounded-2xl border-2 text-xs" required>`;
+            
+            document.getElementById('modalIsi').innerHTML = `<h2 class="text-xl font-black uppercase italic mb-8 border-l-8 border-[#D35400] pl-4">Form Data ${k}</h2>
+                <form onsubmit="kirimWA(event, '${k}')" class="space-y-4">
+                    <input type="text" placeholder="Nama PIC" class="w-full p-5 bg-[#FDFCFB] border-2 rounded-2xl text-xs font-black" required>
                     ${fields}
-                    <input type="number" placeholder="WhatsApp PIC" class="w-full p-5 bg-[#FDFCFB] rounded-2xl text-sm" required>
-                    <button class="w-full bg-[#D35400] text-white py-6 rounded-2xl font-black uppercase text-xs shadow-xl mt-4 italic">Kirim Ke Sistem Otomasi</button>
+                    <button class="w-full bg-[#D35400] text-white py-6 rounded-2xl font-black uppercase text-[10px]">Update Data Sistem</button>
                 </form>`;
         }
-
         function kirimWA(e, k) {
             e.preventDefault();
-            const i = e.target.querySelectorAll('input, select');
-            let m = `*UPDATE DATA ${k.toUpperCase()} 2026*%0A`;
-            i.forEach(field => {
-                if(field.placeholder) m += `*${field.placeholder}:* ${field.value}%0A`;
-                else if(field.tagName === 'SELECT') m += `*Tipe:* ${field.value}%0A`;
-            });
+            const i = e.target.querySelectorAll('input');
+            let m = `*DATA ${k.toUpperCase()} 2026*%0A`;
+            i.forEach(f => m += `*${f.placeholder}:* ${f.value}%0A`);
             window.open(`https://wa.me/${WA_ADMIN}?text=${m}`, '_blank');
             tutupModal();
         }
-
         function tutupModal() { document.getElementById('modalWrap').classList.add('hidden'); }
     </script>
 </body>
