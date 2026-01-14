@@ -3,88 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshEgg 2026</title>
+    <title>FreshEgg 2026 | Agregator Telur Nasional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .freshegg-orange { background-color: #F5A623; }
+        .modal-bg { background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px); }
+    </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50 font-sans">
 
-    <nav class="bg-white shadow-md fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <b class="text-xl tracking-tighter">FRESHEGG</b>
+    <nav class="fixed w-full bg-white/90 border-b z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 freshegg-orange rounded-full flex items-center justify-center text-white font-bold">F</div>
+                <span class="font-bold text-xl tracking-tighter">FRESHEGG</span>
+            </div>
             <div class="flex gap-2">
-                <button onclick="openModal('login')" class="px-4 py-2 border border-orange-500 text-orange-600 rounded-lg text-sm font-bold">LOGIN</button>
-                <button onclick="openModal('reg')" class="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-bold">DAFTAR</button>
+                <button onclick="bukaModal('login')" class="px-4 py-2 text-sm font-bold border border-orange-500 text-orange-500 rounded-lg">LOGIN</button>
+                <button onclick="bukaModal('reg')" class="px-4 py-2 text-sm font-bold freshegg-orange text-white rounded-lg shadow-md">DAFTAR</button>
             </div>
         </div>
     </nav>
 
-    <div class="pt-40 pb-20 text-center px-4">
-        <h1 class="text-4xl font-black mb-4">RANTAI PASOK TELUR NASIONAL</h1>
-        <p class="text-gray-600 mb-8">Menghubungkan Peternak, Pembeli, dan Logistik dalam satu sistem.</p>
-        <button onclick="openModal('reg')" class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold shadow-lg">GABUNG SEKARANG</button>
-    </div>
+    <section class="pt-32 pb-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 uppercase italic">Rantai Pasok <span class="text-orange-500">Telur Nasional</span></h1>
+            <p class="text-gray-600 mb-10 text-lg font-medium">Platform Terintegrasi Peternak (Farm), Pembeli (Buyer), dan Logistik Nasional 2026.</p>
+            <button onclick="bukaModal('reg')" class="freshegg-orange text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:bg-orange-600 transition">GABUNG MITRA SEKARANG</button>
+        </div>
+    </section>
 
-    <div id="modalBox" class="fixed inset-0 bg-black/70 z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-md rounded-2xl p-6 relative">
-            <button onclick="closeM()" class="absolute top-4 right-4 text-2xl">&times;</button>
-            <div id="isiModal"></div>
+    <div id="kotakModal" class="fixed inset-0 modal-bg z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl p-8 relative shadow-2xl">
+            <button onclick="tutupModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-2xl">&times;</button>
+            <div id="kontenModal"></div>
         </div>
     </div>
 
     <script>
-        const WA = "628121515633";
+        const NOMOR_WA = "628121515633";
 
-        function openModal(t) {
-            document.getElementById('modalBox').classList.remove('hidden');
-            let isi = document.getElementById('isiModal');
-            
-            if(t == 'login') {
-                isi.innerHTML = `<h2 class="text-xl font-bold mb-4 uppercase">Login Admin</h2>
-                <form onsubmit="event.preventDefault(); window.location.href='monitoring-admin-2026.html'" class="space-y-4">
-                    <input type="email" placeholder="Email" class="w-full p-3 border rounded-lg" required>
-                    <input type="password" placeholder="Password" class="w-full p-3 border rounded-lg" required>
-                    <button class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold">MASUK</button>
-                </form>`;
+        function bukaModal(tipe) {
+            const modal = document.getElementById('kotakModal');
+            const konten = document.getElementById('kontenModal');
+            modal.classList.remove('hidden');
+
+            if(tipe === 'login') {
+                konten.innerHTML = `
+                    <h2 class="text-2xl font-black mb-6 text-center">LOGIN ADMIN</h2>
+                    <form onsubmit="event.preventDefault(); window.location.href='monitoring-admin-2026.html'" class="space-y-4">
+                        <input type="email" placeholder="Email Akses" class="w-full p-4 border rounded-xl" required>
+                        <input type="password" placeholder="Password" class="w-full p-4 border rounded-xl" required>
+                        <button class="w-full freshegg-orange text-white py-4 rounded-xl font-bold">MASUK SISTEM</button>
+                    </form>`;
             } else {
-                isi.innerHTML = `<h2 class="text-xl font-bold mb-4 uppercase text-center">Registrasi Mitra</h2>
-                <div class="grid gap-3">
-                    <button onclick="f('Farm')" class="p-4 border rounded-xl text-left hover:bg-orange-50"><b>MITRA FARM</b><br><small>Peternak</small></button>
-                    <button onclick="f('Buyer')" class="p-4 border rounded-xl text-left hover:bg-orange-50"><b>MITRA BUYER</b><br><small>Pembeli</small></button>
-                    <button onclick="u()" class="p-4 bg-blue-600 text-white rounded-xl text-left"><b>UNDANGAN LOGISTIK</b><br><small>Cargo & Ekspedisi</small></button>
-                </div>`;
+                konten.innerHTML = `
+                    <h2 class="text-2xl font-black mb-6 text-center uppercase tracking-tighter">Registrasi Mitra</h2>
+                    <div class="grid gap-3">
+                        <button onclick="tampilForm('Farm')" class="p-4 border-2 border-orange-50 rounded-2xl text-left hover:border-orange-500 transition">
+                            <b class="text-orange-600">MITRA FARM</b><br><small class="text-gray-400 uppercase font-bold">Peternak Produksi</small>
+                        </button>
+                        <button onclick="tampilForm('Buyer')" class="p-4 border-2 border-orange-50 rounded-2xl text-left hover:border-orange-500 transition">
+                            <b class="text-orange-600">MITRA BUYER</b><br><small class="text-gray-400 uppercase font-bold">Grosir & Retail</small>
+                        </button>
+                        <button onclick="tampilUndangan()" class="p-4 bg-blue-600 text-white rounded-2xl text-left shadow-lg hover:bg-blue-700">
+                            <b>UNDANGAN LOGISTIK</b><br><small class="text-blue-100 uppercase font-bold italic">Cargo & Ekspedisi Nasional</small>
+                        </button>
+                    </div>`;
             }
         }
 
-        function u() {
-            document.getElementById('isiModal').innerHTML = `
-            <div class="border-b-2 border-black pb-2 mb-4"><h1 class="text-xl font-black uppercase">FreshEgg Invitation</h1></div>
-            <p class="text-xs mb-4 text-gray-600">Kami mengundang Vendor Cargo untuk mendukung distribusi nasional 2026.</p>
-            <div class="bg-blue-50 p-4 rounded-lg mb-6"><p class="text-blue-800 text-xs font-bold uppercase">Target: 12.500.000 Butir/Bulan</p></div>
-            <a href="https://wa.me/${WA}?text=*KONFIRMASI LOGISTIK*" target="_blank" class="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-bold">KONFIRMASI WA</a>
-            <button onclick="openModal('reg')" class="w-full text-center mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Kembali</button>`;
+        function tampilUndangan() {
+            document.getElementById('kontenModal').innerHTML = `
+                <div class="border-b-4 border-gray-900 pb-2 mb-4">
+                    <h1 class="text-xl font-black">FreshEgg OFFICIAL</h1>
+                </div>
+                <p class="text-xs font-bold text-gray-600 mb-4 uppercase">Surat Undangan Kerjasama Logistik 2026</p>
+                <div class="bg-blue-50 p-4 rounded-xl mb-6 border-l-4 border-blue-600 italic text-sm text-blue-900 font-medium">
+                    "Mengundang Vendor Cargo Nasional untuk mendukung distribusi 12,5 Juta butir telur per bulan."
+                </div>
+                <a href="https://wa.me/${NOMOR_WA}?text=*KONFIRMASI LOGISTIK*" target="_blank" class="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-bold shadow-lg">HUBUNGI VIA WHATSAPP</a>
+                <button onclick="bukaModal('reg')" class="w-full text-center mt-4 text-[10px] font-bold text-gray-400 uppercase">Kembali</button>`;
         }
 
-        function f(c) {
-            document.getElementById('isiModal').innerHTML = `
-            <h2 class="text-lg font-bold mb-4 uppercase font-black border-l-4 border-orange-500 pl-2">Form ${c}</h2>
-            <form onsubmit="sendWA(event, '${c}')" class="space-y-3">
-                <input type="text" placeholder="Nama PIC" class="w-full p-3 border rounded-lg text-sm" required>
-                <input type="text" placeholder="Nama Bisnis" class="w-full p-3 border rounded-lg text-sm" required>
-                <input type="text" placeholder="Kota" class="w-full p-3 border rounded-lg text-sm" required>
-                <button class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold text-sm">DAFTAR KE WA</button>
-            </form>`;
+        function tampilForm(kategori) {
+            document.getElementById('kontenModal').innerHTML = `
+                <h2 class="text-xl font-black mb-6 border-l-4 border-orange-500 pl-2">FORM ${kategori.toUpperCase()}</h2>
+                <form onsubmit="kirimKeWA(event, '${kategori}')" class="space-y-4">
+                    <input type="text" placeholder="Nama PIC" class="w-full p-4 border rounded-xl text-sm" required>
+                    <input type="text" placeholder="Nama Bisnis" class="w-full p-4 border rounded-xl text-sm" required>
+                    <input type="text" placeholder="Kota" class="w-full p-4 border rounded-xl text-sm" required>
+                    <button class="w-full freshegg-orange text-white py-4 rounded-xl font-bold">DAFTAR SEKARANG</button>
+                </form>`;
         }
 
-        function sendWA(e, c) {
+        function kirimKeWA(e, kat) {
             e.preventDefault();
-            const i = e.target.querySelectorAll('input');
-            const m = `*DAFTAR ${c.toUpperCase()}*%0A*Nama:* ${i[0].value}%0A*Bisnis:* ${i[1].value}%0A*Kota:* ${i[2].value}`;
-            window.open(`https://wa.me/${WA}?text=${m}`, '_blank');
-            closeM();
+            const inp = e.target.querySelectorAll('input');
+            const msg = `*PENDAFTARAN MITRA*%0A*Tipe:* ${kat}%0A*PIC:* ${inp[0].value}%0A*Bisnis:* ${inp[1].value}%0A*Kota:* ${inp[2].value}`;
+            window.open(`https://wa.me/${NOMOR_WA}?text=${msg}`, '_blank');
+            tutupModal();
         }
 
-        function closeM() { document.getElementById('modalBox').classList.add('hidden'); }
+        function tutupModal() { document.getElementById('kotakModal').classList.add('hidden'); }
     </script>
 </body>
 </html>
