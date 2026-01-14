@@ -139,12 +139,12 @@
     </div>
 
     <script>
+        // PENGATURAN NOMOR WHATSAPP ANDA (Awali dengan 62)
+        const NOMOR_WA_ADMIN = "6281234567890"; 
+
         function openModal(type) {
             const modal = document.getElementById('authModal');
             const content = document.getElementById('modalContent');
-            
-            if (!modal || !content) return; // Keamanan jika elemen tidak ditemukan
-
             modal.classList.remove('hidden');
 
             if(type === 'login') {
@@ -156,32 +156,83 @@
                         <div class="flex justify-center my-4">
                             <div class="cf-turnstile" data-sitekey="0x4AAAAAACMb-1Fb8DGvDYm3"></div>
                         </div>
-                        <button type="submit" class="w-full bg-freshegg py-4 rounded-xl text-white font-black shadow-lg hover:bg-orange-600 transition uppercase tracking-widest text-sm">Masuk Sistem</button>
+                        <button type="submit" class="w-full bg-freshegg py-4 rounded-xl text-white font-black shadow-lg hover:bg-orange-600 transition uppercase tracking-widest text-sm text-center">Masuk Sistem</button>
                     </form>
                 `;
                 if (window.turnstile) { turnstile.render('.cf-turnstile'); }
             } else {
+                // Menu Utama Registrasi
                 content.innerHTML = `
                     <h2 class="text-2xl font-bold mb-6 text-center uppercase tracking-tighter text-gray-800">Registrasi Mitra 2026</h2>
-                    <div class="grid grid-cols-1 gap-4 text-left">
-                        <a href="https://forms.gle/NFFuBXFTL863CPJj6" target="_blank" class="flex items-center gap-4 p-4 border-2 border-orange-50 rounded-2xl hover:border-orange-400 hover:bg-orange-50 transition">
-                            <i class="fas fa-tractor text-2xl text-orange-500"></i>
-                            <div><b class="text-sm block">MITRA FARM</b><span class="text-[10px] text-gray-400 font-bold uppercase">Suplai hasil produksi</span></div>
-                        </a>
-                        <a href="https://forms.gle/oNeutrWKFjtMBWT58" target="_blank" class="flex items-center gap-4 p-4 border-2 border-orange-50 rounded-2xl hover:border-orange-400 hover:bg-orange-50 transition">
-                            <i class="fas fa-shopping-cart text-2xl text-orange-500"></i>
-                            <div><b class="text-sm block">MITRA BUYER</b><span class="text-[10px] text-gray-400 font-bold uppercase">Pembelian skala besar</span></div>
-                        </a>
-                        <button onclick="showLogisticInvite()" class="flex items-center gap-4 p-5 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl hover:from-blue-700 hover:to-blue-900 transition shadow-xl group">
+                    <div class="grid grid-cols-1 gap-4">
+                        <button onclick="showForm('farm')" class="flex items-center gap-4 p-4 border-2 border-orange-100 rounded-2xl hover:border-orange-400 hover:bg-orange-50 transition group text-left">
+                            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition">
+                                <i class="fas fa-tractor text-xl text-orange-600 group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <b class="text-sm block">MITRA FARM (PETERNAK)</b>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Suplai hasil produksi nasional</span>
+                            </div>
+                        </button>
+
+                        <button onclick="showForm('buyer')" class="flex items-center gap-4 p-4 border-2 border-orange-100 rounded-2xl hover:border-orange-400 hover:bg-orange-50 transition group text-left">
+                            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition">
+                                <i class="fas fa-shopping-cart text-xl text-orange-600 group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <b class="text-sm block">MITRA BUYER (PEMBELI)</b>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Pembelian skala besar / grosir</span>
+                            </div>
+                        </button>
+                        
+                        <button onclick="showLogisticInvite()" class="flex items-center gap-4 p-5 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl hover:from-blue-700 hover:to-blue-900 transition shadow-xl group text-left">
                             <i class="fas fa-file-contract text-2xl group-hover:scale-110 transition"></i>
-                            <div class="text-left">
-                                <b class="text-sm block uppercase tracking-tight text-white">Mitra Logistik & Cargo</b>
-                                <span class="text-[10px] text-blue-100 italic font-medium uppercase tracking-tighter">Baca Undangan Kerjasama</span>
+                            <div>
+                                <b class="text-sm block uppercase tracking-tight">Mitra Logistik & Cargo</b>
+                                <span class="text-[10px] text-blue-100 italic font-medium uppercase">Baca Undangan Kerjasama</span>
                             </div>
                         </button>
                     </div>
                 `;
             }
+        }
+
+        function showForm(category) {
+            const content = document.getElementById('modalContent');
+            const title = category === 'farm' ? 'Pendaftaran Mitra Farm' : 'Pendaftaran Mitra Buyer';
+            
+            content.innerHTML = `
+                <div class="text-left">
+                    <h2 class="text-xl font-black uppercase tracking-tighter text-gray-800 mb-6 border-l-4 border-orange-500 pl-3">${title}</h2>
+                    <form class="space-y-4" onsubmit="handleRegistration(event)">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Nama PIC</label>
+                                <input type="text" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-orange-400 text-sm" placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Nama Bisnis</label>
+                                <input type="text" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-orange-400 text-sm" placeholder="Nama Farm/Toko" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Lokasi (Kota & Provinsi)</label>
+                            <input type="text" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-orange-400 text-sm" placeholder="Contoh: Blitar, Jawa Timur" required>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-xl">
+                            <label class="text-[10px] font-bold text-orange-600 uppercase mb-2 block">Estimasi Kapasitas (Butir / Hari)</label>
+                            <select class="w-full p-2 bg-white border border-orange-200 rounded-lg text-sm font-bold outline-none cursor-pointer">
+                                <option>1.000 - 5.000 Butir</option>
+                                <option>5.000 - 20.000 Butir</option>
+                                <option>20.000 - 100.000 Butir</option>
+                                <option>Diatas 100.000 Butir</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-freshegg py-4 rounded-xl text-white font-black shadow-lg hover:bg-orange-600 transition uppercase tracking-widest text-xs">Kirim Data via WhatsApp</button>
+                        <button type="button" onclick="openModal('register')" class="w-full text-center text-[9px] font-bold text-gray-400 uppercase hover:text-orange-500 transition">Kembali ke pilihan</button>
+                    </form>
+                </div>
+            `;
         }
 
         function showLogisticInvite() {
@@ -196,18 +247,18 @@
                         <div class="text-right text-[9px] font-mono text-gray-400 font-bold uppercase">REF: 001/FE-LOG/26</div>
                     </div>
                     <div class="space-y-4 text-gray-700 text-xs leading-relaxed font-medium">
-                        <p class="font-black text-gray-900 text-[11px] underline">SURAT UNDANGAN RESMI</p>
-                        <p>Kami mengundang Pimpinan Vendor Cargo Nasional untuk bergabung dalam ekosistem FreshEgg guna mendukung distribusi pangan strategis.</p>
+                        <p class="font-black text-gray-900 text-[11px] underline italic">OFFICIAL INVITATION</p>
+                        <p>Kami mengundang Pimpinan Vendor Cargo Nasional untuk bergabung dalam ekosistem FreshEgg guna mendukung distribusi pangan strategis nasional.</p>
                         <div class="bg-blue-50 p-5 rounded-2xl border-l-8 border-blue-600 shadow-inner">
-                            <p class="font-black text-blue-900 mb-2 text-[10px] tracking-widest uppercase underline">PROYEKSI MUATAN:</p>
+                            <p class="font-black text-blue-900 mb-2 text-[10px] tracking-widest uppercase underline">PROYEKSI MUATAN 2026:</p>
                             <ul class="space-y-1 text-blue-800 font-bold text-[11px]">
-                                <li>• VOLUME: 12.500.000+ BUTIR / BLN</li>
-                                <li>• RUTE: JAWA - SUMATERA - BALI</li>
-                                <li>• STATUS: PRIORITAS NASIONAL</li>
+                                <li>• VOLUME: 12.500.000+ BUTIR / BULAN</li>
+                                <li>• JANGKAUAN: DISTRIBUSI JAWA - SUMATERA</li>
+                                <li>• ARMADA: TRUK BOX / REEFER (PENDINGIN)</li>
                             </ul>
                         </div>
                         <div class="pt-6 border-t border-gray-100">
-                            <a href="https://forms.gle/oNeutrWKFjtMBWT58" target="_blank" class="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-black text-sm hover:bg-blue-700 transition shadow-lg uppercase">Konfirmasi Pendaftaran</a>
+                            <a href="https://wa.me/${628121515633}?text=*KONFIRMASI VENDOR LOGISTIK*%0A---%0AKami telah membaca undangan resmi FreshEgg dan ingin mendaftarkan armada cargo kami untuk distribusi nasional." target="_blank" class="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-black text-sm hover:bg-blue-700 transition shadow-lg uppercase tracking-widest">Konfirmasi via WhatsApp</a>
                             <button onclick="openModal('register')" class="block w-full text-center mt-4 text-[9px] font-black text-gray-400 uppercase hover:text-orange-500">Kembali</button>
                         </div>
                     </div>
@@ -215,19 +266,32 @@
             `;
         }
 
-        function closeModal() {
-            document.getElementById('authModal').classList.add('hidden');
-        }
-
-        function handleAuth(e) {
+        function handleRegistration(e) {
             e.preventDefault();
-            window.location.href = "monitoring-admin-2026.html";
+            const inputs = e.target.querySelectorAll('input, select');
+            const pic = inputs[0].value;
+            const bisnis = inputs[1].value;
+            const lokasi = inputs[2].value;
+            const kapasitas = inputs[3].value;
+            const judul = document.querySelector('#modalContent h2').innerText;
+
+            const pesanWA = `*REGISTRASI MITRA FRESHEGG 2026*%0A` +
+                            `----------------------------------%0A` +
+                            `*Kategori:* ${judul}%0A` +
+                            `*Nama PIC:* ${pic}%0A` +
+                            `*Bisnis:* ${bisnis}%0A` +
+                            `*Lokasi:* ${lokasi}%0A` +
+                            `*Kapasitas:* ${kapasitas}%0A` +
+                            `----------------------------------%0A` +
+                            `Mohon diproses untuk verifikasi sistem.`;
+
+            window.open(`https://wa.me/${628121515633}?text=${pesanWA}`, '_blank');
+            closeModal();
         }
 
-        window.onclick = function(e) {
-            const modal = document.getElementById('authModal');
-            if (e.target == modal) closeModal();
-        }
+        function closeModal() { document.getElementById('authModal').classList.add('hidden'); }
+        function handleAuth(e) { e.preventDefault(); window.location.href = "monitoring-admin-2026.html"; }
+        window.onclick = function(e) { if (e.target == document.getElementById('authModal')) closeModal(); }
     </script>
 </body>
 </html>
