@@ -3,110 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshEgg 2026 | Agregator Telur Nasional</title>
+    <title>FreshEgg | Agregator & Offtaker Telur Nasional</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        .freshegg-orange { background-color: #F5A623; }
-        .modal-bg { background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .bg-freshegg { background: linear-gradient(135deg, #F5A623 0%, #FF8C00 100%); }
+        .card-shadow { box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-50 text-gray-900">
 
-    <nav class="fixed w-full bg-white/90 border-b z-50">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+    <nav class="fixed w-full z-50 glass-nav border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 freshegg-orange rounded-full flex items-center justify-center text-white font-bold">F</div>
-                <span class="font-bold text-xl tracking-tighter">FRESHEGG</span>
+                <div class="w-10 h-10 bg-freshegg rounded-xl flex items-center justify-center text-white shadow-lg shadow-orange-200">
+                    <i class="fas fa-egg text-xl"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tighter uppercase">Fresh<span class="text-orange-500">Egg</span></span>
             </div>
-            <div class="flex gap-2">
-                <button onclick="bukaModal('login')" class="px-4 py-2 text-sm font-bold border border-orange-500 text-orange-500 rounded-lg">LOGIN</button>
-                <button onclick="bukaModal('reg')" class="px-4 py-2 text-sm font-bold freshegg-orange text-white rounded-lg shadow-md">DAFTAR</button>
+            <div class="flex items-center gap-4">
+                <button onclick="bukaModalBaru('login')" class="hidden md:block text-sm font-bold text-gray-500 hover:text-orange-500 transition">MASUK</button>
+                <button onclick="bukaModalBaru('reg')" class="bg-freshegg text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-orange-300 hover:scale-105 transition active:scale-95">DAFTAR MITRA</button>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 uppercase italic">Rantai Pasok <span class="text-orange-500">Telur Nasional</span></h1>
-            <p class="text-gray-600 mb-10 text-lg font-medium">Platform Terintegrasi Peternak (Farm), Pembeli (Buyer), dan Logistik Nasional 2026.</p>
-            <button onclick="bukaModal('reg')" class="freshegg-orange text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:bg-orange-600 transition">GABUNG MITRA SEKARANG</button>
+    <section class="relative pt-40 pb-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-600 rounded-full text-xs font-extrabold mb-8 tracking-wider uppercase">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                </span>
+                Ketahanan Pangan Nasional 2026
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tighter leading-tight">
+                Ekosistem Digital <br><span class="text-orange-500 italic">Rantai Pasok Telur</span>
+            </h1>
+            <p class="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium">
+                Solusi offtaker dan agregator yang menghubungkan Peternak, Buyer Grosir, dan Vendor Logistik dalam satu kendali.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <button onclick="bukaModalBaru('reg')" class="px-10 py-5 bg-gray-900 text-white rounded-2xl font-bold shadow-2xl hover:bg-black transition flex items-center justify-center gap-3">
+                    <i class="fas fa-handshake"></i> GABUNG SEKARANG
+                </button>
+                <button onclick="window.location.href='monitoring-admin-2026.html'" class="px-10 py-5 bg-white border-2 border-gray-100 text-gray-900 rounded-2xl font-bold hover:bg-gray-50 transition">
+                    MONITORING HARGA
+                </button>
+            </div>
         </div>
     </section>
 
-    <div id="kotakModal" class="fixed inset-0 modal-bg z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-md rounded-3xl p-8 relative shadow-2xl">
-            <button onclick="tutupModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-2xl">&times;</button>
-            <div id="kontenModal"></div>
+    <div id="modalContainer" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-md" onclick="tutupModalBaru()"></div>
+        <div class="bg-white w-full max-w-lg rounded-[2.5rem] p-8 md:p-10 relative shadow-2xl overflow-hidden">
+            <button onclick="tutupModalBaru()" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-gray-50 rounded-full text-gray-400 hover:text-black transition">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="kontenDinamis"></div>
         </div>
     </div>
 
     <script>
-        const NOMOR_WA = "628121515633";
+        const WHATSAPP_ADMIN = "628121515633";
 
-        function bukaModal(tipe) {
-            const modal = document.getElementById('kotakModal');
-            const konten = document.getElementById('kontenModal');
-            modal.classList.remove('hidden');
+        function bukaModalBaru(jenis) {
+            const container = document.getElementById('modalContainer');
+            const konten = document.getElementById('kontenDinamis');
+            container.classList.remove('hidden');
 
-            if(tipe === 'login') {
+            if(jenis === 'login') {
                 konten.innerHTML = `
-                    <h2 class="text-2xl font-black mb-6 text-center">LOGIN ADMIN</h2>
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-extrabold tracking-tight">Login Dashboard</h2>
+                        <p class="text-gray-400 text-sm mt-2 font-medium">Akses Monitoring Admin FreshEgg</p>
+                    </div>
                     <form onsubmit="event.preventDefault(); window.location.href='monitoring-admin-2026.html'" class="space-y-4">
-                        <input type="email" placeholder="Email Akses" class="w-full p-4 border rounded-xl" required>
-                        <input type="password" placeholder="Password" class="w-full p-4 border rounded-xl" required>
-                        <button class="w-full freshegg-orange text-white py-4 rounded-xl font-bold">MASUK SISTEM</button>
-                    </form>`;
+                        <input type="email" placeholder="Email Akses" class="w-full px-6 py-4 bg-gray-50 border-0 rounded-2xl focus:ring-2 focus:ring-orange-500 transition outline-none font-medium" required>
+                        <input type="password" placeholder="Password" class="w-full px-6 py-4 bg-gray-50 border-0 rounded-2xl focus:ring-2 focus:ring-orange-500 transition outline-none font-medium" required>
+                        <button class="w-full bg-orange-500 text-white py-5 rounded-2xl font-bold shadow-lg shadow-orange-200 uppercase tracking-widest text-sm transition hover:bg-orange-600">Masuk Sistem</button>
+                    </form>
+                `;
             } else {
                 konten.innerHTML = `
-                    <h2 class="text-2xl font-black mb-6 text-center uppercase tracking-tighter">Registrasi Mitra</h2>
-                    <div class="grid gap-3">
-                        <button onclick="tampilForm('Farm')" class="p-4 border-2 border-orange-50 rounded-2xl text-left hover:border-orange-500 transition">
-                            <b class="text-orange-600">MITRA FARM</b><br><small class="text-gray-400 uppercase font-bold">Peternak Produksi</small>
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-extrabold tracking-tight italic uppercase">Registrasi Mitra</h2>
+                        <p class="text-gray-400 text-sm mt-2 font-medium uppercase tracking-widest font-bold">Pilih Kategori Kemitraan 2026</p>
+                    </div>
+                    <div class="space-y-4 text-left">
+                        <button onclick="pilihForm('Farm')" class="w-full group p-5 bg-white border-2 border-orange-50 rounded-3xl flex items-center gap-5 hover:border-orange-500 transition">
+                            <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 group-hover:bg-orange-500 group-hover:text-white transition">
+                                <i class="fas fa-tractor text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-gray-900 uppercase">Mitra Farm</h4>
+                                <p class="text-xs text-gray-400 font-medium">Produsen Telur Ayam Skala Besar/Kecil</p>
+                            </div>
                         </button>
-                        <button onclick="tampilForm('Buyer')" class="p-4 border-2 border-orange-50 rounded-2xl text-left hover:border-orange-500 transition">
-                            <b class="text-orange-600">MITRA BUYER</b><br><small class="text-gray-400 uppercase font-bold">Grosir & Retail</small>
+                        <button onclick="pilihForm('Buyer')" class="w-full group p-5 bg-white border-2 border-orange-50 rounded-3xl flex items-center gap-5 hover:border-orange-500 transition text-left">
+                            <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 group-hover:bg-orange-500 group-hover:text-white transition">
+                                <i class="fas fa-shopping-cart text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-gray-900 uppercase">Mitra Buyer</h4>
+                                <p class="text-xs text-gray-400 font-medium">Grosir, Retail, & Industri Pangan</p>
+                            </div>
                         </button>
-                        <button onclick="tampilUndangan()" class="p-4 bg-blue-600 text-white rounded-2xl text-left shadow-lg hover:bg-blue-700">
-                            <b>UNDANGAN LOGISTIK</b><br><small class="text-blue-100 uppercase font-bold italic">Cargo & Ekspedisi Nasional</small>
+                        <button onclick="pilihUndangan()" class="w-full group p-5 bg-blue-600 text-white rounded-3xl flex items-center gap-5 hover:bg-blue-700 transition shadow-xl shadow-blue-200 text-left">
+                            <div class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center text-white">
+                                <i class="fas fa-truck-fast text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold uppercase tracking-tight">Undangan Logistik</h4>
+                                <p class="text-xs text-blue-100 font-medium uppercase italic">Rantai Pasok Cargo Nasional</p>
+                            </div>
                         </button>
-                    </div>`;
+                    </div>
+                `;
             }
         }
 
-        function tampilUndangan() {
-            document.getElementById('kontenModal').innerHTML = `
-                <div class="border-b-4 border-gray-900 pb-2 mb-4">
-                    <h1 class="text-xl font-black">FreshEgg OFFICIAL</h1>
+        function pilihUndangan() {
+            document.getElementById('kontenDinamis').innerHTML = `
+                <div class="text-left">
+                    <div class="flex justify-between items-center mb-6">
+                        <h1 class="text-3xl font-black italic tracking-tighter">OFFICIAL<br>INVITATION</h1>
+                        <span class="text-[10px] font-mono text-gray-400 font-bold bg-gray-100 px-3 py-1 rounded-full uppercase">Ref: 001/FE-LOG/26</span>
+                    </div>
+                    <div class="space-y-4 text-gray-700 text-sm leading-relaxed font-medium">
+                        <p>Kami mengundang Pimpinan Vendor Cargo Nasional untuk mendukung distribusi logistik strategis FreshEgg.</p>
+                        <div class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-l-8 border-blue-600 rounded-3xl">
+                            <h5 class="text-blue-900 font-black text-xs uppercase mb-3 underline">Proyeksi Nasional 2026:</h5>
+                            <ul class="space-y-2 text-blue-800 font-bold text-xs uppercase">
+                                <li>• Volume: 12.500.000+ Butir / Bulan</li>
+                                <li>• Armada: Box & Reefer (Pendingin)</li>
+                                <li>• Jangkauan: Jawa, Sumatera, Bali</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/${WHATSAPP_ADMIN}?text=*KONFIRMASI VENDOR LOGISTIK*" target="_blank" class="block w-full bg-blue-600 text-white text-center py-5 rounded-2xl font-black shadow-xl shadow-blue-200 hover:bg-blue-700 transition uppercase tracking-widest text-sm mt-8">Konfirmasi via WhatsApp</a>
+                        <button onclick="bukaModalBaru('reg')" class="w-full text-center mt-4 text-[10px] font-black text-gray-300 uppercase hover:text-orange-500 transition">Kembali ke pilihan</button>
+                    </div>
                 </div>
-                <p class="text-xs font-bold text-gray-600 mb-4 uppercase">Surat Undangan Kerjasama Logistik 2026</p>
-                <div class="bg-blue-50 p-4 rounded-xl mb-6 border-l-4 border-blue-600 italic text-sm text-blue-900 font-medium">
-                    "Mengundang Vendor Cargo Nasional untuk mendukung distribusi 12,5 Juta butir telur per bulan."
-                </div>
-                <a href="https://wa.me/${NOMOR_WA}?text=*KONFIRMASI LOGISTIK*" target="_blank" class="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-bold shadow-lg">HUBUNGI VIA WHATSAPP</a>
-                <button onclick="bukaModal('reg')" class="w-full text-center mt-4 text-[10px] font-bold text-gray-400 uppercase">Kembali</button>`;
+            `;
         }
 
-        function tampilForm(kategori) {
-            document.getElementById('kontenModal').innerHTML = `
-                <h2 class="text-xl font-black mb-6 border-l-4 border-orange-500 pl-2">FORM ${kategori.toUpperCase()}</h2>
-                <form onsubmit="kirimKeWA(event, '${kategori}')" class="space-y-4">
-                    <input type="text" placeholder="Nama PIC" class="w-full p-4 border rounded-xl text-sm" required>
-                    <input type="text" placeholder="Nama Bisnis" class="w-full p-4 border rounded-xl text-sm" required>
-                    <input type="text" placeholder="Kota" class="w-full p-4 border rounded-xl text-sm" required>
-                    <button class="w-full freshegg-orange text-white py-4 rounded-xl font-bold">DAFTAR SEKARANG</button>
-                </form>`;
+        function pilihForm(kat) {
+            document.getElementById('kontenDinamis').innerHTML = `
+                <div class="text-left">
+                    <h2 class="text-2xl font-black uppercase mb-6 border-l-4 border-orange-500 pl-4 tracking-tighter">Form Pendaftaran ${kat}</h2>
+                    <form onsubmit="kirimForm(event, '${kat}')" class="space-y-4">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Nama Lengkap PIC</label>
+                            <input type="text" placeholder="Budi Santoso" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 font-semibold transition" required>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Nama Bisnis / Perusahaan</label>
+                            <input type="text" placeholder="Contoh: Maju Jaya Farm" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 font-semibold transition" required>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Domisili Kota</label>
+                            <input type="text" placeholder="Contoh: Blitar, Jawa Timur" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 font-semibold transition" required>
+                        </div>
+                        <button class="w-full bg-orange-500 text-white py-5 rounded-2xl font-extrabold shadow-lg shadow-orange-200 uppercase tracking-widest text-sm mt-4 hover:bg-orange-600 transition">Kirim ke WhatsApp</button>
+                        <button type="button" onclick="bukaModalBaru('reg')" class="w-full text-center text-[10px] font-black text-gray-300 uppercase tracking-widest mt-2 hover:text-gray-500">Kembali</button>
+                    </form>
+                </div>
+            `;
         }
 
-        function kirimKeWA(e, kat) {
+        function kirimForm(e, kat) {
             e.preventDefault();
             const inp = e.target.querySelectorAll('input');
-            const msg = `*PENDAFTARAN MITRA*%0A*Tipe:* ${kat}%0A*PIC:* ${inp[0].value}%0A*Bisnis:* ${inp[1].value}%0A*Kota:* ${inp[2].value}`;
-            window.open(`https://wa.me/${NOMOR_WA}?text=${msg}`, '_blank');
-            tutupModal();
+            const pesan = `*REGISTRASI MITRA FRESHEGG 2026*%0A*Kategori:* ${kat}%0A*PIC:* ${inp[0].value}%0A*Bisnis:* ${inp[1].value}%0A*Kota:* ${inp[2].value}%0A---%0AMohon verifikasi data kami.`;
+            window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${pesan}`, '_blank');
+            tutupModalBaru();
         }
 
-        function tutupModal() { document.getElementById('kotakModal').classList.add('hidden'); }
+        function tutupModalBaru() { document.getElementById('modalContainer').classList.add('hidden'); }
     </script>
 </body>
 </html>
