@@ -1,30 +1,126 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Admin Dashboard | FreshEgg</title>
-    <style>
-        body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
-        nav { background: #F5A623; padding: 15px; color: white; font-weight: bold; }
-        .container { padding: 20px; }
-        .dashboard-wrapper { 
-            background: white; 
-            padding: 10px; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshEgg Internal Dashboard 2026</title>
+
+<style>
+body{
+ font-family: Arial, sans-serif;
+ margin:0;
+ background:#f4f6f8;
+ color:#1f2933;
+}
+header{
+ background:#1f2933;
+ color:#fff;
+ padding:20px 6%;
+}
+header h1{margin:0;font-size:1.6rem}
+header small{opacity:.8}
+
+section{padding:50px 6%}
+.card{
+ background:#fff;
+ border-radius:14px;
+ padding:18px;
+ margin-bottom:30px;
+ box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+.card h2{
+ margin-bottom:12px;
+ font-size:1.2rem;
+}
+
+iframe{
+ width:100%;
+ min-height:520px;
+ border:none;
+ border-radius:10px;
+}
+
+.badge{
+ display:inline-block;
+ padding:6px 12px;
+ background:#e9ecef;
+ border-radius:30px;
+ font-size:.8rem;
+ margin-right:8px;
+}
+
+footer{
+ background:#fff;
+ text-align:center;
+ padding:20px;
+ font-size:.85rem;
+ color:#666;
+ border-top:1px solid #ddd;
+}
+
+.btn-live{
+ display:inline-block;
+ padding:12px 22px;
+ background:#25D366;
+ color:#fff;
+ border-radius:30px;
+ font-weight:600;
+ text-decoration:none;
+}
+</style>
 </head>
+
 <body>
 
-<nav>FRESHEGG - INTERNAL MONITORING SYSTEM</nav>
+<header>
+ <h1>FreshEgg Internal Monitoring Dashboard</h1>
+ <small>Akses Terbatas • Data Live • Tahun 2026</small>
+</header>
 
-<div class="container">
-    <h2>Monitoring Supply & Demand Real-Time</h2>
-    <div class="dashboard-wrapper">
-        <iframe width="100%" height="600" src="https://lookerstudio.google.com/embed/reporting/6e4a6f5b-9cfe-4dfd-9383-456b7ed97a0a/page/Ax8kF" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-</div>
+<section>
+ <div class="card">
+  <span class="badge">NERACA NASIONAL</span>
+  <span class="badge">REAL-TIME</span>
+  <h2>Ringkasan Neraca Telur Nasional</h2>
+
+  <iframe 
+   src="https://lookerstudio.google.com/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445"
+   loading="lazy">
+  </iframe>
+ </div>
+
+ <div class="card">
+  <span class="badge">DATA FARM</span>
+  <h2>Monitoring Mitra Farm (NKV & Kapasitas)</h2>
+
+  <iframe 
+   src="https://lookerstudio.google.com/reporting/aaaa04e2-6fac-431b-8bad-68805577754f"
+   loading="lazy">
+  </iframe>
+ </div>
+
+ <div class="card">
+  <span class="badge">DATA BUYER</span>
+  <h2>Monitoring Kebutuhan Buyer & Institusi</h2>
+
+  <iframe 
+   src="https://lookerstudio.google.com/reporting/c3198c7f-57fe-4fa5-977f-c8bc72b28215"
+   loading="lazy">
+  </iframe>
+ </div>
+
+ <div class="card" style="text-align:center">
+  <h2>Live FreshEgg Support</h2>
+  <p>Koordinasi cepat untuk kondisi darurat pasokan nasional</p>
+  <a href="https://wa.me/628121515633" target="_blank" class="btn-live">
+   Hubungi Tim Inti
+  </a>
+ </div>
+</section>
+
+<footer>
+ © 2026 FreshEgg • Internal Use Only • Data dilindungi & diaudit
+</footer>
 
 </body>
 </html>
