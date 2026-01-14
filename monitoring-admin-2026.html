@@ -5,39 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreshEgg | Admin Monitoring 2026</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f4f4f4; overflow: hidden; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f4f4; overflow: hidden; }
         
-        /* Navigasi Utama */
+        /* Header & Navigasi */
         nav { 
             background: #F5A623; 
             padding: 10px 15px; 
             color: white; 
             display: flex; 
-            flex-direction: column; /* Default stack untuk mobile */
+            flex-direction: column; 
             gap: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .nav-title {
-            font-weight: bold;
-            font-size: 1rem;
-            text-align: center;
-        }
+        .nav-title { font-weight: bold; font-size: 1rem; text-align: center; letter-spacing: 1px; }
 
         .nav-links { 
             display: flex; 
             gap: 8px; 
             justify-content: center;
-            flex-wrap: wrap; /* Supaya tombol turun ke bawah jika tidak muat */
+            flex-wrap: wrap; 
         }
 
-        /* Styling Tombol */
+        /* Tombol Style */
         .btn { 
             color: white; 
             text-decoration: none; 
             font-size: 0.75rem; 
             border: 1.5px solid white; 
-            padding: 6px 10px; 
+            padding: 6px 12px; 
             border-radius: 6px; 
             cursor: pointer;
             background: transparent;
@@ -47,32 +43,25 @@
 
         .btn:hover { background: rgba(255,255,255,0.2); }
         .btn.active { background: white; color: #F5A623; font-weight: bold; }
+        
+        /* Tombol Khusus */
+        .btn-neraca { border-color: #00E676; color: #00E676; }
+        .btn-neraca.active { background: #00E676; color: white; }
         .btn-exit { border-color: #ffeb3b; color: #ffeb3b; }
 
-        /* Container Dashboard */
+        /* Area Dashboard */
         .dashboard-container {
             width: 100%;
-            /* Tinggi dinamis menyesuaikan sisa layar */
-            height: calc(100vh - 110px); 
+            height: calc(100vh - 110px); /* Menyesuaikan tinggi mobile */
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        iframe { width: 100%; height: 100%; border: 0; transition: opacity 0.3s; }
 
-        /* Desktop Mode (Layar > 768px) */
+        /* Tampilan Desktop (Layar Lebar) */
         @media (min-width: 768px) {
-            nav {
-                flex-direction: row;
-                justify-content: space-between;
-                height: 60px;
-                padding: 0 20px;
-            }
+            nav { flex-direction: row; justify-content: space-between; height: 60px; padding: 0 20px; align-items: center; }
             .nav-title { font-size: 1.1rem; }
-            .nav-links { gap: 12px; }
-            .btn { font-size: 0.85rem; padding: 8px 15px; }
+            .btn { font-size: 0.85rem; padding: 8px 16px; }
             .dashboard-container { height: calc(100vh - 60px); }
         }
     </style>
@@ -80,10 +69,14 @@
 <body>
 
 <nav>
-    <div class="nav-title">FRESHEGG MONITORING</div>
+    <div class="nav-title">FRESHEGG - INTERNAL MONITORING</div>
     <div class="nav-links">
         <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/1158caa9-314d-4858-a6c5-2c0f7f2b52d6/page/page_12345', this)">DATA FARM</button>
-        <button class="btn active" onclick="changePage('https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF', this)">DATA BUYER</button>
+        
+        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF', this)">DATA BUYER</button>
+        
+        <button class="btn btn-neraca active" onclick="changePage('https://lookerstudio.google.com/embed/reporting/03a63208-fbff-4366-9a5e-b0d8887117a4/page/YkClF', this)">NERACA</button>
+        
         <a href="index.html" class="btn btn-exit">KELUAR</a>
     </div>
 </nav>
@@ -91,7 +84,7 @@
 <div class="dashboard-container">
     <iframe 
         id="dashFrame"
-        src="https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF" 
+        src="https://lookerstudio.google.com/embed/reporting/03a63208-fbff-4366-9a5e-b0d8887117a4/page/YkClF" 
         allowfullscreen>
     </iframe>
 </div>
@@ -99,14 +92,16 @@
 <script>
     function changePage(fullUrl, btn) {
         const frame = document.getElementById('dashFrame');
-        // Tambahkan efek loading sederhana saat ganti halaman
-        frame.style.opacity = "0.5";
+        
+        // Efek loading halus
+        frame.style.opacity = "0.3";
         frame.src = fullUrl;
         
         frame.onload = function() {
             frame.style.opacity = "1";
         };
 
+        // Update status aktif tombol
         document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
