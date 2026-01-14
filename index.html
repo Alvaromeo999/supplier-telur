@@ -4,55 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreshEgg | Agregator & Offtaker Telur Ayam Nasional</title>
+    
     <link rel="icon" type="image/png" href="https://img.icons8.com/papercut/60/egg.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         .bg-freshegg { background-color: #F5A623; }
         .text-freshegg { color: #F5A623; }
         html { scroll-behavior: smooth; }
+        .stat-card { transition: transform 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
+
     <nav class="fixed w-full z-50 glass border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-freshegg rounded-full flex items-center justify-center text-white text-xl font-bold shadow-inner">F</div>
+                <div class="w-10 h-10 bg-freshegg rounded-full flex items-center justify-center text-white text-xl font-bold shadow-inner border-2 border-white">F</div>
                 <span class="text-xl font-bold tracking-tight text-gray-900 uppercase">FRESHEGG</span>
             </div>
             <div class="hidden md:flex gap-8 font-medium">
                 <a href="#fitur" class="hover:text-freshegg transition">Fitur</a>
-                <a href="monitoring-admin-2026.html" class="hover:text-red-600 transition text-red-600 font-bold">MONITORING</a>
+                <a href="#faq" class="hover:text-freshegg transition">FAQ</a>
+                <a href="monitoring-admin-2026.html" class="hover:text-freshegg transition text-red-600 font-extrabold uppercase">Monitoring</a>
             </div>
-            <div class="flex gap-3">
-                <button onclick="openModal('login')" class="px-5 py-2 text-freshegg font-semibold border border-freshegg rounded-lg hover:bg-orange-50 transition">Masuk</button>
-                <button onclick="openModal('register')" class="px-5 py-2 bg-freshegg text-white font-semibold rounded-lg shadow-lg hover:bg-orange-600 transition">Daftar</button>
+            <div class="flex gap-2">
+                <button onclick="openModal('login')" class="px-4 py-2 text-freshegg font-semibold border border-freshegg rounded-lg hover:bg-orange-50 transition text-sm">Masuk</button>
+                <button onclick="openModal('register')" class="px-4 py-2 bg-freshegg text-white font-semibold rounded-lg shadow-lg hover:bg-orange-600 transition text-sm">Daftar</button>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-24 px-4 bg-gradient-to-b from-orange-50 to-white text-center">
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-orange-50 to-white text-center">
         <div class="max-w-7xl mx-auto">
+            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-freshegg uppercase bg-orange-100 rounded-full">
+                Ketahanan Pangan Nasional 2026
+            </div>
             <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900">
-                Agregator & Offtaker <br><span class="text-freshegg">Program Telur Nasional</span>
+                Agregator & Offtaker <br><span class="text-freshegg">Rantai Pasok Telur</span>
             </h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">Menghubungkan mitra peternak (Farm) dengan pembeli skala besar (Buyer) & Cargo Nasional.</p>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+                Sistem terintegrasi yang menghubungkan Peternak, Cargo Logistik Nasional, dan Buyer Retailer dalam satu manajemen data yang akurat.
+            </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#" class="px-8 py-4 bg-white border-2 border-freshegg text-freshegg font-bold rounded-xl hover:bg-orange-50 transition shadow-md">MITRA FARM</a>
-                <a href="#" class="px-8 py-4 bg-freshegg text-white font-bold rounded-xl hover:bg-orange-600 transition shadow-xl">ORDER BUYER</a>
+                <button onclick="openModal('register')" class="px-8 py-4 bg-freshegg text-white font-bold rounded-xl hover:bg-orange-600 transition shadow-xl w-full md:w-auto">
+                    <i class="fas fa-handshake mr-2"></i> GABUNG MITRA SEKARANG
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white pb-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-freshegg rounded-3xl p-8 shadow-2xl flex flex-wrap justify-around items-center text-white -mt-12 relative z-10">
+                <div class="text-center p-4">
+                    <div class="text-4xl font-black mb-1">12.5M+</div>
+                    <div class="text-orange-100 text-[10px] font-bold uppercase tracking-widest">Butir Terdistribusi</div>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-4xl font-black mb-1">854</div>
+                    <div class="text-orange-100 text-[10px] font-bold uppercase tracking-widest">Mitra Peternak</div>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-4xl font-black mb-1">42</div>
+                    <div class="text-orange-100 text-[10px] font-bold uppercase tracking-widest">Kota Jangkauan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fitur" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-16 uppercase tracking-tighter">Ekosistem FreshEgg</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 border rounded-2xl hover:shadow-xl transition group">
+                    <i class="fas fa-chart-line text-3xl text-freshegg mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3">Monitoring Real-Time</h3>
+                    <p class="text-gray-500 text-sm">Data stok dan harga yang diperbarui setiap detik untuk transparansi penuh.</p>
+                </div>
+                <div class="p-8 border rounded-2xl hover:shadow-xl transition group border-blue-200 bg-blue-50">
+                    <i class="fas fa-truck-fast text-3xl text-blue-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3">Logistik Terintegrasi</h3>
+                    <p class="text-gray-500 text-sm">Bekerjasama dengan Cargo Nasional untuk menjamin keamanan pengiriman produk fragile.</p>
+                </div>
+                <div class="p-8 border rounded-2xl hover:shadow-xl transition group">
+                    <i class="fas fa-shield-check text-3xl text-green-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3">Sistem Offtaker</h3>
+                    <p class="text-gray-500 text-sm">Jaminan serapan hasil produksi bagi peternak mitra dengan harga yang kompetitif.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="bg-gray-900 text-white py-12 px-4 text-center">
-        <p class="text-gray-500 text-sm">&copy; 2026 FreshEgg Agregator Telur Nasional. Seluruh Hak Cipta Dilindungi.</p>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-2xl font-bold tracking-widest text-orange-400 mb-4 uppercase">FRESHEGG</div>
+            <p class="text-gray-500 text-xs mb-8">© 2026 FreshEgg Agregator Telur Nasional. Mendukung Indonesia Mandiri Pangan.</p>
+        </div>
     </footer>
 
     <div id="authModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl max-w-md w-full p-8 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400"><i class="fas fa-times"></i></button>
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
             <div id="modalContent"></div>
         </div>
     </div>
@@ -62,14 +122,41 @@
             const modal = document.getElementById('authModal');
             const content = document.getElementById('modalContent');
             modal.classList.remove('hidden');
+
             if(type === 'login') {
-                content.innerHTML = `<h2 class="text-2xl font-bold mb-6 text-center">Login Admin</h2><form onsubmit="handleAuth(event)" class="space-y-4"><div><label class="block text-sm font-bold mb-1">Email</label><input type="email" class="w-full p-3 border rounded-lg" required></div><div><label class="block text-sm font-bold mb-1">Password</label><input type="password" class="w-full p-3 border rounded-lg" required></div><button class="w-full bg-freshegg py-3 rounded-lg text-white font-bold">MASUK</button></form>`;
+                content.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-6 text-center">Login Dashboard Admin</h2>
+                    <form class="space-y-4" onsubmit="handleAuth(event)">
+                        <input type="email" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-orange-400" placeholder="Email Akses" required>
+                        <input type="password" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-orange-400" placeholder="Password" required>
+                        <button class="w-full bg-freshegg py-3 rounded-xl text-white font-bold hover:bg-orange-600 transition shadow-lg">MASUK SISTEM</button>
+                    </form>
+                `;
             } else {
-                content.innerHTML = `<h2 class="text-2xl font-bold mb-4 text-center">Daftar Mitra</h2><div class="grid grid-cols-2 gap-4"><div class="p-4 border rounded-xl text-center"><i class="fas fa-tractor text-2xl text-freshegg mb-2"></i><br>FARM</div><div class="p-4 border rounded-xl text-center"><i class="fas fa-truck text-2xl text-blue-500 mb-2"></i><br>LOGISTIK</div></div>`;
+                content.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-2 text-center uppercase tracking-tighter">Registrasi Mitra</h2>
+                    <p class="text-xs text-center mb-8 text-gray-500">Pilih kategori bisnis Anda untuk mulai bergabung.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <a href="https://forms.gle/NFFuBXFTL863CPJj6" target="_blank" class="p-6 border-2 border-orange-50 rounded-2xl hover:border-freshegg hover:bg-orange-50 text-center transition">
+                            <i class="fas fa-tractor text-3xl text-freshegg mb-3"></i><br><b class="text-xs">MITRA FARM</b>
+                        </a>
+                        <a href="https://forms.gle/oNeutrWKFjtMBWT58" target="_blank" class="p-6 border-2 border-orange-50 rounded-2xl hover:border-freshegg hover:bg-orange-50 text-center transition">
+                            <i class="fas fa-shopping-cart text-3xl text-freshegg mb-3"></i><br><b class="text-xs">MITRA BUYER</b>
+                        </a>
+                        <a href="#" class="p-6 border-2 border-blue-50 rounded-2xl hover:border-blue-500 hover:bg-blue-50 text-center transition">
+                            <i class="fas fa-truck text-3xl text-blue-500 mb-3"></i><br><b class="text-xs text-blue-600 uppercase italic">CARGO/LOGISTIK</b>
+                        </a>
+                    </div>
+                `;
             }
         }
         function closeModal() { document.getElementById('authModal').classList.add('hidden'); }
-        function handleAuth(e) { e.preventDefault(); window.location.href = "monitoring-admin-2026.html"; }
+        function handleAuth(e) { 
+            e.preventDefault(); 
+            // Langsung diarahkan ke halaman monitoring internal
+            window.location.href = "monitoring-admin-2026.html"; 
+        }
+        window.onclick = function(e) { if (e.target == document.getElementById('authModal')) closeModal(); }
     </script>
 </body>
 </html>
