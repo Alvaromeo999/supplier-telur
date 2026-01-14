@@ -131,7 +131,7 @@
 
     <div id="authModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm">
         <div class="bg-white rounded-3xl max-w-lg w-full p-8 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black transition">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors">
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <div id="modalContent"></div>
@@ -139,57 +139,58 @@
     </div>
 
     <script>
-        // PENGATURAN NOMOR WHATSAPP ANDA (Awali dengan 62)
-        const NOMOR_WA_ADMIN = "6281234567890"; 
+        // DATA KONFIGURASI
+        const WA_ADMIN = "628121515633"; // Nomor Anda sudah aktif
 
+        // 1. FUNGSI PEMBUKA MODAL UTAMA
         function openModal(type) {
             const modal = document.getElementById('authModal');
             const content = document.getElementById('modalContent');
             modal.classList.remove('hidden');
 
-            if(type === 'login') {
+            if (type === 'login') {
                 content.innerHTML = `
                     <h2 class="text-2xl font-bold mb-6 text-center text-gray-800 uppercase tracking-tighter">Login Dashboard</h2>
                     <form class="space-y-4" onsubmit="handleAuth(event)">
-                        <input type="email" class="w-full p-3 border-2 border-gray-100 rounded-xl outline-none focus:border-orange-400" placeholder="Email Akses Resmi" required>
+                        <input type="email" class="w-full p-3 border-2 border-gray-100 rounded-xl outline-none focus:border-orange-400" placeholder="Email Akses" required>
                         <input type="password" class="w-full p-3 border-2 border-gray-100 rounded-xl outline-none focus:border-orange-400" placeholder="Password" required>
                         <div class="flex justify-center my-4">
                             <div class="cf-turnstile" data-sitekey="0x4AAAAAACMb-1Fb8DGvDYm3"></div>
                         </div>
-                        <button type="submit" class="w-full bg-freshegg py-4 rounded-xl text-white font-black shadow-lg hover:bg-orange-600 transition uppercase tracking-widest text-sm text-center">Masuk Sistem</button>
+                        <button type="submit" class="w-full bg-orange-500 py-4 rounded-xl text-white font-black shadow-lg hover:bg-orange-600 transition uppercase tracking-widest text-sm text-center">Masuk Sistem</button>
                     </form>
                 `;
                 if (window.turnstile) { turnstile.render('.cf-turnstile'); }
             } else {
-                // Menu Utama Registrasi
+                // Tampilan Menu Pilihan Pendaftaran
                 content.innerHTML = `
                     <h2 class="text-2xl font-bold mb-6 text-center uppercase tracking-tighter text-gray-800">Registrasi Mitra 2026</h2>
                     <div class="grid grid-cols-1 gap-4">
-                        <button onclick="showForm('farm')" class="flex items-center gap-4 p-4 border-2 border-orange-100 rounded-2xl hover:border-orange-400 hover:bg-orange-50 transition group text-left">
+                        <button onclick="showForm('Farm (Peternak)')" class="flex items-center gap-4 p-4 border-2 border-orange-100 rounded-2xl hover:border-orange-400 hover:bg-orange-50 transition group text-left">
                             <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition">
                                 <i class="fas fa-tractor text-xl text-orange-600 group-hover:text-white"></i>
                             </div>
                             <div>
                                 <b class="text-sm block">MITRA FARM (PETERNAK)</b>
-                                <span class="text-[10px] text-gray-400 font-bold uppercase">Suplai hasil produksi nasional</span>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Suplai produksi telur nasional</span>
                             </div>
                         </button>
 
-                        <button onclick="showForm('buyer')" class="flex items-center gap-4 p-4 border-2 border-orange-100 rounded-2xl hover:border-orange-400 hover:bg-orange-50 transition group text-left">
+                        <button onclick="showForm('Buyer (Pembeli)')" class="flex items-center gap-4 p-4 border-2 border-orange-100 rounded-2xl hover:border-orange-400 hover:bg-orange-50 transition group text-left">
                             <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition">
                                 <i class="fas fa-shopping-cart text-xl text-orange-600 group-hover:text-white"></i>
                             </div>
                             <div>
-                                <b class="text-sm block">MITRA BUYER (PEMBELI)</b>
-                                <span class="text-[10px] text-gray-400 font-bold uppercase">Pembelian skala besar / grosir</span>
+                                <b class="text-sm block">MITRA BUYER (GROSIR)</b>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Pembelian skala besar</span>
                             </div>
                         </button>
                         
                         <button onclick="showLogisticInvite()" class="flex items-center gap-4 p-5 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl hover:from-blue-700 hover:to-blue-900 transition shadow-xl group text-left">
-                            <i class="fas fa-file-contract text-2xl group-hover:scale-110 transition"></i>
+                            <i class="fas fa-file-contract text-2xl group-hover:scale-110 transition text-orange-300"></i>
                             <div>
-                                <b class="text-sm block uppercase tracking-tight">Mitra Logistik & Cargo</b>
-                                <span class="text-[10px] text-blue-100 italic font-medium uppercase">Baca Undangan Kerjasama</span>
+                                <b class="text-sm block uppercase tracking-tight">Undangan Logistik & Cargo</b>
+                                <span class="text-[10px] text-blue-100 italic font-medium uppercase">Kerjasama Rantai Pasok Nasional</span>
                             </div>
                         </button>
                     </div>
@@ -197,44 +198,7 @@
             }
         }
 
-        function showForm(category) {
-            const content = document.getElementById('modalContent');
-            const title = category === 'farm' ? 'Pendaftaran Mitra Farm' : 'Pendaftaran Mitra Buyer';
-            
-            content.innerHTML = `
-                <div class="text-left">
-                    <h2 class="text-xl font-black uppercase tracking-tighter text-gray-800 mb-6 border-l-4 border-orange-500 pl-3">${title}</h2>
-                    <form class="space-y-4" onsubmit="handleRegistration(event)">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="col-span-2 md:col-span-1">
-                                <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Nama PIC</label>
-                                <input type="text" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-orange-400 text-sm" placeholder="Nama Lengkap" required>
-                            </div>
-                            <div class="col-span-2 md:col-span-1">
-                                <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Nama Bisnis</label>
-                                <input type="text" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-orange-400 text-sm" placeholder="Nama Farm/Toko" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Lokasi (Kota & Provinsi)</label>
-                            <input type="text" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-orange-400 text-sm" placeholder="Contoh: Blitar, Jawa Timur" required>
-                        </div>
-                        <div class="bg-orange-50 p-4 rounded-xl">
-                            <label class="text-[10px] font-bold text-orange-600 uppercase mb-2 block">Estimasi Kapasitas (Butir / Hari)</label>
-                            <select class="w-full p-2 bg-white border border-orange-200 rounded-lg text-sm font-bold outline-none cursor-pointer">
-                                <option>1.000 - 5.000 Butir</option>
-                                <option>5.000 - 20.000 Butir</option>
-                                <option>20.000 - 100.000 Butir</option>
-                                <option>Diatas 100.000 Butir</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-freshegg py-4 rounded-xl text-white font-black shadow-lg hover:bg-orange-600 transition uppercase tracking-widest text-xs">Kirim Data via WhatsApp</button>
-                        <button type="button" onclick="openModal('register')" class="w-full text-center text-[9px] font-bold text-gray-400 uppercase hover:text-orange-500 transition">Kembali ke pilihan</button>
-                    </form>
-                </div>
-            `;
-        }
-
+        // 2. FUNGSI UNDANGAN LOGISTIK (GAYA RESMI)
         function showLogisticInvite() {
             const content = document.getElementById('modalContent');
             content.innerHTML = `
@@ -242,53 +206,84 @@
                     <div class="border-b-4 border-gray-900 pb-4 mb-6 flex justify-between items-end">
                         <div>
                             <h1 class="text-2xl font-black text-gray-900 tracking-tighter uppercase leading-none">FreshEgg</h1>
-                            <p class="text-[9px] font-black text-orange-500 uppercase tracking-widest">National Supply Chain</p>
+                            <p class="text-[9px] font-black text-orange-500 uppercase tracking-widest text-left">National Supply Chain</p>
                         </div>
-                        <div class="text-right text-[9px] font-mono text-gray-400 font-bold uppercase">REF: 001/FE-LOG/26</div>
+                        <div class="text-right text-[9px] font-mono text-gray-400 font-bold">REF: 001/FE-LOG/26</div>
                     </div>
-                    <div class="space-y-4 text-gray-700 text-xs leading-relaxed font-medium">
-                        <p class="font-black text-gray-900 text-[11px] underline italic">OFFICIAL INVITATION</p>
-                        <p>Kami mengundang Pimpinan Vendor Cargo Nasional untuk bergabung dalam ekosistem FreshEgg guna mendukung distribusi pangan strategis nasional.</p>
-                        <div class="bg-blue-50 p-5 rounded-2xl border-l-8 border-blue-600 shadow-inner">
-                            <p class="font-black text-blue-900 mb-2 text-[10px] tracking-widest uppercase underline">PROYEKSI MUATAN 2026:</p>
-                            <ul class="space-y-1 text-blue-800 font-bold text-[11px]">
-                                <li>• VOLUME: 12.500.000+ BUTIR / BULAN</li>
-                                <li>• JANGKAUAN: DISTRIBUSI JAWA - SUMATERA</li>
-                                <li>• ARMADA: TRUK BOX / REEFER (PENDINGIN)</li>
+                    <div class="space-y-4 text-gray-700 text-[11px] leading-relaxed font-medium">
+                        <p class="font-black text-gray-900 text-xs underline italic">SURAT UNDANGAN KERJASAMA</p>
+                        <p>Kami mengundang Pimpinan Vendor Cargo Nasional untuk mendukung distribusi pangan strategis dalam ekosistem FreshEgg 2026.</p>
+                        <div class="bg-blue-50 p-5 rounded-2xl border-l-8 border-blue-600">
+                            <p class="font-black text-blue-900 mb-2 text-[10px] uppercase underline tracking-wider">PROYEKSI NASIONAL:</p>
+                            <ul class="space-y-1 text-blue-800 font-bold">
+                                <li>• 12.500.000+ BUTIR / BULAN</li>
+                                <li>• ARMADA BOX / REEFER (PENDINGIN)</li>
+                                <li>• PRIORITAS JALUR JAWA - SUMATERA</li>
                             </ul>
                         </div>
                         <div class="pt-6 border-t border-gray-100">
-                            <a href="https://wa.me/${628121515633}?text=*KONFIRMASI VENDOR LOGISTIK*%0A---%0AKami telah membaca undangan resmi FreshEgg dan ingin mendaftarkan armada cargo kami untuk distribusi nasional." target="_blank" class="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-black text-sm hover:bg-blue-700 transition shadow-lg uppercase tracking-widest">Konfirmasi via WhatsApp</a>
-                            <button onclick="openModal('register')" class="block w-full text-center mt-4 text-[9px] font-black text-gray-400 uppercase hover:text-orange-500">Kembali</button>
+                            <a href="https://wa.me/${WA_ADMIN}?text=*KONFIRMASI VENDOR LOGISTIK*%0A---%0AKami berminat mendaftarkan armada cargo kami untuk distribusi FreshEgg 2026." target="_blank" class="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-black text-sm uppercase shadow-lg hover:bg-blue-700 transition">Konfirmasi via WhatsApp</a>
+                            <button onclick="openModal('register')" class="block w-full text-center mt-4 text-[9px] font-black text-gray-400 uppercase hover:text-orange-500 transition">Kembali ke Pilihan</button>
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        function handleRegistration(e) {
+        // 3. FUNGSI FORM PENDAFTARAN MITRA
+        function showForm(category) {
+            const content = document.getElementById('modalContent');
+            content.innerHTML = `
+                <div class="text-left">
+                    <h2 class="text-xl font-black uppercase tracking-tighter text-gray-800 mb-6 border-l-4 border-orange-500 pl-3">Form Pendaftaran ${category}</h2>
+                    <form class="space-y-4" onsubmit="handleRegistration(event, '${category}')">
+                        <div>
+                            <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Nama Lengkap / PIC</label>
+                            <input type="text" class="w-full p-3 bg-gray-50 border-2 border-gray-100 rounded-xl focus:border-orange-400 outline-none text-sm" placeholder="Contoh: Budi Santoso" required>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Nama Bisnis / Farm</label>
+                            <input type="text" class="w-full p-3 bg-gray-50 border-2 border-gray-100 rounded-xl focus:border-orange-400 outline-none text-sm" placeholder="Contoh: Jaya Farm Mandiri" required>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Lokasi (Kota & Provinsi)</label>
+                            <input type="text" class="w-full p-3 bg-gray-50 border-2 border-gray-100 rounded-xl focus:border-orange-400 outline-none text-sm" placeholder="Contoh: Blitar, Jawa Timur" required>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-xl text-left">
+                            <label class="text-[10px] font-bold text-orange-600 uppercase mb-2 block">Estimasi Kapasitas (Butir / Hari)</label>
+                            <select class="w-full p-2 bg-white border border-orange-200 rounded-lg text-sm font-bold outline-none cursor-pointer">
+                                <option>1.000 - 5.000 Butir</option>
+                                <option>5.000 - 20.000 Butir</option>
+                                <option>Diatas 20.000 Butir</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-orange-500 py-4 rounded-xl text-white font-black shadow-lg hover:bg-orange-600 transition uppercase tracking-widest text-xs">Kirim Pendaftaran ke WhatsApp</button>
+                        <button type="button" onclick="openModal('register')" class="w-full text-center text-[9px] font-bold text-gray-400 uppercase tracking-widest hover:text-gray-600 mt-2">Batal & Kembali</button>
+                    </form>
+                </div>
+            `;
+        }
+
+        // 4. HANDLER PENGIRIMAN DATA KE WA
+        function handleRegistration(e, category) {
             e.preventDefault();
             const inputs = e.target.querySelectorAll('input, select');
-            const pic = inputs[0].value;
-            const bisnis = inputs[1].value;
-            const lokasi = inputs[2].value;
-            const kapasitas = inputs[3].value;
-            const judul = document.querySelector('#modalContent h2').innerText;
-
+            
             const pesanWA = `*REGISTRASI MITRA FRESHEGG 2026*%0A` +
                             `----------------------------------%0A` +
-                            `*Kategori:* ${judul}%0A` +
-                            `*Nama PIC:* ${pic}%0A` +
-                            `*Bisnis:* ${bisnis}%0A` +
-                            `*Lokasi:* ${lokasi}%0A` +
-                            `*Kapasitas:* ${kapasitas}%0A` +
+                            `*Kategori:* ${category}%0A` +
+                            `*Nama PIC:* ${inputs[0].value}%0A` +
+                            `*Nama Bisnis:* ${inputs[1].value}%0A` +
+                            `*Lokasi:* ${inputs[2].value}%0A` +
+                            `*Estimasi Kapasitas:* ${inputs[3].value}%0A` +
                             `----------------------------------%0A` +
-                            `Mohon diproses untuk verifikasi sistem.`;
+                            `Mohon segera diproses untuk verifikasi dashboard.`;
 
-            window.open(`https://wa.me/${628121515633}?text=${pesanWA}`, '_blank');
+            window.open(`https://wa.me/${WA_ADMIN}?text=${pesanWA}`, '_blank');
             closeModal();
         }
 
+        // 5. FUNGSI PENDUKUNG
         function closeModal() { document.getElementById('authModal').classList.add('hidden'); }
         function handleAuth(e) { e.preventDefault(); window.location.href = "monitoring-admin-2026.html"; }
         window.onclick = function(e) { if (e.target == document.getElementById('authModal')) closeModal(); }
