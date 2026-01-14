@@ -63,6 +63,138 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="bg-freshegg rounded-3xl p-8 md:p-12 shadow-2xl flex flex-wrap justify-around items-center text-white -mt-16 relative z-10">
                 <div class="text-center p-4 stat-card">
+                    <div id="stat-telur" class="text-4xl md:text-5xl font-extrabold mb-2">...</div>
+                    <div class="text-orange-100 font-medium tracking-wide uppercase text-xs md:text-sm">Butir Telur Terdistribusi</div>
+                </div>
+                <div class="hidden md:block h-16 w-px bg-orange-300 opacity-50"></div>
+                <div class="text-center p-4 stat-card">
+                    <div id="stat-mitra" class="text-4xl md:text-5xl font-extrabold mb-2">...</div>
+                    <div class="text-orange-100 font-medium tracking-wide uppercase text-xs md:text-sm">Mitra Peternak (Farm)</div>
+                </div>
+                <div class="hidden md:block h-16 w-px bg-orange-300 opacity-50"></div>
+                <div class="text-center p-4 stat-card">
+                    <div id="stat-kota" class="text-4xl md:text-5xl font-extrabold mb-2">...</div>
+                    <div class="text-orange-100 font-medium tracking-wide uppercase text-xs md:text-sm">Kota Jangkauan</div>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 text-[10px] md:text-xs mt-4 italic">
+                <i class="fas fa-sync-alt fa-spin mr-1"></i> Data disinkronisasi secara real-time dengan Pusat Monitoring Nasional FreshEgg.
+            </p>
+        </div>
+    </section>
+
+    <section id="fitur" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-16 underline decoration-freshegg underline-offset-8">Keunggulan Ekosistem</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div class="p-8 border rounded-2xl hover:shadow-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center text-freshegg text-2xl mb-6 group-hover:bg-freshegg group-hover:text-white transition mx-auto md:mx-0">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Neraca Real-Time</h3>
+                    <p class="text-gray-600 leading-relaxed">Pantau stok dan permintaan nasional secara instan untuk pengambilan keputusan strategis yang tepat sasaran.</p>
+                </div>
+                <div class="p-8 border rounded-2xl hover:shadow-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center text-freshegg text-2xl mb-6 group-hover:bg-freshegg group-hover:text-white transition mx-auto md:mx-0">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Keamanan Transaksi</h3>
+                    <p class="text-gray-600 leading-relaxed">Sistem verifikasi dua arah yang menjamin keamanan pembayaran dan kualitas pengiriman hingga ke tangan buyer.</p>
+                </div>
+                <div class="p-8 border rounded-2xl hover:shadow-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center text-freshegg text-2xl mb-6 group-hover:bg-freshegg group-hover:text-white transition mx-auto md:mx-0">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Logistik Efisien</h3>
+                    <p class="text-gray-600 leading-relaxed">Integrasi pengiriman dari kandang mitra langsung ke lokasi buyer tanpa perantara berlapis, menjaga kesegaran produk.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Pertanyaan Umum (FAQ)</h2>
+            <div class="space-y-4">
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-5 text-left hover:bg-orange-50 transition">
+                        <span class="font-bold text-gray-700">Apa peran utama FreshEgg sebagai Agregator & Offtaker?</span>
+                        <i id="icon-1" class="fas fa-chevron-down text-freshegg transition-transform"></i>
+                    </button>
+                    <div id="faq-1" class="hidden p-5 border-t border-gray-100 text-gray-600">
+                        FreshEgg bertugas menyerap hasil produksi telur mitra dan mendistribusikannya secara terukur untuk menjaga stabilitas harga nasional.
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-5 text-left hover:bg-orange-50 transition">
+                        <span class="font-bold text-gray-700">Bagaimana sistem penetapan harga di FreshEgg?</span>
+                        <i id="icon-2" class="fas fa-chevron-down text-freshegg transition-transform"></i>
+                    </button>
+                    <div id="<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshEgg | Agregator Telur Ayam Nasional</title>
+    
+    <link rel="icon" type="image/png" href="https://img.icons8.com/papercut/60/egg.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .bg-freshegg { background-color: #F5A623; }
+        .text-freshegg { color: #F5A623; }
+        html { scroll-behavior: smooth; }
+        .stat-card { transition: transform 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="fixed w-full z-50 glass border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-freshegg rounded-full flex items-center justify-center text-white text-xl font-bold shadow-inner">F</div>
+                <span class="text-xl font-bold tracking-tight text-gray-900">FRESHEGG</span>
+            </div>
+            <div class="hidden md:flex gap-8 font-medium">
+                <a href="#fitur" class="hover:text-freshegg transition">Fitur</a>
+                <a href="#faq" class="hover:text-freshegg transition">FAQ</a>
+                <a href="monitoring-admin-2026.html" class="hover:text-freshegg transition text-red-600 font-bold">MONITORING</a>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="openModal('login')" class="px-5 py-2 text-freshegg font-semibold border border-freshegg rounded-lg hover:bg-orange-50 transition">Masuk</button>
+                <button onclick="openModal('register')" class="px-5 py-2 bg-freshegg text-white font-semibold rounded-lg shadow-lg hover:bg-orange-600 transition">Daftar</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-24 px-4 bg-gradient-to-b from-orange-50 to-white text-center">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900">
+                Agregator & Offtaker <br><span class="text-freshegg">Program Telur Nasional</span>
+            </h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+                Menghubungkan mitra peternak (Farm) dengan pembeli skala besar (Buyer) dalam satu ekosistem data transparan dan berkelanjutan.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://forms.gle/NFFuBXFTL863CPJj6" target="_blank" class="px-8 py-4 bg-white border-2 border-freshegg text-freshegg font-bold rounded-xl hover:bg-orange-50 transition shadow-md">
+                    <i class="fas fa-tractor mr-2"></i> GABUNG MITRA FARM
+                </a>
+                <a href="https://forms.gle/oNeutrWKFjtMBWT58" target="_blank" class="px-8 py-4 bg-freshegg text-white font-bold rounded-xl hover:bg-orange-600 transition shadow-xl">
+                    <i class="fas fa-shopping-cart mr-2"></i> ORDER SEBAGAI BUYER
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white pb-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-freshegg rounded-3xl p-8 md:p-12 shadow-2xl flex flex-wrap justify-around items-center text-white -mt-16 relative z-10">
+                <div class="text-center p-4 stat-card">
                     <div class="text-4xl md:text-5xl font-extrabold mb-2">12.5M+</div>
                     <div class="text-orange-100 font-medium tracking-wide uppercase text-xs md:text-sm">Butir Telur Terdistribusi</div>
                 </div>
