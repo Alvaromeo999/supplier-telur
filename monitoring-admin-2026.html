@@ -5,48 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreshEgg | Admin Monitoring 2026</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background: #f4f4f4; overflow: hidden; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f4f4f4; overflow: hidden; }
+        
+        /* Navigasi Utama */
         nav { 
             background: #F5A623; 
-            padding: 0 20px; 
+            padding: 10px 15px; 
             color: white; 
             display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            height: 60px;
+            flex-direction: column; /* Default stack untuk mobile */
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .nav-links { display: flex; gap: 10px; }
+
+        .nav-title {
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: 8px; 
+            justify-content: center;
+            flex-wrap: wrap; /* Supaya tombol turun ke bawah jika tidak muat */
+        }
+
+        /* Styling Tombol */
+        .btn { 
+            color: white; 
+            text-decoration: none; 
+            font-size: 0.75rem; 
+            border: 1.5px solid white; 
+            padding: 6px 10px; 
+            border-radius: 6px; 
+            cursor: pointer;
+            background: transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn:hover { background: rgba(255,255,255,0.2); }
+        .btn.active { background: white; color: #F5A623; font-weight: bold; }
+        .btn-exit { border-color: #ffeb3b; color: #ffeb3b; }
+
+        /* Container Dashboard */
         .dashboard-container {
             width: 100%;
-            height: calc(100vh - 60px); 
+            /* Tinggi dinamis menyesuaikan sisa layar */
+            height: calc(100vh - 110px); 
         }
+
         iframe {
             width: 100%;
             height: 100%;
             border: 0;
         }
-        .btn { 
-            color: white; 
-            text-decoration: none; 
-            font-size: 0.8rem; 
-            border: 1px solid white; 
-            padding: 5px 12px; 
-            border-radius: 4px; 
-            cursor: pointer;
-            background: transparent;
+
+        /* Desktop Mode (Layar > 768px) */
+        @media (min-width: 768px) {
+            nav {
+                flex-direction: row;
+                justify-content: space-between;
+                height: 60px;
+                padding: 0 20px;
+            }
+            .nav-title { font-size: 1.1rem; }
+            .nav-links { gap: 12px; }
+            .btn { font-size: 0.85rem; padding: 8px 15px; }
+            .dashboard-container { height: calc(100vh - 60px); }
         }
-        .btn:hover { background: rgba(255,255,255,0.2); }
-        .btn.active { background: white; color: #F5A623; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <nav>
-    <strong>FRESHEGG - MONITORING</strong>
+    <div class="nav-title">FRESHEGG MONITORING</div>
     <div class="nav-links">
         <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/1158caa9-314d-4858-a6c5-2c0f7f2b52d6/page/page_12345', this)">DATA FARM</button>
         <button class="btn active" onclick="changePage('https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF', this)">DATA BUYER</button>
-        <a href="index.html" class="btn">KELUAR</a>
+        <a href="index.html" class="btn btn-exit">KELUAR</a>
     </div>
 </nav>
 
@@ -60,11 +98,15 @@
 
 <script>
     function changePage(fullUrl, btn) {
-        // Update URL Iframe secara langsung dengan URL lengkap
         const frame = document.getElementById('dashFrame');
+        // Tambahkan efek loading sederhana saat ganti halaman
+        frame.style.opacity = "0.5";
         frame.src = fullUrl;
         
-        // Update Style tombol agar terlihat mana yang aktif
+        frame.onload = function() {
+            frame.style.opacity = "1";
+        };
+
         document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
