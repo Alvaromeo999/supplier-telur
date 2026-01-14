@@ -7,85 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         .bg-freshegg { background-color: #F5A623; }
         .text-freshegg { color: #F5A623; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-
-<script>
-        // 1. Fungsi Toggle FAQ Anda sudah benar, biarkan saja
-        function toggleFaq(id) {
-            const content = document.getElementById(`faq-${id}`);
-            const icon = document.getElementById(`icon-${id}`);
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        // 2. GANTI FUNGSI openModal LAMA DENGAN INI (VERSI FIX TURNSTILE)
-        function openModal(type) {
-            const modal = document.getElementById('authModal');
-            const content = document.getElementById('modalContent');
-            modal.classList.remove('hidden');
-
-            if(type === 'login') {
-                content.innerHTML = `
-                    <h2 class="text-2xl font-bold mb-6 text-center">Login Admin</h2>
-                    <form class="space-y-4" onsubmit="handleAuth(event)">
-                        <input type="email" placeholder="Email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-orange-400 outline-none" required>
-                        <input type="password" placeholder="Password" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-orange-400 outline-none" required>
-                        <div id="captcha-container" class="flex justify-center my-4"></div>
-                        <button class="w-full bg-freshegg py-3 rounded-lg text-white font-bold hover:bg-orange-600 transition">MASUK</button>
-                    </form>
-                `;
-                
-                // Render manual agar captcha selalu muncul saat modal dibuka
-                if (window.turnstile) {
-                    turnstile.render('#captcha-container', {
-                        sitekey: '0x4AAAAAACMb-1Fb8DGvDYm3',
-                        theme: 'light',
-                    });
-                }
-            } else {
-                content.innerHTML = `
-                    <h2 class="text-2xl font-bold mb-6 text-center">Pendaftaran Mitra</h2>
-                    <p class="text-sm text-center mb-6 text-gray-500">Pilih jenis kemitraan untuk melanjutkan pendaftaran resmi.</p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <a href="https://forms.gle/NFFuBXFTL863CPJj6" class="p-4 border rounded-xl hover:border-freshegg text-center transition">
-                            <i class="fas fa-tractor text-2xl text-freshegg mb-2"></i><br><b>FARM</b>
-                        </a>
-                        <a href="https://forms.gle/oNeutrWKFjtMBWT58" class="p-4 border rounded-xl hover:border-freshegg text-center transition">
-                            <i class="fas fa-shopping-cart text-2xl text-freshegg mb-2"></i><br><b>BUYER</b>
-                        </a>
-                    </div>
-                `;
-            }
-        }
-
-        // 3. Fungsi pendukung lainnya tetap di bawahnya
-        function closeModal() {
-            document.getElementById('authModal').classList.add('hidden');
-        }
-
-        function handleAuth(e) {
-            e.preventDefault();
-            window.location.href = "monitoring-admin-2026.html";
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('authModal');
-            if (event.target == modal) closeModal();
-        }
-    </script>
-</body>
-</html>
-    
 <body class="bg-gray-50 text-gray-800 font-sans">
 
     <nav class="fixed w-full z-50 glass border-b border-gray-200">
@@ -96,7 +25,7 @@
             </div>
             <div class="hidden md:flex gap-8 font-medium">
                 <a href="#fitur" class="hover:text-freshegg transition">Fitur</a>
-                <a href="#tentang" class="hover:text-freshegg transition">Tentang</a>
+                <a href="#faq" class="hover:text-freshegg transition">FAQ</a>
                 <a href="monitoring-admin-2026.html" class="hover:text-freshegg transition text-red-600 font-bold">MONITORING</a>
             </div>
             <div class="flex gap-3">
@@ -106,8 +35,8 @@
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-orange-50 to-white">
-        <div class="max-w-7xl mx-auto text-center">
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-orange-50 to-white text-center">
+        <div class="max-w-7xl mx-auto">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
                 Agregator & Offtaker <br><span class="text-freshegg">Program Telur Nasional</span>
             </h1>
@@ -136,11 +65,11 @@
                     <h3 class="text-xl font-bold mb-4">Neraca Real-Time</h3>
                     <p class="text-gray-600">Pantau stok dan permintaan nasional secara instan untuk pengambilan keputusan strategis.</p>
                 </div>
-                <div class="p-8 border rounded-2xl hover:shadow-2xl transition duration-300 group">
-                    <div class="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center text-freshegg text-2xl mb-6 group-hover:bg-freshegg group-hover:text-white transition">
+                <div class="p-8 border rounded-2xl hover:shadow-2xl transition duration-300 group text-freshegg">
+                    <div class="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-freshegg group-hover:text-white transition">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Keamanan Transaksi</h3>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Keamanan Transaksi</h3>
                     <p class="text-gray-600">Sistem verifikasi dua arah yang menjamin keamanan pembayaran dan kualitas pengiriman.</p>
                 </div>
                 <div class="p-8 border rounded-2xl hover:shadow-2xl transition duration-300 group">
@@ -154,86 +83,51 @@
         </div>
     </section>
 
-    <div id="authModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-50">
-        <div class="bg-white rounded-2xl max-w-md w-full p-8 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black"><i class="fas fa-times"></i></button>
-            <div id="modalContent">
-                </div>
-        </div>
-    </div>
-
-<section id="faq" class="py-20 bg-gray-50">
+    <section id="faq" class="py-20 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Pertanyaan Umum (FAQ)</h2>
-            
             <div class="space-y-4">
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
                     <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-5 text-left hover:bg-orange-50 transition">
                         <span class="font-bold text-gray-700">Apa peran utama FreshEgg sebagai Agregator & Offtaker?</span>
                         <i id="icon-1" class="fas fa-chevron-down text-freshegg transition-transform"></i>
                     </button>
-                    <div id="faq-1" class="hidden p-5 border-t border-gray-100 text-gray-600 leading-relaxed">
-                        FreshEgg bertugas menyerap seluruh hasil produksi telur dari mitra peternak (Offtaker) dan mendistribusikannya secara terukur kepada Buyer mitra (B2B, Industri, & retail) untuk menjaga stabilitas harga dan pasokan di tingkat nasional.
+                    <div id="faq-1" class="hidden p-5 border-t border-gray-100 text-gray-600">
+                        FreshEgg bertugas menyerap hasil produksi telur mitra dan mendistribusikannya secara terukur untuk menjaga stabilitas harga nasional.
                     </div>
                 </div>
-
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
                     <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-5 text-left hover:bg-orange-50 transition">
                         <span class="font-bold text-gray-700">Bagaimana sistem penetapan harga di FreshEgg?</span>
                         <i id="icon-2" class="fas fa-chevron-down text-freshegg transition-transform"></i>
                     </button>
                     <div id="faq-2" class="hidden p-5 border-t border-gray-100 text-gray-600">
-                        Harga ditentukan berdasarkan algoritma real-time yang mempertimbangkan harga pasar referensi pemerintah (regulator), biaya operasional peternak, dan volume permintaan di Neraca Digital kami.
-                    </div>
-                </div>
-
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center p-5 text-left hover:bg-orange-50 transition">
-                        <span class="font-bold text-gray-700">Apakah ada persyaratan minimal untuk menjadi mitra Farm?</span>
-                        <i id="icon-3" class="fas fa-chevron-down text-freshegg transition-transform"></i>
-                    </button>
-                    <div id="faq-3" class="hidden p-5 border-t border-gray-100 text-gray-600">
-                        Ya, kami memprioritaskan peternak yang memiliki standar kebersihan kandang tertentu dan kapasitas produksi harian yang stabil untuk menjaga kualitas rantai pasokan nasional. Detail teknis akan diverifikasi setelah pengisian form pendaftaran.
-                    </div>
-                </div>
-
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(4)" class="w-full flex justify-between items-center p-5 text-left hover:bg-orange-50 transition">
-                        <span class="font-bold text-gray-700">Bagaimana tingkat keamanan data di FreshEgg?</span>
-                        <i id="icon-4" class="fas fa-chevron-down text-freshegg transition-transform"></i>
-                    </button>
-                    <div id="faq-4" class="hidden p-5 border-t border-gray-100 text-gray-600">
-                        Kami menggunakan pengamanan Cloudflare Turnstile pada akses login dan enkripsi data pada Google Cloud Infrastructure untuk memastikan data produksi dan transaksi tetap privat dan terlindungi.
+                        Harga ditentukan berdasarkan algoritma real-time yang mempertimbangkan referensi pemerintah dan volume neraca digital.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        function toggleFaq(id) {
-            const content = document.getElementById(`faq-${id}`);
-            const icon = document.getElementById(`icon-${id}`);
-            
-            // Tutup FAQ lain jika ingin sistem accordion tunggal (opsional)
-            // document.querySelectorAll('[id^="faq-"]').forEach(el => el.classList.add('hidden'));
-
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-    </script>
-
-    
     <footer class="bg-gray-900 text-white py-10 text-center">
         <p class="opacity-70">&copy; 2026 FreshEgg Agregator Telur Nasional. All Rights Reserved.</p>
     </footer>
 
+    <div id="authModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-50">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black"><i class="fas fa-times"></i></button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
     <script>
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            content.classList.toggle('hidden');
+            icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+
         function openModal(type) {
             const modal = document.getElementById('authModal');
             const content = document.getElementById('modalContent');
@@ -243,28 +137,31 @@
                 content.innerHTML = `
                     <h2 class="text-2xl font-bold mb-6 text-center">Login Admin</h2>
                     <form class="space-y-4" onsubmit="handleAuth(event)">
-                        <input type="email" placeholder="Email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-orange-400 outline-none" required>
-                        <input type="password" placeholder="Password" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-orange-400 outline-none" required>
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACMb-1Fb8DGvDYm3"></div>
+                        <input type="email" placeholder="Email" class="w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-orange-400" required>
+                        <input type="password" placeholder="Password" class="w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-orange-400" required>
+                        <div id="captcha-container" class="flex justify-center my-4"></div>
                         <button class="w-full bg-freshegg py-3 rounded-lg text-white font-bold hover:bg-orange-600 transition">MASUK</button>
                     </form>
                 `;
+                if (window.turnstile) {
+                    turnstile.render('#captcha-container', {
+                        sitekey: '0x4AAAAAACMb-1Fb8DGvDYm3',
+                        theme: 'light',
+                    });
+                }
             } else {
                 content.innerHTML = `
                     <h2 class="text-2xl font-bold mb-6 text-center">Pendaftaran Mitra</h2>
-                    <p class="text-sm text-center mb-6 text-gray-500">Pilih jenis kemitraan untuk melanjutkan pendaftaran resmi.</p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <a href="https://forms.gle/NFFuBXFTL863CPJj6" class="p-4 border rounded-xl hover:border-freshegg text-center transition">
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <a href="https://forms.gle/NFFuBXFTL863CPJj6" target="_blank" class="p-4 border rounded-xl hover:border-freshegg transition">
                             <i class="fas fa-tractor text-2xl text-freshegg mb-2"></i><br><b>FARM</b>
                         </a>
-                        <a href="https://forms.gle/oNeutrWKFjtMBWT58" class="p-4 border rounded-xl hover:border-freshegg text-center transition">
+                        <a href="https://forms.gle/oNeutrWKFjtMBWT58" target="_blank" class="p-4 border rounded-xl hover:border-freshegg transition">
                             <i class="fas fa-shopping-cart text-2xl text-freshegg mb-2"></i><br><b>BUYER</b>
                         </a>
                     </div>
                 `;
             }
-            // Re-render Turnstile jika login dibuka
-            if(window.turnstile) turnstile.render('.cf-turnstile');
         }
 
         function closeModal() {
@@ -273,14 +170,11 @@
 
         function handleAuth(e) {
             e.preventDefault();
-            // Simulasi Login - Arahkan ke dashboard admin
             window.location.href = "monitoring-admin-2026.html";
         }
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('authModal');
-            if (event.target == modal) closeModal();
+        window.onclick = function(e) {
+            if (e.target == document.getElementById('authModal')) closeModal();
         }
     </script>
 </body>
