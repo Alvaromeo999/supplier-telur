@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreshEgg | Admin Monitoring 2026</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f4f4f4; overflow: hidden; }
-        
-        /* Navigasi Responsif */
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f4f4; overflow: hidden; }
         nav { 
             background: #F5A623; 
             padding: 10px 15px; 
@@ -17,17 +15,8 @@
             gap: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .nav-title { font-weight: bold; font-size: 1rem; text-align: center; }
-
-        .nav-links { 
-            display: flex; 
-            gap: 8px; 
-            justify-content: center;
-            flex-wrap: wrap; 
-        }
-
-        /* Styling Tombol */
+        .nav-links { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
         .btn { 
             color: white; 
             text-decoration: none; 
@@ -39,22 +28,14 @@
             background: transparent;
             transition: all 0.3s ease;
         }
-
         .btn:hover { background: rgba(255,255,255,0.2); }
         .btn.active { background: white; color: #F5A623; font-weight: bold; }
         .btn-neraca { border-color: #00E676; color: #00E676; }
         .btn-neraca.active { background: #00E676; color: white; }
         .btn-exit { border-color: #ffeb3b; color: #ffeb3b; }
-
-        /* Container Dashboard */
-        .dashboard-container {
-            width: 100%;
-            height: calc(100vh - 110px); 
-        }
-
+        .dashboard-container { width: 100%; height: calc(100vh - 110px); }
         iframe { width: 100%; height: 100%; border: 0; transition: opacity 0.3s; }
 
-        /* Mode Desktop */
         @media (min-width: 768px) {
             nav { flex-direction: row; justify-content: space-between; height: 60px; padding: 0 20px; align-items: center; }
             .nav-title { font-size: 1.1rem; }
@@ -66,11 +47,12 @@
 <body>
 
 <nav>
-    <div class="nav-title">FRESHEGG - AGREGATOR NASIONAL</div>
+    <div class="nav-title">FRESHEGG - MONITORING 2026</div>
     <div class="nav-links">
-        <button class="btn btn-neraca active" onclick="changePage('https://lookerstudio.google.com/embed/reporting/03a63208-fbff-4366-9a5e-b0d8887117a4/page/YkClF', this)">NERACA</button>
-        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/1158caa9-314d-4858-a6c5-2c0f7f2b52d6/page/page_1', this)">DATA FARM</button>
-        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/47c844ee-961c-4d12-84b6-d9e87bcfd03c/page/DZ9kF', this)">DATA BUYER</button>
+        <button class="btn btn-neraca active" onclick="changePage('https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445', this)">NERACA</button>
+        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f', this)">DATA FARM</button>
+        <button class="btn" onclick="changePage('https://lookerstudio.google.com/embed/reporting/c3198c7f-57fe-4fa5-977f-c8bc72b28215', this)">DATA BUYER</button>
+        
         <a href="index.html" class="btn btn-exit">KELUAR</a>
     </div>
 </nav>
@@ -78,9 +60,8 @@
 <div class="dashboard-container">
     <iframe 
         id="dashFrame"
-        src="https://lookerstudio.google.com/embed/reporting/03a63208-fbff-4366-9a5e-b0d8887117a4/page/YkClF" 
-        allowfullscreen 
-        style="width: 100%; height: 100%; border: none;">
+        src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445" 
+        allowfullscreen>
     </iframe>
 </div>
 
