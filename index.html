@@ -3,194 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoring Nasional | FreshEgg 2026</title>
-    
+    <title>FreshEgg | Agregator & Offtaker Telur Ayam Nasional</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/papercut/60/egg.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        .sidebar-item:hover { background: #2d3748; border-left: 4px solid #F5A623; }
-        .stats-card { transition: all 0.3s ease; }
-        .stats-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-        /* Animasi untuk log transaksi baru */
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-10px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        .new-log { animation: slideIn 0.5s ease-out; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .bg-freshegg { background-color: #F5A623; }
+        .text-freshegg { color: #F5A623; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
-
-    <div class="flex h-screen overflow-hidden">
-        <div class="w-64 bg-gray-900 text-white hidden md:block flex-shrink-0">
-            <div class="p-6 text-center border-b border-gray-800">
-                <h1 class="text-2xl font-bold text-orange-400 tracking-widest uppercase">FRESHEGG</h1>
-                <p class="text-[10px] text-gray-500 uppercase font-semibold">Command Center v.1.0</p>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <nav class="fixed w-full z-50 glass border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-freshegg rounded-full flex items-center justify-center text-white text-xl font-bold shadow-inner">F</div>
+                <span class="text-xl font-bold tracking-tight text-gray-900 uppercase">FRESHEGG</span>
             </div>
-            <nav class="mt-6">
-                <a href="#" class="flex items-center p-4 sidebar-item bg-gray-800 border-l-4 border-orange-500">
-                    <i class="fas fa-chart-line mr-3"></i> Ringkasan Real-Time
-                </a>
-                <a href="#" class="flex items-center p-4 sidebar-item text-gray-400">
-                    <i class="fas fa-truck-moving mr-3"></i> Jalur Logistik
-                </a>
-                <a href="#" class="flex items-center p-4 sidebar-item text-gray-400">
-                    <i class="fas fa-egg mr-3"></i> Stok Mitra Farm
-                </a>
-                <div class="mt-20 px-6">
-                    <a href="index.html" class="flex items-center justify-center p-2 bg-red-600 hover:bg-red-700 rounded-lg text-sm font-bold transition">
-                        <i class="fas fa-sign-out-alt mr-2"></i> KELUAR
-                    </a>
-                </div>
-            </nav>
+            <div class="hidden md:flex gap-8 font-medium">
+                <a href="#fitur" class="hover:text-freshegg transition">Fitur</a>
+                <a href="monitoring-admin-2026.html" class="hover:text-red-600 transition text-red-600 font-bold">MONITORING</a>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="openModal('login')" class="px-5 py-2 text-freshegg font-semibold border border-freshegg rounded-lg hover:bg-orange-50 transition">Masuk</button>
+                <button onclick="openModal('register')" class="px-5 py-2 bg-freshegg text-white font-semibold rounded-lg shadow-lg hover:bg-orange-600 transition">Daftar</button>
+            </div>
         </div>
+    </nav>
 
-        <div class="flex-1 flex flex-col overflow-y-auto">
-            <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
-                <div class="flex items-center gap-2">
-                    <span class="bg-orange-500 text-white p-1 px-3 rounded text-xs font-bold uppercase tracking-widest">Live</span>
-                    <h2 class="font-extrabold text-gray-700 uppercase text-sm">Monitoring Suplai Telur Nasional</h2>
-                </div>
-                <div class="flex items-center gap-4">
-                    <div class="text-right hidden sm:block">
-                        <p id="current-time" class="text-xs font-mono font-bold text-gray-600"></p>
-                        <p class="text-[10px] text-green-500 font-bold uppercase">Sistem Terhubung</p>
-                    </div>
-                    <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center border-2 border-orange-400">
-                        <i class="fas fa-user-shield text-gray-600"></i>
-                    </div>
-                </div>
-            </header>
+    <section class="pt-32 pb-24 px-4 bg-gradient-to-b from-orange-50 to-white text-center">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900">
+                Agregator & Offtaker <br><span class="text-freshegg">Program Telur Nasional</span>
+            </h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">Menghubungkan mitra peternak (Farm) dengan pembeli skala besar (Buyer) & Cargo Nasional.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="px-8 py-4 bg-white border-2 border-freshegg text-freshegg font-bold rounded-xl hover:bg-orange-50 transition shadow-md">MITRA FARM</a>
+                <a href="#" class="px-8 py-4 bg-freshegg text-white font-bold rounded-xl hover:bg-orange-600 transition shadow-xl">ORDER BUYER</a>
+            </div>
+        </div>
+    </section>
 
-            <main class="p-4 md:p-8 space-y-6">
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-orange-500 stats-card">
-                        <p class="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Volume Hari Ini</p>
-                        <h3 class="text-2xl font-black text-gray-800 mt-1">42,850 <span class="text-xs font-normal text-gray-400">Kg</span></h3>
-                        <div class="flex items-center text-green-500 text-[10px] mt-2 font-bold">
-                            <i class="fas fa-caret-up mr-1"></i> 8.4% VS KEMARIN
-                        </div>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-blue-500 stats-card">
-                        <p class="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Armada Berjalan</p>
-                        <h3 class="text-2xl font-black text-gray-800 mt-1">36 <span class="text-xs font-normal text-gray-400">Truk</span></h3>
-                        <div class="flex items-center text-blue-500 text-[10px] mt-2 font-bold uppercase">
-                            8 Mitra Logistik Aktif
-                        </div>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-green-500 stats-card">
-                        <p class="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Harga Referensi</p>
-                        <h3 class="text-2xl font-black text-gray-800 mt-1">Rp 26.800</h3>
-                        <div class="flex items-center text-gray-400 text-[10px] mt-2 font-bold uppercase">
-                            Zona 1 (Jawa & Bali)
-                        </div>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-purple-500 stats-card">
-                        <p class="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Efisiensi Rantai Pasok</p>
-                        <h3 class="text-2xl font-black text-gray-800 mt-1">94.2%</h3>
-                        <div class="flex items-center text-purple-500 text-[10px] mt-2 font-bold uppercase">
-                            Optimal (Target 95%)
-                        </div>
-                    </div>
-                </div>
+    <footer class="bg-gray-900 text-white py-12 px-4 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2026 FreshEgg Agregator Telur Nasional. Seluruh Hak Cipta Dilindungi.</p>
+    </footer>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <div class="flex justify-between items-center mb-6">
-                            <h4 class="font-bold text-gray-700 uppercase text-xs tracking-widest">Tren Distribusi 7 Hari Terakhir</h4>
-                            <i class="fas fa-ellipsis-v text-gray-300"></i>
-                        </div>
-                        <canvas id="mainChart" height="140"></canvas>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col">
-                        <div class="flex justify-between items-center mb-6">
-                            <h4 class="font-bold text-gray-700 uppercase text-xs tracking-widest">Aktivitas Sistem</h4>
-                            <span class="animate-pulse flex h-2 w-2 rounded-full bg-red-500"></span>
-                        </div>
-                        <div id="log-list" class="space-y-4 flex-1">
-                            </div>
-                    </div>
-                </div>
-
-            </main>
+    <div id="authModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400"><i class="fas fa-times"></i></button>
+            <div id="modalContent"></div>
         </div>
     </div>
 
     <script>
-        // Update Waktu & Tanggal
-        function updateClock() {
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            document.getElementById('current-time').innerText = now.toLocaleDateString('id-ID', options).toUpperCase();
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        // Inisialisasi Grafik (Chart.js)
-        const ctx = document.getElementById('mainChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['08 Jan', '09 Jan', '10 Jan', '11 Jan', '12 Jan', '13 Jan', '14 Jan'],
-                datasets: [{
-                    label: 'Volume Terdistribusi (Kg)',
-                    data: [3800, 4200, 4100, 4800, 5200, 4900, 5500],
-                    borderColor: '#F5A623',
-                    borderWidth: 4,
-                    pointBackgroundColor: '#ffffff',
-                    pointBorderColor: '#F5A623',
-                    pointBorderWidth: 2,
-                    pointRadius: 4,
-                    tension: 0.4,
-                    fill: true,
-                    backgroundColor: 'rgba(245, 166, 35, 0.05)'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { display: false } },
-                scales: { 
-                    y: { beginAtZero: false, grid: { display: false } },
-                    x: { grid: { display: false } }
-                }
-            }
-        });
-
-        // Simulasi Log Transaksi Berjalan
-        const locations = ['JAKARTA', 'SURABAYA', 'MEDAN', 'BANDUNG', 'SEMARANG', 'BALI', 'MAKASSAR'];
-        const logList = document.getElementById('log-list');
-
-        function generateLog() {
-            const loc = locations[Math.floor(Math.random() * locations.length)];
-            const weight = Math.floor(Math.random() * 800) + 200;
-            const time = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-            
-            const logEntry = document.createElement('div');
-            logEntry.className = "flex justify-between items-center p-3 bg-gray-50 rounded-xl border-l-4 border-orange-500 new-log";
-            logEntry.innerHTML = `
-                <div>
-                    <p class="text-[10px] font-black text-gray-800 tracking-tighter">${loc} - INBOUND</p>
-                    <p class="text-[9px] text-gray-400 font-mono">${time} WIB</p>
-                </div>
-                <div class="text-right">
-                    <p class="text-xs font-black text-orange-600">${weight} KG</p>
-                    <p class="text-[8px] font-bold text-green-500 uppercase italic">Verified</p>
-                </div>
-            `;
-            
-            logList.prepend(logEntry);
-            if (logList.children.length > 6) {
-                logList.lastElementChild.remove();
+        function openModal(type) {
+            const modal = document.getElementById('authModal');
+            const content = document.getElementById('modalContent');
+            modal.classList.remove('hidden');
+            if(type === 'login') {
+                content.innerHTML = `<h2 class="text-2xl font-bold mb-6 text-center">Login Admin</h2><form onsubmit="handleAuth(event)" class="space-y-4"><div><label class="block text-sm font-bold mb-1">Email</label><input type="email" class="w-full p-3 border rounded-lg" required></div><div><label class="block text-sm font-bold mb-1">Password</label><input type="password" class="w-full p-3 border rounded-lg" required></div><button class="w-full bg-freshegg py-3 rounded-lg text-white font-bold">MASUK</button></form>`;
+            } else {
+                content.innerHTML = `<h2 class="text-2xl font-bold mb-4 text-center">Daftar Mitra</h2><div class="grid grid-cols-2 gap-4"><div class="p-4 border rounded-xl text-center"><i class="fas fa-tractor text-2xl text-freshegg mb-2"></i><br>FARM</div><div class="p-4 border rounded-xl text-center"><i class="fas fa-truck text-2xl text-blue-500 mb-2"></i><br>LOGISTIK</div></div>`;
             }
         }
-
-        // Jalankan log pertama dan ulangi tiap 4 detik
-        generateLog();
-        setInterval(generateLog, 4000);
+        function closeModal() { document.getElementById('authModal').classList.add('hidden'); }
+        function handleAuth(e) { e.preventDefault(); window.location.href = "monitoring-admin-2026.html"; }
     </script>
 </body>
 </html>
