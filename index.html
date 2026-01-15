@@ -81,5 +81,88 @@
         <section class="max-w-7xl mx-auto px-6 pb-20">
             <div class="bg-white rounded-[3rem] p-4 border-2 border-gray-100 shadow-sm">
                 <div class="aspect-video w-full rounded-2xl overflow-hidden">
-                    <iframe
-                        
+                    <iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF" class="w-full h-full border-none"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 pb-24">
+            <div class="grid md:grid-cols-3 gap-4">
+                <button onclick="modalMitra('Farm')" class="p-8 bg-white border-2 border-gray-100 rounded-[2rem] hover:border-orange-500 transition font-black uppercase text-xs italic">Pendaftaran Farm</button>
+                <button onclick="modalMitra('Buyer')" class="p-8 bg-white border-2 border-gray-100 rounded-[2rem] hover:border-blue-500 transition font-black uppercase text-xs italic">Permintaan Buyer</button>
+                <button onclick="modalMitra('Cargo')" class="p-8 bg-white border-2 border-gray-100 rounded-[2rem] hover:border-green-500 transition font-black uppercase text-xs italic">Kemitraan Cargo</button>
+            </div>
+        </section>
+    </main>
+
+    <main id="tab-admin" class="tab-content pt-24 bg-gray-50 min-h-screen px-6">
+        <div class="max-w-7xl mx-auto py-10">
+            <h2 class="text-3xl font-black uppercase italic text-[#4A2F1B] border-l-8 border-orange-600 pl-5 mb-10">Internal Intelligence Center</h2>
+            <div class="aspect-video w-full rounded-[3rem] overflow-hidden bg-white shadow-2xl">
+                <iframe src="https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF" class="w-full h-full border-none"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <div id="gate" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 backdrop-blur-md">
+        <div class="bg-white p-10 rounded-[3rem] max-w-sm w-full text-center">
+            <h2 class="text-2xl font-black uppercase italic mb-6 tracking-tighter">Internal Access</h2>
+            <input type="password" id="gateKey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 border-2 focus:border-orange-500 outline-none">
+            <button onclick="cekKunci()" class="w-full bg-orange-600 text-white py-5 rounded-2xl font-black uppercase text-xs shadow-lg">Verifikasi</button>
+            <button onclick="tutupGate()" class="mt-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">Batal</button>
+        </div>
+    </div>
+
+    <script>
+        const APPS_SCRIPT_URL = 'GANTI_DENGAN_URL_WEB_APP_GOOGLE_ANDA';
+
+        // 1. SINKRONISASI DATA (MULTI-TAB)
+        async function submitData(kategori, detail = "-") {
+            const nama = document.getElementById('inputNama').value || prompt("Nama PIC:");
+            const stok = document.getElementById('inputStok').value || 0;
+            const lokasi = prompt("Wilayah (Solo/Boyolali/Karanganyar):");
+
+            if(!nama || !lokasi) return;
+
+            try {
+                const res = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ kategori, nama, lokasi, stok, detail })
+                });
+                const data = await res.json();
+                if(data.result === "success") {
+                    if(kategori === 'Stok') {
+                        document.getElementById('displayPersen').innerText = data.newPersen + "%";
+                        document.getElementById('progressBar').style.width = data.newPersen + "%";
+                        document.getElementById('displaySisaText').innerText = (5000 - data.newTotal) + " Kg Lagi";
+                    }
+                    alert("Data sinkron! Membuka WhatsApp untuk validasi...");
+                    window.open(`https://wa.me/628121515633?text=INFO_${kategori.toUpperCase()}:%20${nama}%20di%20${lokasi}.`, '_blank');
+                }
+            } catch (e) { alert("Error koneksi database."); }
+        }
+
+        function modalMitra(k) { submitData(k, prompt(`Masukkan Detail ${k} (NKV/Armada):`)); }
+        function hitungVisual() {
+            const s = document.getElementById('inputStok').value || 0;
+            const p = Math.min((s/5000)*100, 100);
+            document.getElementById('displayPersen').innerText = Math.round(p) + "%";
+            document.getElementById('progressBar').style.width = p + "%";
+            document.getElementById('displaySisaText').innerText = (5000-s) + " Kg Lagi";
+        }
+
+        // NAVIGATION
+        function switchTab(id) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById('tab-' + id).classList.add('active');
+        }
+        function bukaGate() { document.getElementById('gate').classList.remove('hidden'); }
+        function tutupGate() { document.getElementById('gate').classList.add('hidden'); }
+        function cekKunci() {
+            if(document.getElementById('gateKey').value === "SOLORAYA2026") {
+                tutupGate(); switchTab('admin');
+            } else { alert("Akses Ditolak."); }
+        }
+    </script>
+</body>
+</html>
