@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>FreshEgg | Agregator Intelligence Supply Chain Telur Solo Raya & Nasional</title>
-    <meta name="description" content="Pioneer Agregator Telur Nasional. Menghubungkan Farm Solo, Boyolali, Karanganyar dengan Buyer Industri melalui teknologi Intelligence Supply Chain 5 Ton.">
-    <meta name="keywords" content="Agregator Telur Solo, Suplai Telur Industri Boyolali, Ketahanan Pangan Nasional, Distribusi Telur 5 Ton, FreshEgg Indonesia, Agen Telur Karanganyar">
+    <title>FreshEgg | Pioneer Agregator Intelligence Supply Chain Telur</title>
+    <meta name="description" content="Jembatan Teknologi Farm & Buyer Nasional. Konsolidasi 5 Ton/Hari Solo Raya menuju Ketahanan Pangan Indonesia.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -17,154 +16,70 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FDFCFB; color: #2D2D2D; scroll-behavior: smooth; }
         .bg-freshegg { background: linear-gradient(135deg, #E67E22 0%, #D35400 100%); }
         .glass-nav { background: rgba(253, 252, 251, 0.9); backdrop-filter: blur(15px); }
-        .tab-content { display: none; animation: fadeIn 0.5s ease; }
-        .tab-content.active { display: block; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed w-full z-50 glass-nav border-b border-gray-100">
+    <nav class="fixed w-full z-[60] glass-nav border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-freshegg rounded-xl flex items-center justify-center text-white shadow-lg">
-                    <i class="fas fa-microchip text-lg"></i>
+                    <i class="fas fa-microchip"></i>
                 </div>
-                <div class="leading-none">
+                <div class="leading-none text-left">
                     <span class="text-xl font-black tracking-tighter text-[#4A2F1B] block uppercase italic">FRESHEGG</span>
-                    <span class="text-[7px] font-extrabold text-[#D35400] tracking-[0.2em] uppercase">Intelligence Supply Chain 2026</span>
+                    <span class="text-[7px] font-extrabold text-[#D35400] tracking-[0.2em] uppercase leading-none">Intelligence Supply Chain 2026</span>
                 </div>
             </div>
-            
-            <div class="hidden lg:flex gap-8 text-[9px] font-black text-[#A35D36] tracking-widest uppercase">
-                <a href="#home" onclick="switchTab('home')" class="hover:text-[#D35400]">Beranda</a>
-                <a href="#monitor" onclick="switchTab('home')" class="hover:text-[#D35400]">Monitoring Publik</a>
-                <a href="#" onclick="bukaGate()" class="text-[#D35400] border-b-2 border-[#D35400]">Internal System</a>
+            <div class="hidden lg:flex gap-6 text-[9px] font-black text-[#A35D36] tracking-widest uppercase">
+                <a href="#home" onclick="switchTab('home')" class="hover:text-orange-600 transition">Beranda</a>
+                <a href="#monitor" onclick="switchTab('home')" class="hover:text-orange-600 transition">Monitor Publik</a>
+                <button onclick="bukaGate()" class="text-orange-600 underline underline-offset-4">Internal System</button>
             </div>
-
-            <button onclick="bukaGate()" class="bg-[#2D2D2D] text-white px-5 py-2 rounded-xl font-black text-[9px] uppercase tracking-widest hover:bg-orange-600 transition">Portal Akses</button>
+            <button onclick="bukaGate()" class="bg-[#2D2D2D] text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg">Login</button>
         </div>
     </nav>
 
-    <main id="tab-home" class="tab-content active pt-32 px-6">
-        <section class="max-w-6xl mx-auto text-center mb-20">
+    <main id="tab-home" class="tab-content active pt-32">
+        <section class="max-w-6xl mx-auto text-center px-6 mb-16">
+            <span class="bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 inline-block italic">Pilot Project: Solo Raya</span>
             <h1 class="text-5xl md:text-8xl font-black text-[#4A2F1B] mb-8 leading-[0.9] tracking-tighter uppercase">
-                Jembatan <span class="text-[#D35400] italic text-4xl md:text-7xl">Teknologi</span> <br>Farm & Buyer
+                Jembatan <span class="text-[#D35400] italic">Tehnologi</span> <br>Farm & Buyer
             </h1>
             <p class="text-[#6D5D50] text-lg md:text-xl mb-12 max-w-3xl mx-auto font-medium italic">
-                "Bukan sekadar perantara, kami adalah infrastruktur digital yang mengintegrasikan pasokan farm tradisional menuju ketahanan pangan nasional."
+                "Mengintegrasikan Farm Solo Raya dengan Industri melalui sistem agregasi 5 Ton per hari."
             </p>
-            
-            <div class="max-w-4xl mx-auto bg-white p-8 rounded-[3rem] shadow-2xl border-2 border-orange-50 mb-20">
-                <div class="flex items-center gap-3 mb-8">
-                    <i class="fas fa-calculator text-orange-500"></i>
-                    <h3 class="text-sm font-black uppercase tracking-widest text-[#4A2F1B]">Kalkulator Agregasi Otomatis (Solo Raya)</h3>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="text-left space-y-4">
-                        <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Input Kapasitas Produksi (Kg)</label>
-                        <input type="number" id="inputStok" oninput="hitungOtomatis()" placeholder="Contoh: 1500" class="w-full p-5 bg-gray-50 border-2 border-gray-100 rounded-2xl text-2xl font-black focus:border-[#D35400] outline-none">
-                        <p class="text-[9px] text-gray-400 italic leading-relaxed font-bold">*Sistem akan menghitung sisa konsolidasi untuk memenuhi standar pickup 5.000 Kg (Fuso/Tronton).</p>
+        </section>
+
+        <section id="monitor" class="max-w-7xl mx-auto px-6 mb-20">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white p-8 rounded-[2.5rem] border-2 border-gray-100 shadow-xl">
+                    <h3 class="text-sm font-black uppercase mb-6 flex items-center gap-2"><i class="fas fa-calculator text-orange-500"></i> Update Stok</h3>
+                    <div class="space-y-5">
+                        <input type="text" id="inputNama" placeholder="Nama Farm / PIC" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl font-bold focus:border-orange-500 outline-none">
+                        <input type="number" id="inputStok" oninput="hitungVisual()" placeholder="Stok (Kg)" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl text-2xl font-black focus:border-orange-500 outline-none">
+                        <button onclick="submitData('Stok')" class="w-full bg-[#D35400] text-white py-5 rounded-2xl font-black uppercase text-xs shadow-lg">Sinkronisasi Database</button>
                     </div>
-                    <div class="bg-[#4A2F1B] p-8 rounded-3xl text-white">
-                        <p class="text-[10px] font-black text-orange-400 uppercase mb-4">Efisiensi Armada Saat Ini</p>
-                        <div class="text-5xl font-black mb-2" id="displayPersen">0%</div>
-                        <div class="w-full bg-white/10 h-3 rounded-full mb-4">
-                            <div id="progressBar" class="h-full bg-orange-500 w-0 transition-all duration-700"></div>
+                </div>
+                <div class="lg:col-span-2 bg-[#4A2F1B] p-10 rounded-[2.5rem] text-white shadow-2xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h4 class="text-orange-400 font-black uppercase text-[10px] tracking-[0.3em]">Efisiensi Armada Harian (Target 5T)</h4>
+                        <h2 class="text-6xl font-black mt-2 italic" id="displayPersen">0%</h2>
+                        <div class="w-full bg-white/10 h-4 rounded-full my-6 overflow-hidden">
+                            <div id="progressBar" class="h-full bg-orange-500 w-0 transition-all duration-1000"></div>
                         </div>
-                        <p class="text-xs font-bold uppercase italic" id="displaySisaText">Butuh 5,000 Kg Lagi</p>
+                        <p class="text-xl font-black text-white" id="displaySisaText">Butuh 5,000 Kg Lagi</p>
                     </div>
+                    <i class="fas fa-truck-moving absolute -bottom-10 -right-10 text-[15rem] text-white/5 rotate-[-15deg]"></i>
                 </div>
             </div>
         </section>
 
-        <section id="seo-links" class="py-12 bg-white border-y border-gray-100 mb-20">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div class="p-4"><h4 class="text-[10px] font-black text-gray-300 uppercase">Hub Solo</h4><p class="text-xs font-bold">Pusat Agregator Utama</p></div>
-                <div class="p-4"><h4 class="text-[10px] font-black text-gray-300 uppercase">Hub Boyolali</h4><p class="text-xs font-bold">Produksi Farm NKV</p></div>
-                <div class="p-4"><h4 class="text-[10px] font-black text-gray-300 uppercase">Hub Karanganyar</h4><p class="text-xs font-bold">Logistik Jalur Timur</p></div>
-                <div class="p-4"><h4 class="text-[10px] font-black text-gray-300 uppercase">Nasional</h4><p class="text-xs font-bold">Ketahanan Pangan RI</p></div>
-            </div>
-        </section>
-    </main>
-
-    <main id="tab-admin" class="tab-content pt-24 px-6 bg-gray-50 min-h-screen">
-        <div class="max-w-7xl mx-auto py-8">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl font-black uppercase italic text-[#4A2F1B] border-l-8 border-orange-600 pl-4">Command Center: Internal Management</h2>
-                <button onclick="switchTab('home')" class="text-xs font-black text-gray-400 uppercase hover:text-red-500"><i class="fas fa-sign-out-alt"></i> Logout</button>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
-                    <p class="text-[10px] font-black text-gray-400 uppercase mb-2">Total Mitra Farm (Solo Raya)</p>
-                    <div class="text-3xl font-black">852 <span class="text-xs text-green-500">+12 Baru</span></div>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
-                    <p class="text-[10px] font-black text-gray-400 uppercase mb-2">Volume Neraca (Shortage/Surplus)</p>
-                    <div class="text-3xl font-black text-orange-600">+12.4 Ton</div>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
-                    <p class="text-[10px] font-black text-gray-400 uppercase mb-2">Target Ketahanan Pangan</p>
-                    <div class="text-3xl font-black">94.8% <span class="text-xs text-blue-500 italic">Optimal</span></div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-[3rem] p-8 shadow-2xl border border-gray-200 overflow-hidden">
-                <div class="aspect-video w-full">
-                    <iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF" class="w-full h-full border-none"></iframe>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <div id="gate" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 backdrop-blur-md p-4">
-        <div class="bg-white w-full max-w-md rounded-[3rem] p-10 text-center shadow-2xl">
-            <i class="fas fa-shield-halved text-5xl text-orange-600 mb-6"></i>
-            <h2 class="text-xl font-black uppercase italic mb-2 tracking-tighter">Access Internal FreshEgg</h2>
-            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-8 text-center px-4 leading-relaxed italic">Sistem Pilot Project Solo Raya diproteksi oleh Enkripsi Gateway FreshEgg 2026.</p>
-            <input type="password" id="gateKey" placeholder="MASUKKAN KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 border-2 border-transparent focus:border-orange-500 outline-none">
-            <div class="grid grid-cols-2 gap-3">
-                <button onclick="tutupGate()" class="py-4 font-black uppercase text-[10px] tracking-widest text-gray-400">Kembali</button>
-                <button onclick="cekKunci()" class="py-4 bg-[#D35400] text-white rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-lg shadow-orange-200 transition-all hover:scale-105 active:scale-95">Verifikasi</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // LOGIKA PERHITUNGAN OTOMATIS (NON-MANUAL)
-        function hitungOtomatis() {
-            const stok = document.getElementById('inputStok').value || 0;
-            const target = 5000;
-            const persen = (stok / target) * 100;
-            const sisa = target - stok;
-
-            document.getElementById('displayPersen').innerText = Math.round(persen) + "%";
-            document.getElementById('progressBar').style.width = (persen > 100 ? 100 : persen) + "%";
-            document.getElementById('displaySisaText').innerText = sisa <= 0 ? "KUOTA PENUH (SIAP PICKUP)" : `BUTUH ${sisa.toLocaleString()} KG LAGI UNTUK PICKUP`;
-        }
-
-        // LOGIKA PEMILAHAN TAB & LOGIN
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.getElementById('tab-' + tabId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function bukaGate() { document.getElementById('gate').classList.remove('hidden'); }
-        function tutupGate() { document.getElementById('gate').classList.add('hidden'); }
-
-        function cekKunci() {
-            const key = document.getElementById('gateKey').value;
-            // Kunci Pilot Project (Bisa Diganti)
-            if(key === "SOLORAYA2026") {
-                tutupGate();
-                switchTab('admin');
-            } else {
-                alert("KODE AKSES SALAH: Gateway Internal Menolak Permintaan.");
-            }
-        }
-    </script>
-</body>
-                                                                                                                              </html>
-                                                                                                                              
+        <section class="max-w-7xl mx-auto px-6 pb-20">
+            <div class="bg-white rounded-[3rem] p-4 border-2 border-gray-100 shadow-sm">
+                <div class="aspect-video w-full rounded-2xl overflow-hidden">
+                    <iframe
+                        
