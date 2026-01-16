@@ -14,12 +14,14 @@
             url('assets/img/farm.jpg');
             background-size: cover; background-position: center;
         }
+        /* Memastikan logout selalu di atas iframe */
+        #btn-logout { z-index: 9999 !important; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
 
-    <div id="btn-logout" class="fixed bottom-10 right-10 z-[300] hidden">
-        <button onclick="doLogout()" class="bg-red-600 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-black transition-all flex items-center gap-3 border-4 border-white">
+    <div id="btn-logout" class="fixed bottom-10 right-10 hidden">
+        <button onclick="doLogout()" class="bg-red-600 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-black transition-all flex items-center gap-3 border-4 border-white transform hover:scale-105">
             <i class="fas fa-sign-out-alt text-lg"></i> Keluar Sesi Internal
         </button>
     </div>
@@ -66,28 +68,31 @@
                 <p class="text-4xl font-black italic text-gray-900 tracking-tighter uppercase leading-none">Egg-Donation Program</p>
                 <p class="text-lg font-bold text-red-600 mt-2 italic">Aksi Nyata Perangi Stunting Indonesia.</p>
                 <p class="text-xs font-medium text-gray-500 mt-4 leading-relaxed max-w-2xl">
-                    Setiap transaksi di FreshEgg menyisihkan margin untuk distribusi telur GRATIS bagi balita stunting.
+                    FreshEgg mendedikasikan persentase margin untuk distribusi telur gratis bagi balita stunting guna mendukung generasi emas Indonesia.
                 </p>
             </div>
         </div>
     </section>
 
     <section class="max-w-7xl mx-auto px-6 py-20 bg-gray-900 rounded-[4rem] my-10 shadow-2xl">
+        <div class="text-center mb-16 text-white">
+            <h2 class="text-3xl font-black uppercase italic tracking-tighter">3 Pilar <span class="text-orange-500">FreshEgg</span></h2>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all hover:-translate-y-4 hover:border-orange-500">
                 <i class="fas fa-seedling text-white text-5xl mb-6"></i>
-                <h3 class="text-orange-500 font-black text-xl mb-4 italic">1. FARM</h3>
-                <p class="text-gray-400 text-[10px] font-bold uppercase italic">Produsen Telur Ayam Negeri dengan standarisasi NKV & Halal.</p>
+                <h3 class="text-orange-500 font-black text-xl mb-4 italic uppercase">1. Farm</h3>
+                <p class="text-gray-400 text-[10px] font-bold uppercase italic leading-relaxed">Produsen Telur Ayam Negeri (Leghorn) dengan standar NKV & Halal.</p>
             </div>
             <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all hover:-translate-y-4 hover:border-orange-500">
                 <i class="fas fa-truck-moving text-white text-5xl mb-6"></i>
-                <h3 class="text-orange-500 font-black text-xl mb-4 italic">2. CARGO</h3>
-                <p class="text-gray-400 text-[10px] font-bold uppercase italic">Logistik terintegrasi untuk antar-jemput suplai nasional.</p>
+                <h3 class="text-orange-500 font-black text-xl mb-4 italic uppercase">2. Cargo</h3>
+                <p class="text-gray-400 text-[10px] font-bold uppercase italic leading-relaxed">Logistik terintegrasi untuk distribusi tepat waktu ke seluruh Indonesia.</p>
             </div>
             <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all hover:-translate-y-4 hover:border-orange-500">
                 <i class="fas fa-industry text-white text-5xl mb-6"></i>
-                <h3 class="text-orange-500 font-black text-xl mb-4 italic">3. BUYER</h3>
-                <p class="text-gray-400 text-[10px] font-bold uppercase italic">Mitra Industri & Pemerintah penyerap hasil produksi massal.</p>
+                <h3 class="text-orange-500 font-black text-xl mb-4 italic uppercase">3. Buyer</h3>
+                <p class="text-gray-400 text-[10px] font-bold uppercase italic leading-relaxed">Mitra Industri & Pemerintah penyerap hasil produksi untuk program nasional.</p>
             </div>
         </div>
     </section>
@@ -104,10 +109,10 @@
 
     <footer class="bg-[#0a0a0a] text-white py-20 px-6 text-center">
         <span class="text-3xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span>
-        <p class="text-[9px] text-gray-500 mt-10 uppercase tracking-widest">© 2026 FreshEgg Indonesia. Patuh UU PDP & Standar BSSN.</p>
+        <p class="text-[9px] text-gray-500 mt-10 uppercase tracking-widest">© 2026 FreshEgg Indonesia. Patuh UU PDP No. 27/2022 & Standar BSSN.</p>
     </footer>
 
-   <div id="modal-login" class="fixed inset-0 bg-black/95 z-[200] hidden flex items-center justify-center p-4">
+    <div id="modal-login" class="fixed inset-0 bg-black/95 z-[200] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 text-center border-t-8 border-orange-600 shadow-2xl">
             <h2 class="text-2xl font-black uppercase italic mb-8">Access Verification</h2>
             <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 tracking-widest border-none focus:ring-4 focus:ring-orange-100">
@@ -117,10 +122,20 @@
         </div>
     </div>
 
-    <div id="btn-logout" class="fixed bottom-10 right-10 z-[500] hidden">
-        <button onclick="doLogout()" class="bg-red-600 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-black transition-all flex items-center gap-3 border-4 border-white transform hover:scale-105">
-            <i class="fas fa-sign-out-alt text-lg"></i> Keluar Sesi Internal
-        </button>
+    <div id="modal-daftar" class="fixed inset-0 bg-black/95 z-[200] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-[4rem] max-w-lg w-full p-12 shadow-2xl relative">
+            <h2 class="text-3xl font-black mb-6 italic text-center text-gray-800">Pendaftaran Mitra</h2>
+            <form onsubmit="doDaftar(event)" class="space-y-6">
+                <input type="text" id="reg-nama" placeholder="Nama Lengkap / Instansi" required class="w-full p-4 bg-gray-50 rounded-xl font-bold border-none focus:ring-2 focus:ring-orange-500">
+                <select id="reg-klas" required class="w-full p-4 bg-gray-50 rounded-xl font-black text-[10px] uppercase border-none">
+                    <option value="">-- PILIH BIDANG --</option>
+                    <option value="FARM">FARM (PETERNAK)</option>
+                    <option value="BUYER">BUYER (OFFTAKER)</option>
+                </select>
+                <button type="submit" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest">Kirim Data</button>
+            </form>
+            <button onclick="toggleModal('daftar')" class="mt-6 text-center w-full block text-[10px] text-gray-400 font-bold uppercase underline">Kembali</button>
+        </div>
     </div>
 
     <script>
@@ -131,62 +146,46 @@
         function doLogin() {
             const key = document.getElementById('passkey').value.toUpperCase();
             if(key === "FRESHEGG2026") {
-                // 1. Sembunyikan semua elemen website agar tidak berantakan di belakang dashboard
+                // Sembunyikan elemen utama
                 document.querySelector('nav').style.display = 'none';
                 document.querySelector('header').style.display = 'none';
                 document.querySelectorAll('section').forEach(s => s.style.display = 'none');
                 document.querySelector('footer').style.display = 'none';
                 
-                // 2. Buat & Munculkan Iframe Internal Fullscreen
+                // Munculkan Iframe Dashboard Fullscreen
                 const dashFrame = document.createElement('iframe');
                 dashFrame.id = "internal-dashboard";
                 dashFrame.src = "https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF";
-                dashFrame.setAttribute("style", "fixed; position:fixed; top:0; left:0; width:100%; height:100%; z-index:400; border:none;");
+                dashFrame.setAttribute("style", "position:fixed; top:0; left:0; width:100%; height:100%; z-index:500; border:none;");
                 document.body.appendChild(dashFrame);
 
-                // 3. Paksa Tombol Logout Muncul di Atas Iframe
+                // Munculkan Tombol Logout & Lock Scroll
                 document.getElementById('btn-logout').classList.remove('hidden');
-                toggleModal('login');
-                
-                // 4. Mencegah Scroll
                 document.body.style.overflow = 'hidden';
+                toggleModal('login');
             } else { 
                 alert("Akses Ditolak! Kode Salah."); 
             }
         }
 
         function doLogout() {
-            if(confirm("Apakah Anda ingin menutup dashboard operasional ini?")) {
-                // Hapus Iframe Dashboard
+            if(confirm("Keluar dari Portal Internal?")) {
                 const frame = document.getElementById('internal-dashboard');
                 if(frame) frame.remove();
 
-                // Munculkan kembali semua elemen website
+                // Kembalikan elemen utama
                 document.querySelector('nav').style.display = 'block';
                 document.querySelector('header').style.display = 'block';
                 document.querySelectorAll('section').forEach(s => s.style.display = 'block');
                 document.querySelector('footer').style.display = 'block';
 
-                // Sembunyikan Tombol Logout & Reset Body
                 document.getElementById('btn-logout').classList.add('hidden');
                 document.getElementById('passkey').value = "";
                 document.body.style.overflow = 'auto';
-                
-                // Kembali ke atas
                 window.scrollTo(0,0);
             }
         }
 
-        function doDaftar(e) {
-            e.preventDefault();
-            const nama = document.getElementById('reg-nama').value;
-            const msg = `Halo Admin FreshEgg, saya ${nama} daftar kemitraan.`;
-            window.open(`https://wa.me/628121515633?text=${encodeURIComponent(msg)}`, '_blank');
-            toggleModal('daftar');
-        }
-    </script>
-</body>
-</html>
         function doDaftar(e) {
             e.preventDefault();
             const nama = document.getElementById('reg-nama').value;
