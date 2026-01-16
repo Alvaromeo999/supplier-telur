@@ -16,63 +16,13 @@
         }
     </style>
 </head>
+<body class="bg-gray-50 font-sans text-gray-900">
 
-<div id="btn-logout" class="fixed bottom-10 right-10 z-[300] hidden">
+    <div id="btn-logout" class="fixed bottom-10 right-10 z-[300] hidden">
         <button onclick="doLogout()" class="bg-red-600 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-black transition-all flex items-center gap-3 border-4 border-white">
             <i class="fas fa-sign-out-alt text-lg"></i> Keluar Sesi Internal
         </button>
     </div>
-
-    <script>
-        // FUNGSI LOGIN YANG DIPERBARUI
-        function doLogin() {
-            const key = document.getElementById('passkey').value.toUpperCase();
-            if(key === "FRESHEGG2026") {
-                // Sembunyikan Navigasi & Hero agar fokus ke Dashboard
-                document.querySelector('nav').classList.add('hidden');
-                document.querySelector('header').classList.add('hidden');
-                document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
-                document.querySelector('footer').classList.add('hidden');
-                
-                // Tampilkan Iframe Dashboard secara Fullscreen
-                const dashFrame = document.createElement('iframe');
-                dashFrame.id = "internal-dashboard";
-                dashFrame.src = "https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF";
-                dashFrame.className = "fixed inset-0 w-full h-full z-[250] border-none";
-                document.body.appendChild(dashFrame);
-
-                // Munculkan Tombol Logout
-                document.getElementById('btn-logout').classList.remove('hidden');
-                toggleModal('login');
-            } else { 
-                alert("Akses Ditolak! Kode Salah."); 
-            }
-        }
-
-        // FUNGSI LOGOUT (RESET TAMPILAN)
-        function doLogout() {
-            if(confirm("Apakah Anda yakin ingin keluar dari Portal Internal?")) {
-                // Hapus Iframe
-                const frame = document.getElementById('internal-dashboard');
-                if(frame) frame.remove();
-
-                // Munculkan kembali semua elemen website
-                document.querySelector('nav').classList.remove('hidden');
-                document.querySelector('header').classList.remove('hidden');
-                document.querySelectorAll('section').forEach(s => s.classList.remove('hidden'));
-                document.querySelector('footer').classList.remove('hidden');
-
-                // Sembunyikan tombol logout & reset password field
-                document.getElementById('btn-logout').classList.add('hidden');
-                document.getElementById('passkey').value = "";
-                
-                // Scroll ke atas
-                window.scrollTo(0,0);
-            }
-        }
-    </script>
-    
-<body class="bg-gray-50 font-sans text-gray-900">
 
     <nav class="bg-white sticky top-0 z-[100] border-b-2 border-orange-500 px-4 py-4 shadow-lg">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -116,47 +66,28 @@
                 <p class="text-4xl font-black italic text-gray-900 tracking-tighter uppercase leading-none">Egg-Donation Program</p>
                 <p class="text-lg font-bold text-red-600 mt-2 italic">Aksi Nyata Perangi Stunting Indonesia.</p>
                 <p class="text-xs font-medium text-gray-500 mt-4 leading-relaxed max-w-2xl">
-                    FreshEgg mendedikasikan persentase dari setiap transaksi suplai nasional untuk distribusi protein telur berkualitas tinggi bagi balita dan keluarga rentan.
+                    Setiap transaksi di FreshEgg menyisihkan margin untuk distribusi telur GRATIS bagi balita stunting.
                 </p>
             </div>
         </div>
     </section>
 
     <section class="max-w-7xl mx-auto px-6 py-20 bg-gray-900 rounded-[4rem] my-10 shadow-2xl">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-black uppercase italic tracking-tighter text-white">3 Pilar <span class="text-orange-500">FreshEgg</span></h2>
-            <p class="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-[0.3em]">Intelligence Supply Chain Flow</p>
-        </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all duration-500 hover:-translate-y-4 hover:border-orange-500 hover:shadow-[0_20px_50px_rgba(234,88,12,0.3)]">
-                <div class="text-white text-5xl mb-6 transition-transform group-hover:scale-110">
-                    <i class="fas fa-seedling"></i>
-                </div>
-                <h3 class="text-orange-500 font-black text-xl uppercase italic mb-4">1. FARM</h3>
-                <p class="text-gray-400 text-[10px] font-bold leading-relaxed uppercase italic">
-                    Produsen Telur Ayam Negeri (Leghorn) dengan standarisasi NKV & Halal Indonesia.
-                </p>
+            <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all hover:-translate-y-4 hover:border-orange-500">
+                <i class="fas fa-seedling text-white text-5xl mb-6"></i>
+                <h3 class="text-orange-500 font-black text-xl mb-4 italic">1. FARM</h3>
+                <p class="text-gray-400 text-[10px] font-bold uppercase italic">Produsen Telur Ayam Negeri dengan standarisasi NKV & Halal.</p>
             </div>
-
-            <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all duration-500 hover:-translate-y-4 hover:border-orange-500 hover:shadow-[0_20px_50px_rgba(234,88,12,0.3)]">
-                <div class="text-white text-5xl mb-6 transition-transform group-hover:scale-110">
-                    <i class="fas fa-truck-moving"></i>
-                </div>
-                <h3 class="text-orange-500 font-black text-xl uppercase italic mb-4">2. CARGO</h3>
-                <p class="text-gray-400 text-[10px] font-bold leading-relaxed uppercase italic">
-                    Armada logistik terintegrasi. Siap antar-jemput suplai tepat waktu sampai ke tujuan.
-                </p>
+            <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all hover:-translate-y-4 hover:border-orange-500">
+                <i class="fas fa-truck-moving text-white text-5xl mb-6"></i>
+                <h3 class="text-orange-500 font-black text-xl mb-4 italic">2. CARGO</h3>
+                <p class="text-gray-400 text-[10px] font-bold uppercase italic">Logistik terintegrasi untuk antar-jemput suplai nasional.</p>
             </div>
-
-            <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all duration-500 hover:-translate-y-4 hover:border-orange-500 hover:shadow-[0_20px_50px_rgba(234,88,12,0.3)]">
-                <div class="text-white text-5xl mb-6 transition-transform group-hover:scale-110">
-                    <i class="fas fa-industry"></i>
-                </div>
-                <h3 class="text-orange-500 font-black text-xl uppercase italic mb-4">3. BUYER</h3>
-                <p class="text-gray-400 text-[10px] font-bold leading-relaxed uppercase italic">
-                    Mitra Industri & Pemerintah. Siap menyerap hasil untuk program sosial atau industri olahan.
-                </p>
+            <div class="group bg-black border border-white/10 p-10 rounded-[3rem] transition-all hover:-translate-y-4 hover:border-orange-500">
+                <i class="fas fa-industry text-white text-5xl mb-6"></i>
+                <h3 class="text-orange-500 font-black text-xl mb-4 italic">3. BUYER</h3>
+                <p class="text-gray-400 text-[10px] font-bold uppercase italic">Mitra Industri & Pemerintah penyerap hasil produksi massal.</p>
             </div>
         </div>
     </section>
@@ -171,72 +102,15 @@
         </div>
     </section>
 
-    <section class="max-w-4xl mx-auto px-6 py-10">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-black uppercase italic tracking-tighter text-gray-800 text-center">Pusat Informasi <span class="text-orange-600">(FAQ)</span></h2>
-            <p class="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-[0.2em] text-center">Jawaban Otomatis Untuk Publik & Calon Mitra</p>
-        </div>
-        <div class="space-y-4 text-center md:text-left">
-            <details class="group bg-white rounded-[2rem] shadow-md border border-gray-100 p-6 transition-all hover:shadow-lg">
-                <summary class="list-none flex justify-between items-center cursor-pointer font-black text-[11px] uppercase tracking-widest text-gray-700">
-                    1. Bagaimana Cara Menjadi Mitra (Farm/Buyer)?
-                    <span class="text-orange-600 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
-                </summary>
-                <p class="mt-4 text-xs font-medium text-gray-500 leading-relaxed border-t pt-4 italic text-left">
-                    Klik tombol "Kemitraan" di atas, isi data, dan kirim via WhatsApp. Setelah verifikasi dokumen legal (OSS/NIB), tim kami akan memberikan kode akses Portal Internal.
-                </p>
-            </details>
-            <details class="group bg-white rounded-[2rem] shadow-md border border-gray-100 p-6 transition-all hover:shadow-lg">
-                <summary class="list-none flex justify-between items-center cursor-pointer font-black text-[11px] uppercase tracking-widest text-gray-700">
-                    2. Apa Itu Program CSR EggDonation?
-                    <span class="text-orange-600 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
-                </summary>
-                <p class="mt-4 text-xs font-medium text-gray-500 leading-relaxed border-t pt-4 italic text-left">
-                    Setiap transaksi di FreshEgg menyisihkan persentase margin secara otomatis untuk distribusi telur protein tinggi GRATIS bagi balita stunting di Wonogiri.
-                </p>
-            </details>
-        </div>
-    </section>
-
-    <section class="max-w-4xl mx-auto px-6 py-10">
-        <div class="text-center mb-12">
-            <a href="assets/img/farm.jpg" download="Brosur-FreshEgg-2026" class="inline-flex items-center gap-4 bg-orange-600 text-white px-10 py-5 rounded-[2rem] text-[11px] font-black uppercase tracking-[0.2em] hover:bg-black transition shadow-2xl">
-                <i class="fas fa-file-download text-xl"></i> Unduh Brosur Digital
-            </a>
-            <p class="text-[9px] font-bold text-gray-400 mt-4 uppercase tracking-widest italic text-center text-center">Format: Digital High-Res (Ready for Print)</p>
-        </div>
-
-        <div class="bg-gray-50 p-8 rounded-[2.5rem] border-l-8 border-orange-600 shadow-sm">
-            <h3 class="text-[10px] font-black uppercase tracking-[0.3em] text-orange-600 mb-3 italic">Sanggahan Resmi (Disclaimer)</h3>
-            <p class="text-[9px] text-gray-500 leading-relaxed uppercase font-bold italic text-left">
-                Seluruh data operasional, stok, dan distribusi yang disajikan bersifat transparan guna mendukung Program Ketahanan Pangan Nasional. Kami menjamin kerahasiaan data pribadi mitra sesuai UU PDP No. 27 Tahun 2022.
-            </p>
-        </div>
-    </section>
-
-    <footer class="bg-[#0a0a0a] text-white py-20 px-6 border-t border-orange-600/30 text-center">
-        <div class="max-w-7xl mx-auto">
-            <span class="text-3xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span>
-            <p class="text-[10px] text-gray-500 font-bold tracking-[0.5em] uppercase mt-4">Agregator & Offtaker Terintegrasi</p>
-            <div class="flex justify-center gap-8 my-10 text-3xl opacity-60">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-            </div>
-            <div class="max-w-4xl mx-auto border-t border-white/5 pt-10">
-                <p class="text-[9px] text-gray-500 uppercase tracking-widest leading-loose">
-                    © 2026 FreshEgg Indonesia. Hak Cipta Dilindungi Undang-Undang. <br>
-                    Patuh UU No. 27 Tahun 2022 (PDP) & Standar Siber BSSN.
-                </p>
-            </div>
-        </div>
+    <footer class="bg-[#0a0a0a] text-white py-20 px-6 text-center">
+        <span class="text-3xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span>
+        <p class="text-[9px] text-gray-500 mt-10 uppercase tracking-widest">© 2026 FreshEgg Indonesia. Patuh UU PDP & Standar BSSN.</p>
     </footer>
 
     <div id="modal-login" class="fixed inset-0 bg-black/95 z-[200] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 text-center border-t-8 border-orange-600">
             <h2 class="text-2xl font-black uppercase italic mb-8">Access Verification</h2>
-            <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 border-none focus:ring-4 focus:ring-orange-100 tracking-widest">
+            <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 tracking-widest">
             <div class="cf-turnstile flex justify-center mb-6" data-sitekey="0x4AAAAAACMb-1Fb8DGvDYm3"></div>
             <button onclick="doLogin()" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest">Masuk Sesi</button>
             <button onclick="toggleModal('login')" class="mt-4 text-[10px] font-bold text-gray-300 uppercase">Tutup</button>
@@ -245,10 +119,10 @@
 
     <div id="modal-daftar" class="fixed inset-0 bg-black/95 z-[200] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-[4rem] max-w-lg w-full p-12 shadow-2xl relative">
-            <h2 class="text-3xl font-black mb-2 italic">Pendaftaran Mitra</h2>
-            <form onsubmit="doDaftar(event)" class="space-y-6 text-left">
-                <input type="text" id="reg-nama" placeholder="Nama Lengkap / Instansi" required class="w-full p-4 bg-gray-50 rounded-xl border-none font-bold">
-                <select id="reg-klas" required class="w-full p-4 bg-gray-50 rounded-xl border-none font-black text-[10px] uppercase">
+            <h2 class="text-3xl font-black mb-2 italic text-center">Pendaftaran Mitra</h2>
+            <form onsubmit="doDaftar(event)" class="space-y-6">
+                <input type="text" id="reg-nama" placeholder="Nama Lengkap / Instansi" required class="w-full p-4 bg-gray-50 rounded-xl font-bold">
+                <select id="reg-klas" required class="w-full p-4 bg-gray-50 rounded-xl font-black text-[10px] uppercase">
                     <option value="">-- PILIH BIDANG --</option>
                     <option value="FARM">FARM (PETERNAK)</option>
                     <option value="BUYER">BUYER (OFFTAKER)</option>
@@ -260,13 +134,50 @@
     </div>
 
     <script>
-        function toggleModal(id) { document.getElementById('modal-' + id).classList.toggle('hidden'); }
+        function toggleModal(id) { 
+            document.getElementById('modal-' + id).classList.toggle('hidden'); 
+        }
+
         function doLogin() {
             const key = document.getElementById('passkey').value.toUpperCase();
             if(key === "FRESHEGG2026") {
-                window.location.href = "https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF";
-            } else { alert("Akses Ditolak!"); }
+                // 1. Sembunyikan elemen publik
+                document.querySelector('nav').classList.add('hidden');
+                document.querySelector('header').classList.add('hidden');
+                document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+                document.querySelector('footer').classList.add('hidden');
+                
+                // 2. Buat & Munculkan Iframe Internal
+                const dashFrame = document.createElement('iframe');
+                dashFrame.id = "internal-dashboard";
+                dashFrame.src = "https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF";
+                dashFrame.className = "fixed inset-0 w-full h-full z-[250] border-none";
+                document.body.appendChild(dashFrame);
+
+                // 3. Munculkan Tombol Logout
+                document.getElementById('btn-logout').classList.remove('hidden');
+                toggleModal('login');
+            } else { 
+                alert("Akses Ditolak! Kode Salah."); 
+            }
         }
+
+        function doLogout() {
+            if(confirm("Keluar dari Portal Internal?")) {
+                const frame = document.getElementById('internal-dashboard');
+                if(frame) frame.remove();
+
+                document.querySelector('nav').classList.remove('hidden');
+                document.querySelector('header').classList.remove('hidden');
+                document.querySelectorAll('section').forEach(s => s.classList.remove('hidden'));
+                document.querySelector('footer').classList.remove('hidden');
+
+                document.getElementById('btn-logout').classList.add('hidden');
+                document.getElementById('passkey').value = "";
+                window.scrollTo(0,0);
+            }
+        }
+
         function doDaftar(e) {
             e.preventDefault();
             const nama = document.getElementById('reg-nama').value;
