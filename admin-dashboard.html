@@ -3,50 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshEgg | Internal Admin Command Center</title>
+    <title>FreshEgg | Management Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        iframe { width: 100%; height: 500px; border: none; border-radius: 1.5rem; background: white; }
-        .tab-btn.active { background: #F5A623; color: black; }
+        iframe { width: 100%; height: 600px; border: none; border-radius: 2rem; background: #fff; }
+        .tab-btn.active { background: #000; color: #fff; }
     </style>
 </head>
-<body class="bg-gray-100 font-sans p-4 md:p-8">
+<body class="bg-gray-100 font-sans p-6 md:p-10 text-gray-900">
 
     <div class="max-w-7xl mx-auto">
-        <header class="flex justify-between items-center mb-10 bg-white p-6 rounded-[2rem] shadow-sm">
+        <header class="flex justify-between items-center mb-10 bg-white p-6 rounded-[2.5rem] shadow-sm">
             <div>
-                <h1 class="text-2xl font-black uppercase italic tracking-tighter text-gray-900">Live Fresh<span class="text-orange-500">Egg</span> Support</h1>
-                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em]">Management Access Only</p>
+                <h1 class="text-2xl font-black italic uppercase tracking-tighter">Live Fresh<span class="text-orange-500">Egg</span> Support</h1>
+                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.3em]">Intelligent Supply Chain Management</p>
             </div>
-            <button onclick="window.location.href='index.html'" class="bg-black text-white px-6 py-2 rounded-xl text-xs font-bold uppercase">Logout</button>
+            <button onclick="window.location.href='index.html'" class="text-[10px] font-bold text-red-500 border border-red-500 px-4 py-2 rounded-xl">LOGOUT</button>
         </header>
 
-        <div class="flex flex-wrap gap-4 mb-8">
-            <button onclick="showDB('farm')" id="btn-farm" class="tab-btn active px-6 py-3 rounded-2xl font-black uppercase text-[10px] shadow-sm bg-white">1. Dashboard FARM</button>
-            <button onclick="showDB('buyer')" id="btn-buyer" class="tab-btn px-6 py-3 rounded-2xl font-black uppercase text-[10px] shadow-sm bg-white">2. Dashboard BUYER</button>
-            <button onclick="showDB('neraca')" id="btn-neraca" class="tab-btn px-6 py-3 rounded-2xl font-black uppercase text-[10px] shadow-sm bg-white">3. Dashboard NERACA</button>
+        <div class="flex flex-wrap gap-3 mb-10">
+            <button onclick="showTab('farm')" id="btn-farm" class="tab-btn active px-8 py-3 rounded-2xl font-black uppercase text-[10px] bg-white shadow-sm">📊 Dashboard Farm</button>
+            <button onclick="showTab('buyer')" id="btn-buyer" class="tab-btn px-8 py-3 rounded-2xl font-black uppercase text-[10px] bg-white shadow-sm">📦 Dashboard Buyer</button>
+            <button onclick="showTab('neraca')" id="btn-neraca" class="tab-btn px-8 py-3 rounded-2xl font-black uppercase text-[10px] bg-white shadow-sm">⚖️ Neraca Supply-Demand</button>
         </div>
 
-        <div class="space-y-6 shadow-2xl">
-            <div id="db-farm" class="db-view">
-                <iframe src="https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF"></iframe>
-            </div>
-            <div id="db-buyer" class="db-view hidden">
-                <iframe src="https://lookerstudio.google.com/embed/reporting/c3198c7f-57fe-4fa5-977f-c8bc72b28215/page/pnDlF"></iframe>
-            </div>
-            <div id="db-neraca" class="db-view hidden">
-                <iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF"></iframe>
-            </div>
+        <div id="tab-farm" class="tab-view shadow-2xl">
+            <iframe src="https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF"></iframe>
+        </div>
+        <div id="tab-buyer" class="tab-view hidden shadow-2xl">
+            <iframe src="https://lookerstudio.google.com/embed/reporting/c3198c7f-57fe-4fa5-977f-c8bc72b28215/page/pnDlF"></iframe>
+        </div>
+        <div id="tab-neraca" class="tab-view hidden shadow-2xl">
+            <iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF"></iframe>
         </div>
     </div>
 
     <script>
-        function showDB(type) {
-            document.querySelectorAll('.db-view').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active', 'bg-orange-500'));
-            
-            document.getElementById('db-' + type).classList.remove('hidden');
-            document.getElementById('btn-' + type).classList.add('active');
+        function showTab(id) {
+            document.querySelectorAll('.tab-view').forEach(v => v.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'bg-black', 'text-white'));
+            document.getElementById('tab-' + id).classList.remove('hidden');
+            document.getElementById('btn-' + id).classList.add('active', 'bg-black', 'text-white');
         }
     </script>
 </body>
