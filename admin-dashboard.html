@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>FreshEgg | Internal Admin Dashboard</title>
-<meta name="robots" content="noindex,nofollow">
-<style>
-body{margin:0;font-family:Arial;background:#f4f4f4}
-nav{background:#F5A623;color:#fff;padding:16px;font-weight:bold}
-.section{padding:24px}
-iframe{width:100%;height:520px;border:none;border-radius:8px}
-.notice{
- background:#fff3cd;
- border-left:5px solid #F5A623;
- padding:14px;
- margin-bottom:16px;
- font-size:14px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshEgg | Internal Admin Command Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        iframe { width: 100%; height: 500px; border: none; border-radius: 1.5rem; background: white; }
+        .tab-btn.active { background: #F5A623; color: black; }
+    </style>
 </head>
+<body class="bg-gray-100 font-sans p-4 md:p-8">
 
-<body>
+    <div class="max-w-7xl mx-auto">
+        <header class="flex justify-between items-center mb-10 bg-white p-6 rounded-[2rem] shadow-sm">
+            <div>
+                <h1 class="text-2xl font-black uppercase italic tracking-tighter text-gray-900">Live Fresh<span class="text-orange-500">Egg</span> Support</h1>
+                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em]">Management Access Only</p>
+            </div>
+            <button onclick="window.location.href='index.html'" class="bg-black text-white px-6 py-2 rounded-xl text-xs font-bold uppercase">Logout</button>
+        </header>
 
-<nav>🔒 FRESHEGG — INTERNAL ADMIN SYSTEM</nav>
+        <div class="flex flex-wrap gap-4 mb-8">
+            <button onclick="showDB('farm')" id="btn-farm" class="tab-btn active px-6 py-3 rounded-2xl font-black uppercase text-[10px] shadow-sm bg-white">1. Dashboard FARM</button>
+            <button onclick="showDB('buyer')" id="btn-buyer" class="tab-btn px-6 py-3 rounded-2xl font-black uppercase text-[10px] shadow-sm bg-white">2. Dashboard BUYER</button>
+            <button onclick="showDB('neraca')" id="btn-neraca" class="tab-btn px-6 py-3 rounded-2xl font-black uppercase text-[10px] shadow-sm bg-white">3. Dashboard NERACA</button>
+        </div>
 
-<div class="section">
-<div class="notice">
-⚠️ Halaman ini hanya untuk INTERNAL FreshEgg.  
-Semua data bersifat operasional & tidak untuk publik.
-</div>
+        <div class="space-y-6 shadow-2xl">
+            <div id="db-farm" class="db-view">
+                <iframe src="https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF"></iframe>
+            </div>
+            <div id="db-buyer" class="db-view hidden">
+                <iframe src="https://lookerstudio.google.com/embed/reporting/c3198c7f-57fe-4fa5-977f-c8bc72b28215/page/pnDlF"></iframe>
+            </div>
+            <div id="db-neraca" class="db-view hidden">
+                <iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF"></iframe>
+            </div>
+        </div>
+    </div>
 
-<h3>📊 Dashboard FARM</h3>
-<iframe src="https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF"
- sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
-
-<h3>📦 Dashboard BUYER</h3>
-<iframe src="https://lookerstudio.google.com/embed/reporting/c3198c7f-57fe-4fa5-977f-c8bc72b28215/page/pnDlF"
- sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
-
-<h3>⚖️ Neraca Supply–Demand</h3>
-<iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF"
- sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
-
-</div>
+    <script>
+        function showDB(type) {
+            document.querySelectorAll('.db-view').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active', 'bg-orange-500'));
+            
+            document.getElementById('db-' + type).classList.remove('hidden');
+            document.getElementById('btn-' + type).classList.add('active');
+        }
+    </script>
 </body>
 </html>
