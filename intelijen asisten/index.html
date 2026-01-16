@@ -1,0 +1,23 @@
+import pandas as pd
+import requests
+
+# KONFIGURASI PUSAT DATA
+SHEET_URL = "https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/export?format=csv"
+WA_API = "https://api.whatsapp.com/send"
+
+def check_stunting_target():
+    try:
+        df = pd.read_csv(SHEET_URL)
+        total_donasi = df['Stok_Donasi'].sum()
+        
+        # LOGIKA PERINGATAN (DEBUG)
+        print(f"DEBUG: Total Donasi Wonogiri Aktif: {total_donasi} Kg")
+        
+        if total_donasi < 100:
+            print("WARNING: Alokasi CSR Stunting Wonogiri di bawah target!")
+            
+    except Exception as e:
+        print(f"Error Database: {e}")
+
+if __name__ == "__main__":
+    check_stunting_target()
