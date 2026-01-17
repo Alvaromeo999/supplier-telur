@@ -129,15 +129,40 @@
 
     <div id="modal-daftar" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
         <div class="bg-white rounded-[4rem] max-w-lg w-full p-12 shadow-2xl">
-            <h2 class="text-2xl font-black mb-10 italic uppercase">Kategori Kemitraan</h2>
+            <h2 class="text-2xl font-black mb-10 italic uppercase tracking-tighter text-gray-800">Kategori Kemitraan Strategis</h2>
+            
             <div class="grid grid-cols-1 gap-4 font-black uppercase text-[10px] tracking-widest">
-                <button onclick="window.open('LINK_GFORM_FARM', '_blank')" class="bg-gray-100 p-5 rounded-2xl hover:bg-orange-600 hover:text-white transition-all">Pendaftaran FARM</button>
-                <button onclick="window.open('LINK_GFORM_CARGO', '_blank')" class="bg-gray-100 p-5 rounded-2xl hover:bg-orange-600 hover:text-white transition-all">Pendaftaran CARGO</button>
-                <button onclick="window.open('LINK_GFORM_BUYER', '_blank')" class="bg-gray-100 p-5 rounded-2xl hover:bg-orange-600 hover:text-white transition-all">Pendaftaran BUYER</button>
+                <a href="https://forms.gle/JVfEp4Y4G7gz9kgj8" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all flex items-center justify-center gap-4 border-b-4 border-gray-200">
+                    <i class="fas fa-egg text-xl"></i> Pendaftaran FARM (PETERNAK)
+                </a>
+                
+                <a href="https://forms.gle/o8qdEekLoEHjzvQE6" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all flex items-center justify-center gap-4 border-b-4 border-gray-200">
+                    <i class="fas fa-truck text-xl"></i> Pendaftaran CARGO (LOGISTIK)
+                </a>
+                
+                <a href="https://forms.gle/MaVNE9SZLGhiYs1D8" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all flex items-center justify-center gap-4 border-b-4 border-gray-200">
+                    <i class="fas fa-shopping-cart text-xl"></i> Pendaftaran BUYER (PEMBELI)
+                </a>
             </div>
-            <button onclick="toggleModal('daftar')" class="mt-10 text-[10px] font-bold text-gray-400 uppercase underline">Batal</button>
+            
+            <button onclick="toggleModal('daftar')" class="mt-10 text-[10px] font-bold text-gray-400 uppercase underline tracking-[0.2em]">Batal / Kembali</button>
         </div>
     </div>
+
+    <div id="modal-login" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
+        <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 border-t-8 border-orange-600 shadow-2xl">
+            <h2 class="text-2xl font-black uppercase italic mb-8 tracking-tighter">Access Verification</h2>
+            <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 tracking-widest border-none focus:ring-4 focus:ring-orange-100">
+            <button onclick="doLogin()" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-xl hover:bg-orange-600 transition-all">Masuk Portal</button>
+            <button onclick="toggleModal('login')" class="mt-6 block w-full text-[10px] font-bold text-gray-300 uppercase">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        // ... (Pastikan fungsi toggleModal, doLogin, dan doLogout ada di sini) ...
+    </script>
+</body>
+</html>
 
     <div id="modal-login" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
         <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 border-t-8 border-orange-600 shadow-2xl">
