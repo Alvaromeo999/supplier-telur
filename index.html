@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         .hidden { display: none !important; }
+        /* Memanggil file farm.jpg milik Bapak */
         .hero-bg { 
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('assets/img/farm.jpg');
             background-size: cover; background-position: center;
         }
         #internal-portal { position: fixed; inset: 0; background: #f3f4f6; z-index: 9999; display: none; }
@@ -35,21 +36,21 @@
         <nav class="bg-white sticky top-0 z-[100] border-b-2 border-orange-500 px-4 py-4 shadow-lg">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
                 <div class="flex flex-col">
-                    <span class="text-xl md:text-2xl font-black italic uppercase text-gray-900">Fresh<span class="text-orange-600">Egg</span></span>
-                    <span class="text-[7px] font-bold text-gray-400 tracking-widest uppercase italic">National Supply Chain Intelligence</span>
+                    <span class="text-xl md:text-2xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span>
+                    <span class="text-[7px] font-bold text-gray-400 tracking-widest uppercase italic leading-none">National Supply Chain Intelligence</span>
                 </div>
-                <div class="flex items-center gap-4">
-                    <button onclick="toggleModal('daftar')" class="text-orange-600 border border-orange-600 px-3 py-2 rounded-lg font-black text-[9px] uppercase hover:bg-orange-50">Kemitraan</button>
-                    <button onclick="toggleModal('login')" class="bg-orange-600 text-white px-4 py-2 rounded-xl shadow-xl font-black text-[9px] uppercase hover:bg-black transition">Portal Internal</button>
+                <div class="flex items-center gap-4 font-black text-[9px] uppercase">
+                    <button onclick="toggleModal('daftar')" class="text-orange-600 border border-orange-600 px-3 py-2 rounded-lg hover:bg-orange-50">Kemitraan</button>
+                    <button onclick="toggleModal('login')" class="bg-orange-600 text-white px-4 py-2 rounded-xl shadow-xl">Portal Internal</button>
                 </div>
             </div>
         </nav>
 
         <header class="hero-bg text-white py-32 px-6 text-center border-b-8 border-orange-600">
-            <h1 class="text-5xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none text-white">Leghorn <span class="text-orange-500 font-black text-white">Intelligence</span></h1>
+            <h1 class="text-5xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none">Leghorn <span class="text-orange-500 font-black">Intelligence</span></h1>
             <div class="flex justify-center">
                 <a href="https://freshegg.web.id/cargo-dashboard" class="bg-white text-black px-10 py-6 rounded-3xl font-black uppercase text-[12px] tracking-widest shadow-2xl flex items-center gap-4 border-b-8 border-gray-300 hover:bg-orange-600 hover:text-white transition-all transform hover:-translate-y-1">
-                    <i class="fas fa-truck-loading text-2xl text-orange-600 hover:text-white"></i> Sistem Antar Jemput (QR & Print)
+                    <i class="fas fa-truck-loading text-2xl text-orange-600"></i> Sistem Antar Jemput (QR & Print)
                 </a>
             </div>
         </header>
@@ -57,53 +58,41 @@
         <section class="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="border-l-8 border-orange-600 pl-8">
                 <h2 class="text-3xl font-black italic uppercase mb-4">Visi & Misi</h2>
-                <p class="text-md font-bold italic uppercase text-gray-700">Mewujudkan Kedaulatan Pangan Nasional Melalui Distribusi Telur yang Adil.</p>
+                <p class="text-md font-bold italic uppercase text-gray-700 leading-tight">Mewujudkan Kedaulatan Pangan Nasional Melalui Distribusi Telur Berbasis Digital yang Transparan.</p>
             </div>
             <div class="bg-white p-10 rounded-[3rem] shadow-2xl border-b-8 border-red-600 flex items-center gap-6">
                 <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl animate-pulse"><i class="fas fa-heart"></i></div>
                 <div>
                     <h2 class="text-2xl font-black italic uppercase text-gray-900 leading-none">Egg-Donation Program</h2>
-                    <p class="text-[9px] font-black text-red-600 mt-1 italic uppercase">Aksi Nyata Perangi Stunting Nasional.</p>
+                    <p class="text-[9px] font-black text-red-600 mt-1 italic uppercase leading-none">Aksi Nyata Perangi Stunting Nasional.</p>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 bg-gray-100">
-            <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-2xl font-black uppercase italic mb-10 text-center">Informasi <span class="text-orange-600">(FAQ)</span></h2>
-                <div class="space-y-4">
-                    <details class="bg-white p-6 rounded-3xl shadow-sm cursor-pointer">
-                        <summary class="font-black text-[10px] uppercase tracking-widest">Cara Daftar Mitra?</summary>
-                        <p class="mt-4 text-xs font-bold text-gray-500 italic">Pilih kategori pendaftaran, isi Google Form, dan sistem Fonnte akan mengirim notifikasi ke WA Anda.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <footer class="bg-black text-white py-20 px-6 text-center">
-            <span class="text-3xl font-black italic uppercase text-white leading-none">Fresh<span class="text-orange-600">Egg</span></span>
+        <footer class="bg-black text-white py-20 px-6 text-center border-t-4 border-orange-600">
+            <span class="text-3xl font-black italic uppercase leading-none">Fresh<span class="text-orange-600">Egg</span></span>
             <div class="max-w-4xl mx-auto mt-10 p-8 bg-white/10 rounded-3xl text-left border border-white/10">
-                <p class="text-[9px] text-gray-400 font-bold uppercase italic leading-loose">Legal Disclaimer: Tunduk pada UU PDP No. 27/2022. Seluruh data transaksi dienkripsi otomatis guna mendukung ketahanan pangan nasional.</p>
+                <p class="text-[9px] text-gray-400 font-bold uppercase italic leading-loose">Legal Disclaimer: Tunduk pada UU PDP No. 27/2022. Data dienkripsi guna mendukung ketahanan pangan nasional.</p>
             </div>
-            <p class="text-[9px] text-gray-700 mt-10 uppercase tracking-widest font-black">© 2026 FreshEgg Indonesia - Wonogiri Pilot Project</p>
+            <p class="text-[9px] text-gray-700 mt-10 uppercase tracking-widest font-black italic leading-none">© 2026 FreshEgg Indonesia - Wonogiri Pilot Project</p>
         </footer>
     </div>
 
     <div id="modal-daftar" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
         <div class="bg-white rounded-[4rem] max-w-lg w-full p-12 shadow-2xl">
-            <h2 class="text-2xl font-black mb-10 italic uppercase text-gray-800 tracking-tighter">Kemitraan Strategis</h2>
-            <div class="grid grid-cols-1 gap-4 font-black uppercase text-[11px] tracking-widest">
+            <h2 class="text-2xl font-black mb-10 italic uppercase text-gray-800 tracking-tighter leading-none">Kemitraan Strategis</h2>
+            <div class="grid grid-cols-1 gap-4 font-black uppercase text-[11px] tracking-widest leading-none text-center">
                 <a href="https://forms.gle/JVfEp4Y4G7gz9kgj8" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all border-b-4 border-gray-200">Daftar sebagai FARM</a>
                 <a href="https://forms.gle/o8qdEekLoEHjzvQE6" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all border-b-4 border-gray-200">Daftar sebagai CARGO</a>
                 <a href="https://forms.gle/MaVNE9SZLGhiYs1D8" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all border-b-4 border-gray-200">Daftar sebagai BUYER</a>
             </div>
-            <button onclick="toggleModal('daftar')" class="mt-10 text-[10px] font-bold text-gray-400 uppercase underline">Kembali</button>
+            <button onclick="toggleModal('daftar')" class="mt-10 text-[10px] font-bold text-gray-400 uppercase underline italic">Tutup</button>
         </div>
     </div>
 
     <div id="modal-login" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 text-center border-t-8 border-orange-600 shadow-2xl">
-            <h2 class="text-2xl font-black uppercase italic mb-8 tracking-tighter">Access Verification</h2>
+            <h2 class="text-2xl font-black uppercase italic mb-8 tracking-tighter leading-none">Access Verification</h2>
             <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 tracking-widest border-none outline-none focus:ring-4 focus:ring-orange-100">
             <button onclick="doLogin()" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl hover:bg-orange-600 transition-all">Masuk Portal</button>
             <button onclick="toggleModal('login')" class="mt-4 block w-full text-[10px] font-bold text-gray-300 uppercase">Tutup</button>
@@ -130,15 +119,11 @@
                 document.getElementById('internal-portal').style.display = 'block';
                 document.body.style.overflow = 'hidden';
                 toggleModal('login');
-            } else {
-                alert("KODE AKSES SALAH!");
-            }
+            } else { alert("KODE AKSES SALAH!"); }
         }
 
         function doLogout() {
-            if(confirm("Keluar dari Sesi?")) {
-                location.reload();
-            }
+            if(confirm("Keluar dari Sesi Data?")) { location.reload(); }
         }
 
         function switchTab(type) {
