@@ -18,7 +18,7 @@
 <body class="bg-gray-50 font-sans text-gray-900">
 
     <div id="btn-logout" class="fixed bottom-10 right-10 hidden">
-        <button onclick="doLogout()" class="bg-red-600 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl border-4 border-white">
+        <button onclick="doLogout()" class="bg-red-600 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl border-4 border-white hover:bg-black transition-all">
             <i class="fas fa-sign-out-alt mr-2"></i> Keluar Sesi
         </button>
     </div>
@@ -43,95 +43,108 @@
             <h1 class="text-5xl md:text-8xl font-black mb-6 uppercase italic tracking-tighter leading-none">
                 Leghorn <span class="text-orange-500 font-black">Intelligence</span>
             </h1>
-            <p class="text-sm font-medium text-gray-300 uppercase tracking-widest italic">Agregator & Offtaker Terintegrasi Nasional</p>
+            <p class="text-sm font-medium text-gray-300 uppercase tracking-widest italic mb-10">Agregator & Offtaker Terintegrasi Nasional</p>
             
-            <div class="mt-12 flex flex-wrap justify-center gap-4">
-                <button onclick="window.open('URL_DASHBOARD_CARGO_BAPAK', '_blank')" class="bg-white text-black px-8 py-4 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-2xl flex items-center gap-3 border-b-4 border-gray-300 hover:bg-orange-500 hover:text-white transition-all">
-                    <i class="fas fa-truck-loading text-xl"></i> Sistem Antar Jemput (QR & Print)
-                </button>
+            <div class="flex justify-center">
+                <a href="https://freshegg.web.id/cargo-dashboard" class="bg-white text-black px-10 py-5 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-2xl flex items-center gap-4 border-b-4 border-gray-300 hover:bg-orange-500 hover:text-white transition-all transform hover:scale-105">
+                    <i class="fas fa-truck-loading text-2xl"></i> Sistem Antar Jemput (QR & Print)
+                </a>
             </div>
         </div>
     </header>
 
     <section class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div>
-                <h2 class="text-3xl font-black italic uppercase mb-8">Visi & <span class="text-orange-600">Misi</span></h2>
-                <p class="text-lg font-bold italic border-l-4 border-orange-600 pl-6 uppercase">Menjadi tulang punggung distribusi protein telur nasional yang transparan.</p>
+            <div class="border-l-8 border-orange-600 pl-8">
+                <h2 class="text-3xl font-black italic uppercase mb-4">Visi & Misi</h2>
+                <p class="text-lg font-bold italic uppercase text-gray-700 leading-tight">Membangun kedaulatan pangan melalui distribusi protein telur yang transparan, stabil, dan berkeadilan bagi peternak rakyat.</p>
             </div>
-            <div class="bg-gray-50 p-8 rounded-[3rem] border-b-8 border-orange-600 font-black text-[10px] uppercase space-y-3">
-                <p><i class="fas fa-check-circle text-orange-600 mr-2"></i> Stabilitas Ekonomi Peternak</p>
-                <p><i class="fas fa-check-circle text-orange-600 mr-2"></i> Efisiensi Logistik Nasional</p>
+            <div class="bg-gray-50 p-10 rounded-[3rem] border-b-8 border-orange-600 font-black text-[10px] uppercase space-y-4">
+                <div class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-600"></i> Stabilitas Ekonomi Peternak</div>
+                <div class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-600"></i> Efisiensi Logistik Nasional</div>
+                <div class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-600"></i> Transparansi Data Pemerintah</div>
             </div>
         </div>
     </section>
 
-    <section class="max-w-5xl mx-auto px-6 mb-20">
-        <div class="bg-white p-10 rounded-[4rem] shadow-2xl border-b-8 border-red-600 flex flex-col md:flex-row items-center gap-10">
-            <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white text-3xl animate-pulse shadow-xl">
+    <section class="max-w-5xl mx-auto px-6 mb-24">
+        <div class="bg-white p-12 rounded-[4rem] shadow-2xl border-b-8 border-red-600 flex flex-col md:flex-row items-center gap-10">
+            <div class="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center text-white text-4xl animate-pulse shadow-xl">
                 <i class="fas fa-heart"></i>
             </div>
             <div>
-                <h2 class="text-3xl font-black italic uppercase tracking-tighter">Egg-Donation Program</h2>
-                <p class="text-xs font-bold text-gray-500 mt-2 italic uppercase">Distribusi Protein Gratis untuk Penanganan Stunting Nasional.</p>
+                <h2 class="text-4xl font-black italic uppercase tracking-tighter">Egg-Donation Program</h2>
+                <p class="text-xs font-black text-red-600 mt-2 italic uppercase tracking-widest">Aksi Nyata Perangi Stunting: 2% Margin untuk Protein Gratis.</p>
             </div>
         </div>
     </section>
 
     <section id="monitoring-section" class="py-20 bg-white border-t">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-center text-3xl font-black uppercase italic mb-10 text-gray-800">Live <span class="text-orange-600">Monitoring</span> Suplai</h2>
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-black uppercase italic mb-12 text-gray-800">Live <span class="text-orange-600">Monitoring</span> Suplai</h2>
             <div class="bg-white p-2 rounded-[4rem] shadow-2xl border border-gray-100 overflow-hidden">
-                <iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF" style="width:100%; height:600px; border:none; border-radius: 3.5rem;"></iframe>
+                <iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF" style="width:100%; height:650px; border:none; border-radius: 3.5rem;"></iframe>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-gray-50">
+    <section class="py-24 bg-gray-50">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-2xl font-black uppercase italic mb-10 text-center">Informasi Umum <span class="text-orange-600">(FAQ)</span></h2>
-            <div class="space-y-4">
-                <details class="bg-white p-6 rounded-3xl shadow-sm cursor-pointer">
-                    <summary class="font-black text-[10px] uppercase tracking-widest">Bagaimana cara mendaftar Mitra?</summary>
-                    <p class="mt-4 text-xs font-bold text-gray-500 italic">Pilih kategori mitra (Farm/Cargo/Buyer) pada menu pendaftaran, isi data di Google Form, dan sistem akan mengirimkan instruksi via WhatsApp (Fonnte).</p>
+            <h2 class="text-2xl font-black uppercase italic mb-12 text-center text-gray-800">Pusat Informasi <span class="text-orange-600">(FAQ)</span></h2>
+            <div class="space-y-6">
+                <details class="bg-white p-8 rounded-[2.5rem] shadow-sm cursor-pointer group hover:shadow-md transition-all">
+                    <summary class="font-black text-[10px] uppercase tracking-widest flex justify-between items-center">
+                        1. Bagaimana cara mendaftar sebagai Mitra (Farm/Cargo/Buyer)?
+                        <i class="fas fa-chevron-down text-orange-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-6 text-xs font-bold text-gray-500 italic leading-relaxed border-t pt-6">
+                        Pilih kategori mitra pada tombol "Kemitraan", isi data di Google Form resmi kami. Setelah pengiriman, sistem (Fonnte) akan mengirimkan notifikasi verifikasi ke WhatsApp Bapak untuk proses aktivasi Portal Internal.
+                    </p>
                 </details>
-                <details class="bg-white p-6 rounded-3xl shadow-sm cursor-pointer">
-                    <summary class="font-black text-[10px] uppercase tracking-widest">Keamanan Data & Privasi?</summary>
-                    <p class="mt-4 text-xs font-bold text-gray-500 italic">Data dikelola sesuai UU PDP No. 27/2022. Seluruh transaksi dienkripsi dan hanya dapat diakses melalui Portal Internal.</p>
+                <details class="bg-white p-8 rounded-[2.5rem] shadow-sm cursor-pointer group hover:shadow-md transition-all">
+                    <summary class="font-black text-[10px] uppercase tracking-widest flex justify-between items-center">
+                        2. Apakah data transaksi saya aman dan rahasia?
+                        <i class="fas fa-chevron-down text-orange-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-6 text-xs font-bold text-gray-500 italic leading-relaxed border-t pt-6">
+                        Sangat Aman. FreshEgg patuh pada UU PDP No. 27/2022. Seluruh alur data dari Google Sheets ke Looker Studio dienkripsi secara ketat dan hanya dapat diakses oleh pihak berwenang melalui verifikasi Passkey.
+                    </p>
                 </details>
             </div>
         </div>
     </section>
 
-    <footer id="main-footer" class="bg-[#0a0a0a] text-white py-20 px-6 border-t-4 border-orange-600 text-center">
-        <span class="text-3xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span>
-        <div class="max-w-4xl mx-auto mt-10 p-8 bg-white/5 rounded-3xl border border-white/10">
-            <h4 class="text-[10px] font-black uppercase text-orange-500 mb-4 italic">Legal Disclaimer & Compliance</h4>
-            <p class="text-[9px] text-gray-400 leading-loose uppercase font-bold italic">
-                FreshEgg Indonesia beroperasi di bawah kepatuhan UU Perlindungan Data Pribadi No. 27/2022. Seluruh Dashboard Looker Studio diperbarui secara otomatis melalui integrasi Script Google Sheets & Fonnte Token. Penggunaan atribut QR Code dan Print Out Logistik hanya untuk mitra terverifikasi.
-            </p>
+    <footer id="main-footer" class="bg-[#0a0a0a] text-white py-24 px-6 border-t-4 border-orange-600">
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="text-4xl font-black italic uppercase tracking-tighter">Fresh<span class="text-orange-600">Egg</span></span>
+            <div class="max-w-4xl mx-auto mt-12 p-10 bg-white/5 rounded-[3rem] border border-white/10 text-left">
+                <h4 class="text-[10px] font-black uppercase text-orange-500 mb-6 italic tracking-[0.2em]">Legal Disclaimer & Compliance</h4>
+                <p class="text-[9px] text-gray-400 leading-loose uppercase font-bold italic">
+                    Seluruh operasional FreshEgg Indonesia diatur berdasarkan regulasi Perlindungan Data Pribadi (UU PDP No. 27/2022). Dashboard monitoring ini terhubung secara LIVE melalui otomasi Google Apps Script dan API Fonnte. Penggunaan fitur Cargo Dashboard (QR/Print) hanya untuk armada logistik resmi yang terdaftar dalam sistem National Supply Chain.
+                </p>
+            </div>
+            <p class="text-[9px] text-gray-600 mt-16 uppercase tracking-[0.4em] font-black italic">© 2026 FreshEgg Indonesia - Strategic Food Defense - Wonogiri</p>
         </div>
-        <p class="text-[9px] text-gray-600 mt-10 uppercase tracking-widest italic font-black">© 2026 FreshEgg Indonesia - Pilot Project Wonogiri</p>
     </footer>
 
-    <div id="modal-daftar" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-[4rem] max-w-lg w-full p-12 text-center">
-            <h2 class="text-2xl font-black mb-8 italic uppercase">Pilih Kategori Mitra</h2>
-            <div class="grid grid-cols-1 gap-4">
-                <button onclick="window.open('LINK_GFORM_FARM', '_blank')" class="bg-gray-100 p-5 rounded-2xl font-black uppercase text-[10px] hover:bg-orange-600 hover:text-white transition">Daftar sebagai FARM</button>
-                <button onclick="window.open('LINK_GFORM_CARGO', '_blank')" class="bg-gray-100 p-5 rounded-2xl font-black uppercase text-[10px] hover:bg-orange-600 hover:text-white transition">Daftar sebagai CARGO</button>
-                <button onclick="window.open('LINK_GFORM_BUYER', '_blank')" class="bg-gray-100 p-5 rounded-2xl font-black uppercase text-[10px] hover:bg-orange-600 hover:text-white transition">Daftar sebagai BUYER</button>
+    <div id="modal-daftar" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
+        <div class="bg-white rounded-[4rem] max-w-lg w-full p-12 shadow-2xl">
+            <h2 class="text-2xl font-black mb-10 italic uppercase">Kategori Kemitraan</h2>
+            <div class="grid grid-cols-1 gap-4 font-black uppercase text-[10px] tracking-widest">
+                <button onclick="window.open('LINK_GFORM_FARM', '_blank')" class="bg-gray-100 p-5 rounded-2xl hover:bg-orange-600 hover:text-white transition-all">Pendaftaran FARM</button>
+                <button onclick="window.open('LINK_GFORM_CARGO', '_blank')" class="bg-gray-100 p-5 rounded-2xl hover:bg-orange-600 hover:text-white transition-all">Pendaftaran CARGO</button>
+                <button onclick="window.open('LINK_GFORM_BUYER', '_blank')" class="bg-gray-100 p-5 rounded-2xl hover:bg-orange-600 hover:text-white transition-all">Pendaftaran BUYER</button>
             </div>
-            <button onclick="toggleModal('daftar')" class="mt-8 text-[10px] font-bold text-gray-400 uppercase underline">Kembali</button>
+            <button onclick="toggleModal('daftar')" class="mt-10 text-[10px] font-bold text-gray-400 uppercase underline">Batal</button>
         </div>
     </div>
 
     <div id="modal-login" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
-        <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 border-t-8 border-orange-600">
-            <h2 class="text-2xl font-black uppercase italic mb-8">Access Verification</h2>
-            <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6">
-            <button onclick="doLogin()" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-xs">Masuk Portal</button>
-            <button onclick="toggleModal('login')" class="mt-4 block w-full text-[10px] font-bold text-gray-300 uppercase">Tutup</button>
+        <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 border-t-8 border-orange-600 shadow-2xl">
+            <h2 class="text-2xl font-black uppercase italic mb-8 tracking-tighter">Access Verification</h2>
+            <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 tracking-widest border-none focus:ring-4 focus:ring-orange-100">
+            <button onclick="doLogin()" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-xl hover:bg-orange-600 transition-all">Masuk Portal</button>
+            <button onclick="toggleModal('login')" class="mt-6 block w-full text-[10px] font-bold text-gray-300 uppercase">Tutup</button>
         </div>
     </div>
 
@@ -149,7 +162,7 @@
                 const dashFrame = document.createElement('iframe');
                 dashFrame.id = "internal-dashboard";
                 dashFrame.src = "https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF";
-                dashFrame.setAttribute("style", "position:fixed; top:0; left:0; width:100%; height:100%; z-index:500; border:none;");
+                dashFrame.setAttribute("style", "position:fixed; top:0; left:0; width:100%; height:100%; z-index:400; border:none;");
                 document.body.appendChild(dashFrame);
                 document.getElementById('btn-logout').classList.remove('hidden');
                 toggleModal('login');
@@ -158,7 +171,7 @@
         }
 
         function doLogout() {
-            if(confirm("Keluar dari Portal?")) {
+            if(confirm("Apakah Anda ingin keluar dari sesi aman?")) {
                 const frame = document.getElementById('internal-dashboard');
                 if(frame) frame.remove();
                 document.getElementById('main-nav').style.display = 'block';
