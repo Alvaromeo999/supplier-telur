@@ -3,210 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshEgg | National Food Security Intelligence</title>
+    <title>FreshEgg | National Intelligence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        .hidden { display: none; }
+        .hidden { display: none !important; }
         .hero-bg { 
-            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.8)), url('assets/img/farm.png');
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1350&q=80');
             background-size: cover; background-position: center;
         }
-        #btn-logout { z-index: 9999 !important; }
+        /* Portal Internal z-index paling tinggi */
+        #internal-portal { 
+            position: fixed; inset: 0; background: #f3f4f6; z-index: 9999; display: none; 
+        }
+        .tab-active { background: #ea580c !important; color: white !important; font-weight: 900; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
 
-    <div id="btn-logout" class="fixed bottom-10 right-10 hidden">
-        <button onclick="doLogout()" class="bg-red-600 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl border-4 border-white hover:bg-black transition-all">
-            <i class="fas fa-sign-out-alt mr-2"></i> Keluar Sesi
-        </button>
+    <div id="internal-portal">
+        <div class="bg-white p-4 flex flex-wrap justify-center gap-3 border-b-4 border-orange-600 shadow-xl">
+            <button onclick="switchTab('farm')" id="tab-farm" class="px-5 py-2 rounded-xl text-[10px] uppercase font-black bg-gray-200 tab-active">Farm Data</button>
+            <button onclick="switchTab('cargo')" id="tab-cargo" class="px-5 py-2 rounded-xl text-[10px] uppercase font-black bg-gray-200">Cargo Data</button>
+            <button onclick="switchTab('buyer')" id="tab-buyer" class="px-5 py-2 rounded-xl text-[10px] uppercase font-black bg-gray-200">Buyer Data</button>
+            <button onclick="switchTab('neraca')" id="tab-neraca" class="px-5 py-2 rounded-xl text-[10px] uppercase font-black bg-gray-200 text-orange-700">Neraca Live</button>
+            <button onclick="doLogout()" class="px-5 py-2 rounded-xl text-[10px] uppercase font-black bg-red-600 text-white ml-4">Keluar Sesi</button>
+        </div>
+        <div style="height: calc(100vh - 85px);">
+            <iframe id="iframe-portal" src="https://lookerstudio.google.com/embed/reporting/70883559-7ef8-47ed-b9ea-99d6628b0cb6/page/awalF" class="w-full h-full border-none"></iframe>
+        </div>
     </div>
 
-    <nav id="main-nav" class="bg-white sticky top-0 z-[100] border-b-2 border-orange-500 px-4 py-4 shadow-lg">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex flex-col">
-                <span class="text-xl md:text-2xl font-black italic uppercase tracking-tighter">Fresh<span class="text-orange-600">Egg</span></span>
-                <span class="text-[7px] md:text-[8px] font-bold text-gray-400 tracking-[0.2em] uppercase italic">National Supply Chain Intelligence</span>
+    <div id="public-view">
+        <nav class="bg-white sticky top-0 z-[100] border-b-2 border-orange-500 px-4 py-4 shadow-lg">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-2xl font-black italic uppercase text-gray-900">Fresh<span class="text-orange-600">Egg</span></span>
+                    <span class="text-[7px] font-bold text-gray-400 tracking-widest uppercase italic">National Supply Chain Intelligence</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleModal('daftar')" class="text-orange-600 border border-orange-600 px-3 py-2 rounded-lg font-black text-[9px] uppercase hover:bg-orange-50">Kemitraan</button>
+                    <button onclick="toggleModal('login')" class="bg-orange-600 text-white px-4 py-2 rounded-xl shadow-xl font-black text-[9px] uppercase">Portal Internal</button>
+                </div>
             </div>
-            <div class="flex items-center gap-4">
-                <button onclick="toggleModal('daftar')" class="text-orange-600 border border-orange-600 px-3 py-2 rounded-lg font-black text-[9px] uppercase tracking-widest">Kemitraan</button>
-                <button onclick="toggleModal('login')" class="bg-orange-600 text-white px-4 py-2 rounded-xl font-black text-[9px] uppercase tracking-widest shadow-xl">
-                    <i class="fas fa-lock mr-2"></i> Portal Internal
-                </button>
-            </div>
-        </div>
-    </nav>
+        </nav>
 
-    <header id="main-header" class="hero-bg text-white py-24 px-6 text-center border-b-8 border-orange-600">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-5xl md:text-8xl font-black mb-6 uppercase italic tracking-tighter leading-none">
-                Leghorn <span class="text-orange-500 font-black">Intelligence</span>
-            </h1>
-            <p class="text-sm font-medium text-gray-300 uppercase tracking-widest italic mb-10">Agregator & Offtaker Terintegrasi Nasional</p>
+        <header class="hero-bg text-white py-32 px-6 text-center border-b-8 border-orange-600">
+            <h1 class="text-5xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none">Leghorn <span class="text-orange-500">Intelligence</span></h1>
             
             <div class="flex justify-center">
-                <a href="https://freshegg.web.id/cargo-dashboard" class="bg-white text-black px-10 py-5 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-2xl flex items-center gap-4 border-b-4 border-gray-300 hover:bg-orange-500 hover:text-white transition-all transform hover:scale-105">
+                <a href="https://freshegg.web.id/cargo-dashboard" class="bg-white text-black px-10 py-6 rounded-3xl font-black uppercase text-[12px] tracking-widest shadow-2xl flex items-center gap-4 border-b-8 border-gray-300 hover:bg-orange-600 hover:text-white transition-all transform hover:-translate-y-1">
                     <i class="fas fa-truck-loading text-2xl"></i> Sistem Antar Jemput (QR & Print)
                 </a>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div class="border-l-8 border-orange-600 pl-8">
-                <h2 class="text-3xl font-black italic uppercase mb-4">Visi & Misi</h2>
-                <p class="text-lg font-bold italic uppercase text-gray-700 leading-tight">Membangun kedaulatan pangan melalui distribusi protein telur yang transparan, stabil, dan berkeadilan bagi peternak rakyat.</p>
+        <section class="max-w-4xl mx-auto px-6 py-20">
+            <div class="bg-white p-10 rounded-[3rem] shadow-2xl border-b-8 border-red-600 flex flex-col md:flex-row items-center gap-8">
+                <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white text-3xl animate-pulse"><i class="fas fa-heart"></i></div>
+                <div>
+                    <h2 class="text-3xl font-black italic uppercase text-gray-900 leading-none">Egg-Donation Program</h2>
+                    <p class="text-[10px] font-black text-red-600 mt-2 italic uppercase">Aksi Nyata Perangi Stunting Nasional.</p>
+                </div>
             </div>
-            <div class="bg-gray-50 p-10 rounded-[3rem] border-b-8 border-orange-600 font-black text-[10px] uppercase space-y-4">
-                <div class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-600"></i> Stabilitas Ekonomi Peternak</div>
-                <div class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-600"></i> Efisiensi Logistik Nasional</div>
-                <div class="flex items-center gap-3"><i class="fas fa-check-circle text-orange-600"></i> Transparansi Data Pemerintah</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="max-w-5xl mx-auto px-6 mb-24">
-        <div class="bg-white p-12 rounded-[4rem] shadow-2xl border-b-8 border-red-600 flex flex-col md:flex-row items-center gap-10">
-            <div class="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center text-white text-4xl animate-pulse shadow-xl">
-                <i class="fas fa-heart"></i>
+        <footer class="bg-black text-white py-20 px-6 text-center">
+            <span class="text-3xl font-black italic uppercase text-white">Fresh<span class="text-orange-600">Egg</span></span>
+            <div class="max-w-4xl mx-auto mt-10 p-8 bg-white/10 rounded-3xl text-left">
+                <p class="text-[9px] text-gray-400 font-bold uppercase italic leading-loose">Legal Disclaimer: Tunduk pada UU PDP No. 27/2022. Seluruh data transaksi dienkripsi otomatis.</p>
             </div>
-            <div>
-                <h2 class="text-4xl font-black italic uppercase tracking-tighter">Egg-Donation Program</h2>
-                <p class="text-xs font-black text-red-600 mt-2 italic uppercase tracking-widest">Aksi Nyata Perangi Stunting: 2% Margin untuk Protein Gratis.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="monitoring-section" class="py-20 bg-white border-t">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-black uppercase italic mb-12 text-gray-800">Live <span class="text-orange-600">Monitoring</span> Suplai</h2>
-            <div class="bg-white p-2 rounded-[4rem] shadow-2xl border border-gray-100 overflow-hidden">
-                <iframe src="https://lookerstudio.google.com/embed/reporting/81cce9a8-833d-47e3-9225-fe27ca23b445/page/EoDlF" style="width:100%; height:650px; border:none; border-radius: 3.5rem;"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-2xl font-black uppercase italic mb-12 text-center text-gray-800">Pusat Informasi <span class="text-orange-600">(FAQ)</span></h2>
-            <div class="space-y-6">
-                <details class="bg-white p-8 rounded-[2.5rem] shadow-sm cursor-pointer group hover:shadow-md transition-all">
-                    <summary class="font-black text-[10px] uppercase tracking-widest flex justify-between items-center">
-                        1. Bagaimana cara mendaftar sebagai Mitra (Farm/Cargo/Buyer)?
-                        <i class="fas fa-chevron-down text-orange-600 transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <p class="mt-6 text-xs font-bold text-gray-500 italic leading-relaxed border-t pt-6">
-                        Pilih kategori mitra pada tombol "Kemitraan", isi data di Google Form resmi kami. Setelah pengiriman, sistem (Fonnte) akan mengirimkan notifikasi verifikasi ke WhatsApp Bapak untuk proses aktivasi Portal Internal.
-                    </p>
-                </details>
-                <details class="bg-white p-8 rounded-[2.5rem] shadow-sm cursor-pointer group hover:shadow-md transition-all">
-                    <summary class="font-black text-[10px] uppercase tracking-widest flex justify-between items-center">
-                        2. Apakah data transaksi saya aman dan rahasia?
-                        <i class="fas fa-chevron-down text-orange-600 transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <p class="mt-6 text-xs font-bold text-gray-500 italic leading-relaxed border-t pt-6">
-                        Sangat Aman. FreshEgg patuh pada UU PDP No. 27/2022. Seluruh alur data dari Google Sheets ke Looker Studio dienkripsi secara ketat dan hanya dapat diakses oleh pihak berwenang melalui verifikasi Passkey.
-                    </p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <footer id="main-footer" class="bg-[#0a0a0a] text-white py-24 px-6 border-t-4 border-orange-600">
-        <div class="max-w-7xl mx-auto text-center">
-            <span class="text-4xl font-black italic uppercase tracking-tighter">Fresh<span class="text-orange-600">Egg</span></span>
-            <div class="max-w-4xl mx-auto mt-12 p-10 bg-white/5 rounded-[3rem] border border-white/10 text-left">
-                <h4 class="text-[10px] font-black uppercase text-orange-500 mb-6 italic tracking-[0.2em]">Legal Disclaimer & Compliance</h4>
-                <p class="text-[9px] text-gray-400 leading-loose uppercase font-bold italic">
-                    Seluruh operasional FreshEgg Indonesia diatur berdasarkan regulasi Perlindungan Data Pribadi (UU PDP No. 27/2022). Dashboard monitoring ini terhubung secara LIVE melalui otomasi Google Apps Script dan API Fonnte. Penggunaan fitur Cargo Dashboard (QR/Print) hanya untuk armada logistik resmi yang terdaftar dalam sistem National Supply Chain.
-                </p>
-            </div>
-            <p class="text-[9px] text-gray-600 mt-16 uppercase tracking-[0.4em] font-black italic">© 2026 FreshEgg Indonesia - Strategic Food Defense - Wonogiri</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <div id="modal-daftar" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
         <div class="bg-white rounded-[4rem] max-w-lg w-full p-12 shadow-2xl">
-            <h2 class="text-2xl font-black mb-10 italic uppercase tracking-tighter text-gray-800">Kategori Kemitraan Strategis</h2>
-            
-            <div class="grid grid-cols-1 gap-4 font-black uppercase text-[10px] tracking-widest">
-                <a href="https://forms.gle/JVfEp4Y4G7gz9kgj8" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all flex items-center justify-center gap-4 border-b-4 border-gray-200">
-                    <i class="fas fa-egg text-xl"></i> Pendaftaran FARM (PETERNAK)
-                </a>
-                
-                <a href="https://forms.gle/o8qdEekLoEHjzvQE6" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all flex items-center justify-center gap-4 border-b-4 border-gray-200">
-                    <i class="fas fa-truck text-xl"></i> Pendaftaran CARGO (LOGISTIK)
-                </a>
-                
-                <a href="https://forms.gle/MaVNE9SZLGhiYs1D8" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all flex items-center justify-center gap-4 border-b-4 border-gray-200">
-                    <i class="fas fa-shopping-cart text-xl"></i> Pendaftaran BUYER (PEMBELI)
-                </a>
+            <h2 class="text-2xl font-black mb-10 italic uppercase text-gray-800">Kategori Kemitraan</h2>
+            <div class="grid grid-cols-1 gap-4 font-black uppercase text-[11px] tracking-widest">
+                <a href="https://forms.gle/JVfEp4Y4G7gz9kgj8" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all border-b-4 border-gray-200">Pendaftaran FARM</a>
+                <a href="https://forms.gle/o8qdEekLoEHjzvQE6" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all border-b-4 border-gray-200">Pendaftaran CARGO</a>
+                <a href="https://forms.gle/MaVNE9SZLGhiYs1D8" target="_blank" class="bg-gray-100 p-6 rounded-2xl hover:bg-orange-600 hover:text-white transition-all border-b-4 border-gray-200">Pendaftaran BUYER</a>
             </div>
-            
-            <button onclick="toggleModal('daftar')" class="mt-10 text-[10px] font-bold text-gray-400 uppercase underline tracking-[0.2em]">Batal / Kembali</button>
+            <button onclick="toggleModal('daftar')" class="mt-10 text-[10px] font-bold text-gray-400 uppercase underline">Batal</button>
         </div>
     </div>
 
-    <div id="modal-login" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
-        <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 border-t-8 border-orange-600 shadow-2xl">
-            <h2 class="text-2xl font-black uppercase italic mb-8 tracking-tighter">Access Verification</h2>
-            <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 tracking-widest border-none focus:ring-4 focus:ring-orange-100">
-            <button onclick="doLogin()" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-xl hover:bg-orange-600 transition-all">Masuk Portal</button>
-            <button onclick="toggleModal('login')" class="mt-6 block w-full text-[10px] font-bold text-gray-300 uppercase">Tutup</button>
-        </div>
-    </div>
-
-    <script>
-        // ... (Pastikan fungsi toggleModal, doLogin, dan doLogout ada di sini) ...
-    </script>
-</body>
-</html>
-
-    <div id="modal-login" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
-        <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 border-t-8 border-orange-600 shadow-2xl">
-            <h2 class="text-2xl font-black uppercase italic mb-8 tracking-tighter">Access Verification</h2>
-            <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 tracking-widest border-none focus:ring-4 focus:ring-orange-100">
-            <button onclick="doLogin()" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-xl hover:bg-orange-600 transition-all">Masuk Portal</button>
-            <button onclick="toggleModal('login')" class="mt-6 block w-full text-[10px] font-bold text-gray-300 uppercase">Tutup</button>
+    <div id="modal-login" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-[3rem] max-w-sm w-full p-12 text-center border-t-8 border-orange-600">
+            <h2 class="text-2xl font-black uppercase italic mb-8">Access Verification</h2>
+            <input type="password" id="passkey" placeholder="KODE AKSES" class="w-full p-5 bg-gray-100 rounded-2xl text-center text-xl font-black mb-6 border-none focus:ring-4 focus:ring-orange-100">
+            <button onclick="doLogin()" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-xs shadow-xl">Masuk Portal</button>
+            <button onclick="toggleModal('login')" class="mt-4 block w-full text-[10px] font-bold text-gray-300 uppercase">Tutup</button>
         </div>
     </div>
 
     <script>
-        function toggleModal(id) { document.getElementById('modal-' + id).classList.toggle('hidden'); }
-        
+        const urls = {
+            farm: "https://lookerstudio.google.com/embed/reporting/70883559-7ef8-47ed-b9ea-99d6628b0cb6/page/awalF",
+            cargo: "https://lookerstudio.google.com/embed/reporting/33779c5b-14ab-468a-801c-6e7236a53da7/page/gxalF",
+            buyer: "https://lookerstudio.google.com/embed/reporting/d940437f-a5d8-44ac-af3b-49de20c2e84d/page/TxalF",
+            neraca: "https://lookerstudio.google.com/embed/reporting/0af5b3d0-9d3e-4f16-8677-468cd23d25ce/page/ByalF"
+        };
+
+        function toggleModal(id) {
+            document.getElementById('modal-' + id).classList.toggle('hidden');
+        }
+
         function doLogin() {
             const key = document.getElementById('passkey').value.toUpperCase();
             if(key === "FRESHEGG2026") {
-                document.getElementById('main-nav').style.display = 'none';
-                document.getElementById('main-header').style.display = 'none';
-                document.querySelectorAll('section').forEach(s => s.style.display = 'none');
-                document.getElementById('main-footer').style.display = 'none';
-                
-                const dashFrame = document.createElement('iframe');
-                dashFrame.id = "internal-dashboard";
-                dashFrame.src = "https://lookerstudio.google.com/embed/reporting/aaaa04e2-6fac-431b-8bad-68805577754f/page/LmDlF";
-                dashFrame.setAttribute("style", "position:fixed; top:0; left:0; width:100%; height:100%; z-index:400; border:none;");
-                document.body.appendChild(dashFrame);
-                document.getElementById('btn-logout').classList.remove('hidden');
+                document.getElementById('public-view').classList.add('hidden');
+                document.getElementById('internal-portal').style.display = 'block';
                 toggleModal('login');
                 document.body.style.overflow = 'hidden';
-            } else { alert("Akses Ditolak!"); }
+            } else {
+                alert("KODE AKSES SALAH!");
+            }
         }
 
         function doLogout() {
-            if(confirm("Apakah Anda ingin keluar dari sesi aman?")) {
-                const frame = document.getElementById('internal-dashboard');
-                if(frame) frame.remove();
-                document.getElementById('main-nav').style.display = 'block';
-                document.getElementById('main-header').style.display = 'block';
-                document.querySelectorAll('section').forEach(s => s.style.display = 'block');
-                document.getElementById('main-footer').style.display = 'block';
-                document.getElementById('btn-logout').classList.add('hidden');
-                document.body.style.overflow = 'auto';
-                window.scrollTo(0,0);
+            if(confirm("Keluar dari Sesi Data?")) {
+                location.reload();
             }
+        }
+
+        function switchTab(type) {
+            document.getElementById('iframe-portal').src = urls[type];
+            document.querySelectorAll('#internal-portal button').forEach(btn => btn.classList.remove('tab-active'));
+            document.getElementById('tab-' + type).classList.add('tab-active');
         }
     </script>
 </body>
