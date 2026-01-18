@@ -10,17 +10,16 @@
         .hidden { display: none !important; }
         .hero-bg { 
             background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80');
-            background-size: cover; background-position: center; min-height: 700px;
+            background-size: cover; background-position: center; min-height: 600px;
         }
         #internal-portal { position: fixed; inset: 0; background: #0f172a; z-index: 9999; display: none; }
         .tab-active { background: #ea580c !important; color: white !important; font-weight: 900; }
-        .legal-text { line-height: 1.8; text-align: justify; }
         .wa-glow {
-            position: fixed; bottom: 40px; right: 40px; background: #22c55e; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 10000; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5); text-decoration: none; animation: wa-pulse 2s infinite;
+            position: fixed; bottom: 30px; right: 30px; background: #22c55e; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; z-index: 10000; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5); text-decoration: none; animation: wa-pulse 2s infinite;
         }
         @keyframes wa-pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
     </style>
@@ -28,162 +27,119 @@
 <body class="bg-slate-50 font-sans text-slate-900 m-0 p-0 overflow-x-hidden">
 
     <div id="internal-portal">
-        <div class="bg-slate-900 p-4 flex flex-wrap justify-center gap-3 border-b-4 border-orange-600 shadow-2xl">
-            <button onclick="switchTab('farm')" id="tab-farm" class="px-6 py-2 rounded-xl text-[10px] uppercase font-black bg-slate-800 text-slate-400 hover:text-white transition-all">Farm Monitoring</button>
-            <button onclick="switchTab('cargo')" id="tab-cargo" class="px-6 py-2 rounded-xl text-[10px] uppercase font-black bg-slate-800 text-slate-400 hover:text-white transition-all">Cargo Intelligence</button>
-            <button onclick="switchTab('neraca')" id="tab-neraca" class="px-6 py-2 rounded-xl text-[10px] uppercase font-black bg-slate-800 text-orange-500 tab-active">Neraca Nasional</button>
-            <button onclick="location.reload()" class="px-6 py-2 rounded-xl text-[10px] uppercase font-black bg-red-600 text-white ml-4 shadow-lg hover:bg-red-700 transition-all">Keluar Sistem</button>
+        <div class="bg-slate-900 p-4 flex flex-wrap justify-center gap-2 border-b-4 border-orange-600 shadow-2xl">
+            <button onclick="switchTab('farm')" id="tab-farm" class="px-4 py-2 rounded-xl text-[10px] uppercase font-black bg-slate-800 text-slate-400">Farm</button>
+            <button onclick="switchTab('cargo')" id="tab-cargo" class="px-4 py-2 rounded-xl text-[10px] uppercase font-black bg-slate-800 text-slate-400">Cargo</button>
+            <button onclick="switchTab('neraca')" id="tab-neraca" class="px-4 py-2 rounded-xl text-[10px] uppercase font-black bg-slate-800 text-orange-500 tab-active">Neraca</button>
+            <button onclick="location.reload()" class="px-4 py-2 rounded-xl text-[10px] uppercase font-black bg-red-600 text-white ml-2">Keluar</button>
         </div>
-        <div style="height: calc(100vh - 85px);">
+        <div style="height: calc(100vh - 80px);">
             <iframe id="iframe-portal" src="" class="w-full h-full border-none"></iframe>
         </div>
     </div>
 
     <div id="public-view">
-        <nav class="bg-white border-b-4 border-orange-600 px-8 py-5 shadow-2xl sticky top-0 z-[100]">
+        <nav class="bg-white border-b-4 border-orange-600 px-6 py-4 shadow-xl sticky top-0 z-[100]">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
                 <div class="flex flex-col">
-                    <span class="text-2xl md:text-3xl font-black italic uppercase tracking-tighter">Fresh<span class="text-orange-600">Egg</span></span>
-                    <span class="text-[9px] font-bold text-slate-400 tracking-[0.3em] uppercase italic leading-none">National Supply Chain Intelligence</span>
+                    <span class="text-xl md:text-2xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span>
+                    <span class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Supply Chain Intelligence</span>
                 </div>
-                <div class="flex items-center gap-4">
-                    <button onclick="toggleModal('prakata')" class="text-orange-600 font-black text-[10px] uppercase tracking-widest hover:text-slate-900 transition">Pra-Kata</button>
-                    <button onclick="toggleModal('daftar')" class="border-2 border-orange-600 px-5 py-2 rounded-xl text-orange-600 font-black text-[10px] uppercase tracking-widest hover:bg-orange-50 transition">Kemitraan</button>
-                    <button onclick="toggleModal('login')" class="bg-slate-900 text-white px-6 py-2 rounded-xl shadow-xl font-black text-[10px] uppercase tracking-widest hover:bg-orange-600 transition">Portal Internal</button>
+                <div class="flex gap-2">
+                    <button onclick="toggleModal('prakata')" class="bg-orange-100 text-orange-700 px-3 py-2 rounded-lg font-black text-[9px] uppercase">Pra-Kata</button>
+                    <button onclick="toggleModal('login')" class="bg-slate-900 text-white px-4 py-2 rounded-xl font-black text-[9px] uppercase">Login Portal</button>
                 </div>
             </div>
         </nav>
 
-        <header class="hero-bg text-white border-b-[12px] border-orange-600 flex flex-col items-center justify-center text-center px-6">
-            <h4 class="text-orange-500 font-black tracking-[0.5em] mb-4 text-sm uppercase">Advanced Food Security System</h4>
-            <h1 class="text-5xl md:text-8xl font-black mb-6 uppercase italic tracking-tighter leading-tight">Supply Chain <span class="text-orange-500">Intelligence</span></h1>
-            <p class="max-w-3xl text-sm md:text-xl font-medium italic mb-12 uppercase tracking-widest text-slate-300">Otomasi Agregasi & Distribusi Protein Nasional Berbasis Data Real-Time.</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="https://freshegg.web.id/cargo-dashboard" class="bg-white text-slate-900 px-12 py-6 rounded-2xl font-black uppercase text-[12px] tracking-widest shadow-2xl hover:bg-orange-600 hover:text-white transition-all transform hover:-translate-y-2">
-                    <i class="fas fa-truck-loading mr-3 text-orange-600"></i> Sistem Kargo (QR Verify)
-                </a>
-            </div>
+        <header class="hero-bg text-white border-b-[10px] border-orange-600 flex flex-col items-center justify-center text-center px-6">
+            <h1 class="text-4xl md:text-7xl font-black mb-6 uppercase italic tracking-tighter">Supply Chain <span class="text-orange-500">Intelligence</span></h1>
+            <p class="max-w-2xl text-sm md:text-lg font-bold italic mb-10 uppercase tracking-widest text-slate-300">Otomasi Distribusi Telur Nasional Real-Time.</p>
+            <a href="https://freshegg.web.id/cargo-dashboard" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase text-[11px] shadow-2xl hover:bg-orange-600 hover:text-white transition-all">Sistem Kargo Digital</a>
         </header>
 
-        <section class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-black uppercase italic tracking-tighter mb-4">Ekosistem Ketahanan Pangan</h2>
-                    <div class="w-24 h-2 bg-orange-600 mx-auto"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="p-10 bg-slate-50 rounded-[2rem] border-t-8 border-orange-600 shadow-xl group hover:bg-white transition-all">
-                        <i class="fas fa-warehouse text-5xl text-orange-600 mb-6"></i>
-                        <h3 class="text-xl font-black uppercase italic mb-4">1. Integrated Farm</h3>
-                        <p class="text-xs font-bold text-slate-500 uppercase leading-relaxed">Konsolidasi peternak rakyat dengan standarisasi NKV & Halal guna menjamin stabilitas stok hulu nasional.</p>
-                    </div>
-                    <div class="p-10 bg-slate-50 rounded-[2rem] border-t-8 border-orange-600 shadow-xl group hover:bg-white transition-all">
-                        <i class="fas fa-microchip text-5xl text-orange-600 mb-6"></i>
-                        <h3 class="text-xl font-black uppercase italic mb-4">2. Cargo Intelligence</h3>
-                        <p class="text-xs font-bold text-slate-500 uppercase leading-relaxed">Otomasi logistik berbasis QR-Code untuk mengeliminasi inefisiensi, spekulasi, dan kebocoran distribusi.</p>
-                    </div>
-                    <div class="p-10 bg-slate-50 rounded-[2rem] border-t-8 border-orange-600 shadow-xl group hover:bg-white transition-all">
-                        <i class="fas fa-handshake text-5xl text-orange-600 mb-6"></i>
-                        <h3 class="text-xl font-black uppercase italic mb-4">3. Strategic Buyer</h3>
-                        <p class="text-xs font-bold text-slate-500 uppercase leading-relaxed">Sinergi offtaker industri dan pemerintah untuk penyerapan masif hasil produksi peternak lokal.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
-            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <section class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div>
-                    <h2 class="text-4xl font-black uppercase italic mb-8 border-l-8 border-orange-600 pl-6 text-white">Aksi Nyata <span class="text-orange-600">CSR</span></h2>
-                    <p class="text-lg font-medium text-slate-400 mb-8 italic">Melalui program <strong>"Egg-Donation"</strong>, FreshEgg mendedikasikan persentase margin setiap transaksi untuk percepatan penurunan stunting.</p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="bg-slate-800 p-6 rounded-2xl border-l-4 border-red-600">
-                            <h4 class="text-[10px] font-black uppercase text-red-500 mb-2">Target Donasi</h4>
-                            <p class="text-3xl font-black">200 KG <span class="text-xs">/HARI</span></p>
+                    <h2 class="text-2xl font-black italic uppercase mb-8 border-l-8 border-orange-600 pl-4">3 Pilar Operasional</h2>
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-slate-300">
+                            <h4 class="font-black text-xs uppercase text-orange-600">1. Integrated Farm</h4>
+                            <p class="text-[11px] font-bold text-slate-500 uppercase italic mt-1">Konsolidasi peternak rakyat dengan standar NKV & Halal.</p>
                         </div>
-                        <div class="bg-slate-800 p-6 rounded-2xl border-l-4 border-red-600">
-                            <h4 class="text-[10px] font-black uppercase text-red-500 mb-2">Impact Balita</h4>
-                            <p class="text-3xl font-black">3,200 <span class="text-xs">BALITA</span></p>
+                        <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-slate-300">
+                            <h4 class="font-black text-xs uppercase text-orange-600">2. Cargo Intelligence</h4>
+                            <p class="text-[11px] font-bold text-slate-500 uppercase italic mt-1">Otomasi logistik berbasis QR-Code mengeliminasi inefisiensi.</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-slate-300">
+                            <h4 class="font-black text-xs uppercase text-orange-600">3. Strategic Buyer</h4>
+                            <p class="text-[11px] font-bold text-slate-500 uppercase italic mt-1">Penyerapan masif offtaker industri guna stabilitas harga.</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-orange-600 p-1 rounded-3xl rotate-2 shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1590130615419-d93375836968?auto=format&fit=crop&q=80" class="rounded-3xl" alt="Program Stunting">
+                <div class="bg-red-600 text-white p-10 rounded-[3rem] shadow-2xl flex flex-col justify-center border-b-[15px] border-red-800">
+                    <i class="fas fa-hand-holding-heart text-5xl mb-6"></i>
+                    <h2 class="text-3xl font-black uppercase italic mb-4">CSR Egg-Donation</h2>
+                    <p class="text-sm font-bold italic leading-relaxed mb-6 opacity-90">Setiap kg transaksi komersial menyisihkan 2% nilai margin untuk donasi protein balita stunting. Inilah wujud kemanusiaan FreshEgg.</p>
+                    <div class="bg-white/10 p-4 rounded-xl">
+                        <p class="text-xs font-black uppercase tracking-widest">Impact Harian: 200kg Telur / 3.200 Balita</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-24 bg-slate-50">
+        <section class="py-16 bg-slate-50">
             <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-3xl font-black uppercase italic mb-12 text-center text-slate-900 leading-none">Pusat Informasi <span class="text-orange-600">(FAQ)</span></h2>
+                <h2 class="text-2xl font-black uppercase italic mb-8 text-center">Pusat Informasi (FAQ)</h2>
                 <div class="space-y-4">
-                    <details class="bg-white p-8 rounded-3xl shadow-sm cursor-pointer border-2 border-slate-100 group">
-                        <summary class="font-black text-[11px] uppercase tracking-widest flex justify-between items-center text-slate-700">1. Bagaimana mekanisme pendaftaran mitra baru?<i class="fas fa-chevron-down text-orange-600 group-open:rotate-180 transition"></i></summary>
-                        <p class="mt-6 text-xs font-bold text-slate-500 italic border-t pt-6 uppercase leading-relaxed">Verifikasi Farm NKV -> Aktivasi Digital ID di sistem FreshEgg -> Akses Market Hub melalui WhatsApp API Fonnte.</p>
+                    <details class="bg-white p-6 rounded-2xl border shadow-sm cursor-pointer group">
+                        <summary class="font-black text-[10px] uppercase flex justify-between items-center">Cara Jadi Mitra? <i class="fas fa-plus text-orange-600"></i></summary>
+                        <p class="mt-4 text-[10px] font-bold text-slate-500 italic border-t pt-4">Klik icon WA melayang untuk pendaftaran. Siapkan dokumen farm/kendaraan untuk verifikasi.</p>
                     </details>
-                    <details class="bg-white p-8 rounded-3xl shadow-sm border-2 border-slate-100 group">
-                        <summary class="font-black text-[11px] uppercase tracking-widest flex justify-between items-center text-slate-700">2. Keamanan Data & Kepatuhan Regulasi (UU PDP)?<i class="fas fa-chevron-down text-orange-600 group-open:rotate-180 transition"></i></summary>
-                        <p class="mt-6 text-xs font-bold text-slate-500 italic border-t pt-6 uppercase leading-relaxed">Data dilindungi AES-256 Encryption dan sepenuhnya patuh pada UU PDP No. 27/2022. Server monitoring bersifat restricted dan terlindungi firewall berlapis.</p>
+                    <details class="bg-white p-6 rounded-2xl border shadow-sm cursor-pointer group">
+                        <summary class="font-black text-[10px] uppercase flex justify-between items-center">Keamanan Data (UU PDP)? <i class="fas fa-plus text-orange-600"></i></summary>
+                        <p class="mt-4 text-[10px] font-bold text-slate-500 italic border-t pt-4">Data dienkripsi AES-256 dan patuh UU PDP No. 27/2022. Privasi mitra adalah prioritas.</p>
                     </details>
                 </div>
             </div>
         </section>
 
-        <footer class="bg-slate-950 text-white py-24 px-8 border-t-[12px] border-orange-600">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
-                    <div>
-                        <span class="text-4xl font-black italic uppercase tracking-tighter">Fresh<span class="text-orange-600">Egg</span></span>
-                        <p class="text-[10px] text-slate-500 font-bold tracking-[0.4em] uppercase mt-4 mb-8 italic">National Supply Chain Intelligence</p>
-                        <p class="text-xs font-black uppercase mb-2">WONOGIRI PILOT PROJECT 2026</p>
-                        <p class="text-xs text-slate-400">Hubungi Kami: 08121515633</p>
-                    </div>
-                    <div class="bg-slate-900/50 p-10 rounded-3xl border border-slate-800">
-                        <h4 class="text-[10px] font-black uppercase text-orange-500 mb-6 italic tracking-[0.3em]">Legal Disclaimer & Compliance</h4>
-                        <p class="text-[10px] text-slate-400 font-bold uppercase italic leading-loose text-justify">
-                            Sistem FreshEgg Indonesia dilindungi UU ITE & UU PDP. Penggunaan data strategis pangan untuk kepentingan selain kedaulatan nasional akan ditindak sesuai hukum pidana Republik Indonesia. Seluruh aktivitas tercatat dalam audit log sistem keamanan siber FreshEgg.
-                        </p>
-                    </div>
+        <footer class="bg-slate-950 text-white py-16 px-6 border-t-[10px] border-orange-600">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+                <div class="text-center md:text-left">
+                    <span class="text-3xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span>
+                    <p class="text-[9px] font-bold text-slate-500 uppercase mt-2 tracking-widest italic">National Supply Chain Intelligence</p>
                 </div>
-                <div class="border-t border-slate-800 pt-8 text-center text-[10px] font-black text-slate-600 uppercase tracking-widest">
-                    © 2026 FreshEgg Indonesia. All Rights Reserved. Intellectual Property of National Supply Chain Project.
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 max-w-lg">
+                    <h4 class="text-[10px] font-black uppercase text-orange-500 mb-4 italic">Legal Disclaimer</h4>
+                    <p class="text-[9px] text-slate-400 font-bold uppercase italic leading-loose text-justify">
+                        Sistem FreshEgg dilindungi UU ITE & UU PDP No. 27/2022. Segala penyalahgunaan data strategis pangan nasional akan diproses sesuai hukum pidana Republik Indonesia. 
+                    </p>
                 </div>
             </div>
         </footer>
     </div>
 
-    <div id="modal-login" class="hidden fixed inset-0 bg-slate-950/95 z-[10001] flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white p-12 rounded-[2.5rem] w-full max-w-sm shadow-2xl text-center">
-            <h2 class="text-2xl font-black italic uppercase mb-6 text-slate-900">Security Access</h2>
-            <input type="password" id="passkey" placeholder="Enter Passkey" class="w-full p-5 bg-slate-100 rounded-2xl mb-6 text-center font-black tracking-widest outline-none border-2 border-transparent focus:border-orange-500 transition">
-            <button onclick="checkPasskey()" class="w-full bg-orange-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-slate-900 transition-all">Verifikasi Akses</button>
-            <button onclick="toggleModal('login')" class="mt-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Batal</button>
+    <div id="modal-login" class="hidden fixed inset-0 bg-slate-950/95 z-[10001] flex items-center justify-center p-6">
+        <div class="bg-white p-10 rounded-[2rem] w-full max-w-sm shadow-2xl text-center">
+            <h2 class="text-xl font-black uppercase mb-6">Security Login</h2>
+            <input type="password" id="passkey" placeholder="Enter Passkey" class="w-full p-4 bg-slate-100 rounded-xl mb-4 text-center font-black">
+            <button onclick="checkPasskey()" class="w-full bg-orange-600 text-white py-4 rounded-xl font-black uppercase">Verifikasi</button>
+            <button onclick="toggleModal('login')" class="mt-4 text-[9px] font-black text-slate-400 uppercase">Tutup</button>
         </div>
     </div>
 
-    <div id="modal-daftar" class="hidden fixed inset-0 bg-slate-950/95 z-[10001] flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white p-12 rounded-[2.5rem] w-full max-w-md shadow-2xl text-center">
-            <h2 class="text-2xl font-black italic uppercase mb-8 text-orange-600">Gabung Mitra Strategis</h2>
-            <div class="space-y-4">
-                <a href="https://wa.me/628121515633?text=Daftar%20Mitra%20Farm" class="block bg-slate-50 p-5 rounded-2xl font-black uppercase text-xs hover:bg-orange-600 hover:text-white transition">Registrasi Peternak (Farm)</a>
-                <a href="https://wa.me/628121515633?text=Daftar%20Mitra%20Cargo" class="block bg-slate-50 p-5 rounded-2xl font-black uppercase text-xs hover:bg-orange-600 hover:text-white transition">Registrasi Logistik (Cargo)</a>
-            </div>
-            <button onclick="toggleModal('daftar')" class="mt-8 text-[10px] font-black text-slate-400 uppercase tracking-widest">Tutup</button>
+    <div id="modal-prakata" class="hidden fixed inset-0 bg-slate-950/95 z-[10001] flex items-center justify-center p-6 text-center">
+        <div class="bg-white p-10 rounded-[2rem] max-w-xl shadow-2xl">
+            <h2 class="text-orange-600 font-black text-2xl uppercase italic mb-6">Pra-Kata</h2>
+            <p class="text-slate-700 italic font-medium leading-relaxed mb-8">"Ketahanan pangan adalah kedaulatan data. FreshEgg mengubah catatan manual menjadi intelijen real-time untuk masa depan Indonesia."</p>
+            <button onclick="toggleModal('prakata')" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase">Mengerti</button>
         </div>
     </div>
 
-    <div id="modal-prakata" class="hidden fixed inset-0 bg-slate-950/90 z-[10001] flex items-center justify-center p-4 backdrop-blur-md">
-        <div class="bg-white p-16 rounded-[3rem] max-w-2xl shadow-2xl relative">
-            <h2 class="text-orange-600 font-black text-3xl italic uppercase mb-8 border-b-4 border-orange-600 inline-block">Pra-Kata</h2>
-            <div class="text-slate-700 leading-relaxed italic text-lg space-y-6 mb-12">
-                <p>Ketahanan pangan adalah <b>Kedaulatan Data</b>. FreshEgg hadir mentransformasi catatan manual menjadi <i>Real-time Intelligence</i>.</p>
-                <p>Misi kami jelas: Mengamankan protein nasional dan menyelamatkan masa depan anak bangsa dari ancaman stunting.</p>
-            </div>
-            <button onclick="toggleModal('prakata')" class="w-full bg-slate-900 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-orange-600 transition">Saya Mengerti</button>
-        </div>
-    </div>
-
-    <a href="https://wa.me/628121515633" class="wa-glow"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/628121515633" class="wa-glow" title="Daftar Mitra / Hubungi Kami">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         function toggleModal(id) { document.getElementById('modal-' + id).classList.toggle('hidden'); }
@@ -192,7 +148,7 @@
                 document.getElementById('public-view').classList.add('hidden');
                 document.getElementById('internal-portal').style.display = 'block';
                 switchTab('neraca');
-            } else { alert('Akses Ditolak: Passkey Salah'); }
+            } else { alert('Akses Ditolak'); }
         }
         function switchTab(type) {
             const ifr = document.getElementById('iframe-portal');
