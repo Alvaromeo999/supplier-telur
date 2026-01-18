@@ -22,7 +22,7 @@
         <div class="bg-white p-4 flex flex-wrap justify-center gap-2 border-b-4 border-orange-600 shadow-xl">
             <button onclick="switchTab('farm')" id="tab-farm" class="px-4 py-2 rounded-lg text-[10px] uppercase font-black bg-gray-200">Farm</button>
             <button onclick="switchTab('cargo')" id="tab-cargo" class="px-4 py-2 rounded-lg text-[10px] uppercase font-black bg-gray-200">Cargo</button>
-            <button onclick="switchTab('neraca')" id="tab-neraca" class="px-4 py-2 rounded-lg text-[10px] uppercase font-black bg-gray-200 text-orange-700">Neraca</button>
+            <button onclick="switchTab('neraca')" id="tab-neraca" class="px-4 py-2 rounded-lg text-[10px] uppercase font-black bg-gray-200">Neraca</button>
             <button onclick="location.reload()" class="px-4 py-2 rounded-lg text-[10px] uppercase font-black bg-red-600 text-white">Keluar</button>
         </div>
         <iframe id="iframe-portal" src="" class="w-full" style="height: calc(100vh - 80px); border: none;"></iframe>
@@ -31,7 +31,7 @@
     <div id="public-view">
         <nav class="bg-white border-b-2 border-orange-500 p-4 sticky top-0 z-[100] shadow-md">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
-                <div class="flex flex-col"><span class="text-xl font-black italic italic uppercase">Fresh<span class="text-orange-600">Egg</span></span><span class="text-[7px] font-bold text-gray-400 uppercase">National Supply Chain Intelligence</span></div>
+                <div class="flex flex-col"><span class="text-xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span><span class="text-[7px] font-bold text-gray-400 uppercase">National Supply Chain Intelligence</span></div>
                 <div class="flex gap-2">
                     <button onclick="toggleM('prakata')" class="bg-orange-100 text-orange-700 px-3 py-2 rounded-lg font-black text-[9px] uppercase border border-orange-200">Pra-Kata</button>
                     <button onclick="toggleM('daftar')" class="text-orange-600 border border-orange-600 px-3 py-2 rounded-lg font-black text-[9px] uppercase">Kemitraan</button>
@@ -48,62 +48,72 @@
 
         <section class="py-16 bg-white max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
             <div class="bg-gray-50 p-6 rounded-2xl border-l-8 border-orange-600 shadow-sm">
-                <h2 class="font-black uppercase mb-4">Visi Strategis</h2>
-                <p class="text-sm font-bold italic text-gray-600 uppercase">Menjamin stabilitas harga dan ketahanan pangan melalui Intelijen Rantai Pasok.</p>
+                <h2 class="font-black uppercase mb-4 text-gray-800">Visi Strategis</h2>
+                <p class="text-sm font-bold italic text-gray-600 uppercase leading-relaxed">Menjamin stabilitas harga dan ketahanan pangan melalui Intelijen Rantai Pasok Nasional.</p>
             </div>
             <div class="bg-red-50 p-6 rounded-2xl border-b-4 border-red-600 shadow-sm">
                 <h2 class="font-black uppercase mb-4 text-red-700">Egg-Donation</h2>
-                <p class="text-sm font-bold italic text-red-600 uppercase">Setiap transaksi menyisihkan protein gratis untuk balita stunting.</p>
+                <p class="text-sm font-bold italic text-red-600 uppercase leading-relaxed">Setiap transaksi secara sistemik menyisihkan protein gratis untuk percepatan penurunan stunting.</p>
             </div>
         </section>
 
         <section class="py-12 bg-gray-50 px-6">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-2xl font-black text-center uppercase mb-8">FAQ</h2>
-                <div class="bg-white border rounded-xl mb-2"><button onclick="tFaq(this)" class="w-full p-4 text-left font-black text-[10px] uppercase flex justify-between">Cara Jadi Mitra? <span>+</span></button><div class="hidden p-4 text-xs italic bg-gray-50 border-t">Daftar via menu Kemitraan & verifikasi NKV farm.</div></div>
-                <div class="bg-white border rounded-xl mb-2"><button onclick="tFaq(this)" class="w-full p-4 text-left font-black text-[10px] uppercase flex justify-between">Keamanan Data? <span>+</span></button><div class="hidden p-4 text-xs italic bg-gray-50 border-t">Patuh UU PDP No. 27/2022. Enkripsi Cloud aman.</div></div>
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-2xl font-black uppercase mb-8">Informasi Publik (FAQ)</h2>
+                <div class="bg-white border rounded-xl mb-2 text-left">
+                    <button onclick="tFaq(this)" class="w-full p-4 font-black text-[10px] uppercase flex justify-between items-center">
+                        Cara Jadi Mitra? <i class="fas fa-plus text-orange-600"></i>
+                    </button>
+                    <div class="hidden p-4 text-xs italic bg-gray-50 border-t">Daftar via menu Kemitraan, verifikasi NKV farm, dan aktifkan akun via WhatsApp.</div>
+                </div>
+                <div class="bg-white border rounded-xl mb-2 text-left">
+                    <button onclick="tFaq(this)" class="w-full p-4 font-black text-[10px] uppercase flex justify-between items-center">
+                        Keamanan Data? <i class="fas fa-plus text-orange-600"></i>
+                    </button>
+                    <div class="hidden p-4 text-xs italic bg-gray-50 border-t">Sepenuhnya patuh UU PDP No. 27/2022. Data dienkripsi dalam server Cloud aman.</div>
+                </div>
             </div>
         </section>
 
         <footer class="bg-black text-white p-12 text-center border-t-8 border-orange-600">
             <span class="text-xl font-black italic uppercase">Fresh<span class="text-orange-600">Egg</span></span>
-            <p class="text-[8px] text-gray-500 font-bold uppercase mt-2">© 2026 NSCI | CS: 08121515633</p>
+            <p class="text-[8px] text-gray-500 font-bold uppercase mt-2">© 2026 National Supply Chain Intelligence | Wonogiri, Indonesia</p>
         </footer>
     </div>
 
     <div id="m-login" class="hidden fixed inset-0 bg-black/90 z-[10001] flex items-center justify-center p-4">
         <div class="bg-white p-8 rounded-2xl w-full max-w-xs shadow-2xl">
-            <h2 class="font-black text-center mb-6 uppercase italic">Portal Internal</h2>
-            <input type="password" id="pk" placeholder="Passkey" class="w-full p-4 bg-gray-100 rounded-xl mb-4 text-center font-bold">
-            <button onclick="login()" class="w-full bg-orange-600 text-white py-4 rounded-xl font-black uppercase">Masuk</button>
-            <button onclick="toggleM('login')" class="w-full mt-4 text-[10px] font-bold text-gray-400">TUTUP</button>
+            <h2 class="font-black text-center mb-6 uppercase italic text-orange-600">Portal Internal</h2>
+            <input type="password" id="pk" placeholder="Masukkan Passkey" class="w-full p-4 bg-gray-100 rounded-xl mb-4 text-center font-bold">
+            <button onclick="login()" class="w-full bg-orange-600 text-white py-4 rounded-xl font-black uppercase shadow-lg">Masuk</button>
+            <button onclick="toggleM('login')" class="w-full mt-4 text-[10px] font-bold text-gray-400 uppercase">Tutup</button>
         </div>
     </div>
 
     <div id="m-daftar" class="hidden fixed inset-0 bg-black/90 z-[10001] flex items-center justify-center p-4">
         <div class="bg-white p-8 rounded-2xl w-full max-w-xs text-center">
             <h2 class="font-black text-orange-600 mb-6 uppercase italic">Gabung Mitra</h2>
-            <div class="grid gap-2">
-                <button class="bg-gray-100 p-3 rounded-lg font-black text-[10px] uppercase">Peternak (Farm)</button>
-                <button class="bg-gray-100 p-3 rounded-lg font-black text-[10px] uppercase">Logistik (Cargo)</button>
+            <div class="grid gap-3">
+                <button onclick="window.open('https://wa.me/628121515633?text=Daftar%20Mitra%20Farm')" class="bg-gray-100 p-4 rounded-xl font-black text-[10px] uppercase hover:bg-orange-50">Peternak (Farm)</button>
+                <button onclick="window.open('https://wa.me/628121515633?text=Daftar%20Mitra%20Cargo')" class="bg-gray-100 p-4 rounded-xl font-black text-[10px] uppercase hover:bg-orange-50">Logistik (Cargo)</button>
             </div>
-            <button onclick="toggleM('daftar')" class="mt-6 text-[10px] font-bold text-gray-400">TUTUP</button>
+            <button onclick="toggleM('daftar')" class="mt-8 text-[10px] font-bold text-gray-400 uppercase">Batal</button>
         </div>
     </div>
 
     <div id="m-prakata" class="hidden fixed inset-0 bg-black/80 z-[10002] flex items-center justify-center p-4">
         <div class="bg-white p-8 rounded-2xl max-w-xl shadow-2xl relative">
-            <h2 class="text-orange-600 font-black mb-4 uppercase italic">Mengapa FreshEgg?</h2>
-            <div class="text-sm italic text-gray-700 leading-relaxed text-justify space-y-2">
-                <p>Ketahanan pangan adalah <b>Kedaulatan Data</b>. Kami mengubah catatan manual menjadi <i>Intelligence</i>, mentransformasi keringat peternak menjadi aset digital.</p>
-                <p>Target 10 Ton/hari adalah misi kemanusiaan untuk balita stunting.</p>
-                <p class="text-right font-black mt-6 text-orange-600">— Founder FreshEgg</p>
+            <h2 class="text-orange-600 font-black mb-4 uppercase italic">Pra-Kata: Mengapa FreshEgg?</h2>
+            <div class="text-sm italic text-gray-700 leading-relaxed text-justify space-y-4">
+                <p>Ketahanan pangan adalah <b>Kedaulatan Data</b>. Kami mengubah catatan manual menjadi <i>Intelligence</i>, mentransformasi keringat peternak menjadi aset digital yang terukur.</p>
+                <p>Target 10 Ton/hari adalah misi kemanusiaan untuk percepatan gizi nasional dan penurunan stunting.</p>
+                <p class="text-right font-black mt-6 text-orange-600">— Founder FreshEgg Indonesia</p>
             </div>
-            <button onclick="toggleM('prakata')" class="w-full mt-6 bg-gray-100 p-2 font-bold text-[10px] uppercase">Tutup</button>
+            <button onclick="toggleM('prakata')" class="w-full mt-8 bg-gray-100 p-3 rounded-lg font-bold text-[10px] uppercase">Saya Mengerti</button>
         </div>
     </div>
 
-    <a href="https://api.whatsapp.com/send?phone=628121515633" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://api.whatsapp.com/send?phone=628121515633&text=Halo%20FreshEgg,%20saya%20ingin%20diskusi%20kemitraan." class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         function toggleM(id) { document.getElementById('m-'+id).classList.toggle('hidden'); }
@@ -113,13 +123,19 @@
                 document.getElementById('public-view').classList.add('hidden');
                 document.getElementById('internal-portal').style.display = 'block';
                 switchTab('neraca');
-            } else { alert('Gagal'); }
+            } else { alert('Passkey Salah!'); }
         }
         function switchTab(t) {
-            const l = {'neraca': 'https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/edit?usp=sharing', 'farm': 'https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/edit?usp=sharing', 'cargo': 'https://freshegg.web.id/cargo-dashboard'};
+            const l = {
+                'neraca': 'https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/edit?usp=sharing', 
+                'farm': 'https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/edit?usp=sharing', 
+                'cargo': 'https://freshegg.web.id/cargo-dashboard'
+            };
             document.getElementById('iframe-portal').src = l[t];
-            document.querySelectorAll('[id^="tab-"]').forEach(b => b.classList.remove('tab-active'));
-            document.getElementById('tab-'+t).classList.add('tab-active');
+            
+            // Mengatur tab aktif secara visual
+            document.querySelectorAll('[id^="tab-"]').forEach(btn => btn.classList.remove('tab-active'));
+            document.getElementById('tab-' + t).classList.add('tab-active');
         }
     </script>
 </body>
