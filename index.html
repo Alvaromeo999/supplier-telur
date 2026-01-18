@@ -126,10 +126,25 @@
     </div>
 
     <div id="m-daftar" class="hidden fixed inset-0 bg-black/90 z-[10001] flex items-center justify-center p-6 text-center">
-        <div class="bg-white p-10 rounded-[2rem] w-full max-w-sm shadow-2xl">
-            <h2 class="text-orange-600 font-black text-xl uppercase mb-6 italic">Mitra Strategis</h2>
-            <button onclick="window.open('https://wa.me/628121515633')" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase mb-4">Daftar Via WA</button>
-            <button onclick="toggleModal('daftar')" class="text-slate-400 font-bold text-[10px] uppercase tracking-widest">Batal</button>
+        <div class="bg-white p-10 rounded-[2.5rem] w-full max-w-sm shadow-2xl">
+            <h2 class="text-orange-600 font-black text-2xl uppercase mb-6 italic">Registrasi Mitra</h2>
+            <p class="text-[10px] font-bold text-slate-400 uppercase mb-6 italic">Pilih Kategori Pendaftaran:</p>
+            
+            <div class="flex flex-col gap-3">
+                <button onclick="window.open('https://forms.gle/x2FsLf4WJPMbRd4c8')" class="w-full bg-slate-100 hover:bg-orange-600 hover:text-white p-4 rounded-xl font-black uppercase text-[10px] transition-all">
+                    <i class="fas fa-seedling mr-2"></i> Pendaftaran Farm (Hulu)
+                </button>
+                
+                <button onclick="window.open('https://forms.gle/Yzzu4pWJriaDSedW7')" class="w-full bg-slate-100 hover:bg-orange-600 hover:text-white p-4 rounded-xl font-black uppercase text-[10px] transition-all">
+                    <i class="fas fa-truck mr-2"></i> Pendaftaran Cargo (Logistik)
+                </button>
+                
+                <button onclick="window.open('https://forms.gle/Yzzu4pWJriaDSedW7')" class="w-full bg-slate-100 hover:bg-orange-600 hover:text-white p-4 rounded-xl font-black uppercase text-[10px] transition-all">
+                    <i class="fas fa-store mr-2"></i> Pendaftaran Buyer (Hilir)
+                </button>
+            </div>
+
+            <button onclick="toggleModal('daftar')" class="mt-8 text-slate-400 font-bold text-[10px] uppercase tracking-widest border-t pt-4 w-full">Tutup</button>
         </div>
     </div>
 
