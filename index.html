@@ -130,6 +130,59 @@
             </div>
         </section>
 
+<section id="faq" style="padding: 60px 20px; background-color: #f9f9f9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="max-width: 800px; margin: auto;">
+        <h2 style="text-align: center; color: #2c3e50; margin-bottom: 40px;">Pertanyaan Umum (FAQ)</h2>
+
+        <div class="faq-item" style="margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; background: white; overflow: hidden;">
+            <button onclick="toggleFaq(this)" style="width: 100%; padding: 20px; text-align: left; background: none; border: none; outline: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: bold; color: #333;">Bagaimana cara menjadi mitra FreshEgg?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer" style="display: none; padding: 0 20px 20px; color: #666; line-height: 1.6;">
+                Sangat mudah! Anda dapat mendaftar melalui WhatsApp resmi kami. Tim kami akan melakukan verifikasi lokasi farm (NKV) atau armada kargo Anda. Setelah disetujui, Anda akan mendapatkan akses ke Dashboard Intelligence kami.
+            </div>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; background: white; overflow: hidden;">
+            <button onclick="toggleFaq(this)" style="width: 100%; padding: 20px; text-align: left; background: none; border: none; outline: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: bold; color: #333;">Apa itu program Egg-Donation?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer" style="display: none; padding: 0 20px 20px; color: #666; line-height: 1.6;">
+                Egg-Donation adalah komitmen sosial otomatis dari ekosistem FreshEgg. Setiap kilogram telur yang didistribusikan melalui sistem kami secara otomatis menyisihkan 2% nilainya untuk donasi protein bagi balita stunting, yang datanya tercatat transparan di Dashboard CSR.
+            </div>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; background: white; overflow: hidden;">
+            <button onclick="toggleFaq(this)" style="width: 100%; padding: 20px; text-align: left; background: none; border: none; outline: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: bold; color: #333;">Apakah data saya aman di platform ini?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer" style="display: none; padding: 0 20px 20px; color: #666; line-height: 1.6;">
+                Keamanan data adalah prioritas utama. FreshEgg menggunakan enkripsi tingkat tinggi dan sepenuhnya patuh pada UU PDP No. 27 Tahun 2022. Data transaksi Anda hanya dapat diakses oleh pihak berwenang melalui sistem verifikasi dua langkah.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('.icon');
+    
+    if (answer.style.display === "block") {
+        answer.style.display = "none";
+        icon.innerText = "+";
+    } else {
+        answer.style.display = "block";
+        icon.innerText = "-";
+    }
+}
+</script>
+        
+    
         <footer class="bg-black text-white py-24 px-6 border-t-8 border-orange-600">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div class="text-center md:text-left">
@@ -151,6 +204,7 @@
         </footer>
     </div>
 
+    
     <div id="modal-daftar" class="fixed inset-0 bg-black/95 z-[500] hidden flex items-center justify-center p-4 text-center">
         <div class="bg-white rounded-[4rem] max-w-lg w-full p-12 shadow-2xl">
             <h2 class="text-2xl font-black mb-10 italic uppercase tracking-tighter text-gray-800">Kemitraan Strategis</h2>
