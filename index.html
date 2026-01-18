@@ -3,126 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshEgg | Command Center Intelligence</title>
+    <title>FreshEgg | National Supply Chain Intelligence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        :root { --primary: #ea580c; --dark: #0f172a; --accent: #fbbf24; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-        body { background: #f8fafc; color: var(--dark); line-height: 1.6; }
+        :root { --p: #ea580c; --d: #0f172a; --s: #64748b; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+        body { background:#f8fafc; color:var(--d); overflow-x:hidden; }
+        .hidden { display:none !important; }
+
+        /* NAV */
+        nav { background:#fff; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; border-bottom:4px solid var(--p); position:sticky; top:0; z-index:1000; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+        .logo b { font-size:24px; text-transform:uppercase; font-style:italic; }
+        .logo b span { color:var(--p); }
+        .logo p { font-size:8px; font-weight:800; color:var(--s); letter-spacing:1px; }
+        .nav-btn { display:flex; gap:10px; }
+        .b-nav { padding:8px 15px; border-radius:8px; font-size:10px; font-weight:900; text-transform:uppercase; cursor:pointer; border:1px solid var(--p); transition:0.3s; }
+        .b-p { background:#fff; color:var(--p); }
+        .b-l { background:var(--p); color:#fff; }
+
+        /* HERO */
+        header { background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80'); background-size:cover; padding:100px 5%; text-align:center; color:#fff; border-bottom:10px solid var(--p); }
+        header h1 { font-size:50px; text-transform:uppercase; font-style:italic; line-height:1; }
+        header p { font-size:14px; color:#cbd5e1; margin:20px 0 40px; letter-spacing:2px; }
+
+        /* SECTION COMMON */
+        section { padding:80px 5%; }
+        .title { text-align:center; margin-bottom:50px; }
+        .title h2 { font-size:28px; text-transform:uppercase; font-style:italic; }
+        .title div { width:60px; height:5px; background:var(--p); margin:10px auto; }
+
+        /* 3 PILAR */
+        .grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; }
+        .pilar { background:#fff; padding:40px; border-radius:20px; border-top:5px solid var(--p); box-shadow:0 10px 30px rgba(0,0,0,0.05); text-align:center; }
+        .pilar i { font-size:40px; color:var(--p); margin-bottom:20px; }
+
+        /* CSR */
+        .csr-box { background:var(--d); color:#fff; border-radius:30px; padding:60px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+        .csr-stat { background:rgba(255,255,255,0.05); padding:30px; border-radius:20px; border-left:5px solid #ef4444; }
+
+        /* FAQ */
+        .faq-item { background:#fff; border:1px solid #e2e8f0; border-radius:12px; margin-bottom:10px; }
+        .faq-h { width:100%; padding:20px; text-align:left; background:none; border:none; font-weight:900; font-size:11px; display:flex; justify-content:space-between; cursor:pointer; text-transform:uppercase; }
+        .faq-c { padding:0 20px 20px; font-size:13px; color:var(--s); display:none; border-top:1px solid #f1f5f9; padding-top:15px; }
+
+        /* FOOTER & LEGAL */
+        footer { background:var(--d); color:#fff; padding:60px 5%; border-top:10px solid var(--p); }
+        .legal { font-size:10px; color:var(--s); line-height:1.8; text-align:justify; margin-top:30px; padding-top:30px; border-top:1px solid rgba(255,255,255,0.1); }
+
+        /* MODAL */
+        .modal { position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:5000; display:none; justify-content:center; align-items:center; padding:20px; }
+        .m-box { background:#fff; padding:40px; border-radius:20px; width:100%; max-width:450px; text-align:center; }
         
-        /* NAVBAR PREMIUM */
-        nav { background: white; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--primary); sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .logo-box b { font-size: 28px; text-transform: uppercase; letter-spacing: -1px; }
-        .logo-box span { color: var(--primary); }
-        .logo-box p { font-size: 9px; font-weight: 800; color: #64748b; letter-spacing: 2px; }
-
-        /* HERO: COMMAND CENTER LOOK */
-        header { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80'); background-size: cover; height: 650px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; border-bottom: 10px solid var(--primary); padding: 0 10%; }
-        header h1 { font-size: clamp(40px, 8vw, 70px); font-weight: 900; text-transform: uppercase; line-height: 1; margin-bottom: 20px; }
-        header h1 span { color: var(--accent); }
-        header p { font-size: 18px; font-weight: 300; letter-spacing: 4px; margin-bottom: 40px; color: #cbd5e1; }
-        .hero-btn { background: var(--primary); color: white; padding: 20px 40px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 14px; transition: 0.3s; border: none; box-shadow: 0 10px 30px rgba(234, 88, 12, 0.4); }
-        .hero-btn:hover { transform: translateY(-5px); background: #c2410c; }
-
-        /* ANALYTICS CARDS (MENUNJUKKAN DATA) */
-        .stats-container { max-width: 1200px; margin: -50px auto 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 20px; }
-        .stat-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-top: 5px solid var(--primary); }
-        .stat-card h3 { font-size: 12px; color: #64748b; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
-        .stat-card p { font-size: 24px; font-weight: 900; color: var(--dark); }
-
-        /* SECTION TITLES */
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 32px; text-transform: uppercase; font-weight: 900; }
-        .section-title div { width: 80px; height: 5px; background: var(--primary); margin: 15px auto; }
-
-        /* MODALS & PORTAL */
-        .modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); z-index: 5000; display: none; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
-        .modal-content { background: white; padding: 50px; border-radius: 30px; width: 90%; max-width: 500px; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
-        #internal-portal { position: fixed; inset: 0; background: #0f172a; z-index: 6000; display: none; }
-        .portal-nav { background: #1e293b; padding: 15px; display: flex; justify-content: center; gap: 15px; border-bottom: 5px solid var(--primary); }
-        .tab-btn { padding: 12px 25px; border-radius: 10px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; color: #94a3b8; background: #334155; }
-        .tab-btn.active { background: var(--primary); color: white; }
-
-        /* WA FLOAT */
-        .wa-float { position: fixed; bottom: 40px; right: 40px; background: #22c55e; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5); z-index: 10000; text-decoration: none; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+        /* INTERNAL PORTAL */
+        #portal { position:fixed; inset:0; background:#fff; z-index:6000; display:none; }
+        .p-nav { background:var(--d); padding:15px; display:flex; justify-content:center; gap:10px; border-bottom:4px solid var(--p); }
+        .wa { position:fixed; bottom:30px; right:30px; background:#22c55e; color:#fff; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; font-size:30px; z-index:10000; animation:pulse 2s infinite; text-decoration:none; }
+        @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(34,197,94,0.7);} 70%{box-shadow:0 0 0 15px rgba(34,197,94,0);} 100%{box-shadow:0 0 0 0 rgba(34,197,94,0);} }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo-box"><b>Fresh<span>Egg</span></b><p>NATIONAL SUPPLY CHAIN INTELLIGENCE</p></div>
-        <div style="display: flex; gap: 15px;">
-            <button onclick="openM('m-prakata')" style="font-weight: 800; cursor: pointer; border: none; background: none; color: var(--primary); text-transform: uppercase; font-size: 12px;">Pra-Kata</button>
-            <button onclick="openM('m-login')" style="background: var(--dark); color: white; padding: 10px 25px; border-radius: 10px; font-weight: 800; border: none; cursor: pointer; font-size: 12px;">LOGIN PORTAL</button>
+        <div class="logo"><b>Fresh<span>Egg</span></b><p>NATIONAL SUPPLY CHAIN INTELLIGENCE</p></div>
+        <div class="nav-btn">
+            <button class="b-nav b-p" onclick="openM('m-prakata')">Pra-Kata</button>
+            <button class="b-nav b-p" onclick="openM('m-daftar')">Kemitraan</button>
+            <button class="b-nav b-l" onclick="openM('m-login')">Portal Internal</button>
         </div>
     </nav>
 
     <header>
-        <p>REVOLUSI LOGISTIK PROTEIN NASIONAL</p>
         <h1>Supply Chain <span>Intelligence</span></h1>
-        <div style="width: 100px; height: 5px; background: var(--primary); margin-bottom: 40px;"></div>
-        <a href="https://freshegg.web.id/cargo-dashboard" class="hero-btn"><i class="fas fa-microchip"></i> AKSES DASHBOARD KARGO</a>
+        <p>REVOLUSI DISTRIBUSI PROTEIN TELUR NASIONAL BERBASIS DATA REAL-TIME</p>
+        <a href="https://freshegg.web.id/cargo-dashboard" style="background:var(--p); color:#fff; padding:15px 30px; border-radius:10px; text-decoration:none; font-weight:900; font-size:12px;">AKSES SISTEM KARGO</a>
     </header>
 
-    <div class="stats-container">
-        <div class="stat-card"><h3>Target Distribusi</h3><p>10,000 KG / HARI</p></div>
-        <div class="stat-card"><h3>Kontribusi Stunting</h3><p>200 KG / HARI</p></div>
-        <div class="stat-card"><h3>Wilayah Pilot</h3><p>WONOGIRI, JATENG</p></div>
-    </div>
+    <section>
+        <div class="title"><h2>3 Pilar Strategis</h2><div></div></div>
+        <div class="grid-3">
+            <div class="pilar"><i class="fas fa-warehouse"></i><h3>1. Integrated Farm</h3><p style="font-size:12px; margin-top:10px; color:var(--s);">Konsolidasi produksi peternak rakyat dengan standar NKV & Halal untuk menjamin ketersediaan stok hulu.</p></div>
+            <div class="pilar"><i class="fas fa-truck-fast"></i><h3>2. Cargo Intelligence</h3><p style="font-size:12px; margin-top:10px; color:var(--s);">Otomasi logistik berbasis QR-Code untuk mengeliminasi inefisiensi dan kebocoran distribusi di lapangan.</p></div>
+            <div class="pilar"><i class="fas fa-chart-line"></i><h3>3. Strategic Buyer</h3><p style="font-size:12px; margin-top:10px; color:var(--s);">Penyerapan masif oleh mitra industri dan pemerintah guna menjaga stabilitas harga di tingkat produsen.</p></div>
+        </div>
+    </section>
 
-    <section style="padding: 100px 8%; background: white;">
-        <div class="section-title"><h2>Infrastruktur Digital</h2><div></div></div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-            <div style="padding: 40px; background: #f8fafc; border-radius: 30px; border-left: 10px solid var(--primary);">
-                <h3 style="margin-bottom: 20px; text-transform: uppercase;">01. Monitoring Hulu</h3>
-                <p style="color: #64748b;">Integrasi data produksi dari peternak rakyat secara real-time untuk memastikan ketersediaan stok nasional.</p>
+    <section style="background:#f1f5f9;">
+        <div class="csr-box">
+            <div>
+                <h2 style="font-size:32px; text-transform:uppercase; font-style:italic;">Aksi Nyata <span style="color:var(--p);">CSR</span></h2>
+                <p style="margin:20px 0; color:#cbd5e1; font-size:14px;">Melalui program <b>"Egg-Donation"</b>, FreshEgg mengonversi setiap kilogram transaksi menjadi kontribusi protein gratis bagi balita stunting di wilayah pilot project.</p>
             </div>
-            <div style="padding: 40px; background: #f8fafc; border-radius: 30px; border-left: 10px solid var(--accent);">
-                <h3 style="margin-bottom: 20px; text-transform: uppercase;">02. Kargo Pintar</h3>
-                <p style="color: #64748b;">Sistem QR-Code dan pelacakan digital untuk mengeliminasi inefisiensi dan kebocoran distribusi.</p>
+            <div class="csr-stat">
+                <h4 style="color:#ef4444; font-size:12px;">TARGET DONASI</h4>
+                <p style="font-size:32px; font-weight:900;">200 KG / HARI</p>
+                <p style="font-size:10px; color:#94a3b8; margin-top:10px;">Setara protein harian untuk 3.200 balita stunting.</p>
             </div>
         </div>
     </section>
 
-    <div id="m-login" class="modal">
-        <div class="modal-content">
-            <h2 style="text-transform: uppercase; font-weight: 900; margin-bottom: 10px;">Security Access</h2>
-            <p style="font-size: 12px; color: #64748b; margin-bottom: 30px;">Masukkan Passkey Terotorisasi</p>
-            <input type="password" id="pk" placeholder="••••••••" style="width: 100%; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; text-align: center; font-size: 24px; margin-bottom: 20px;">
-            <button onclick="goLogin()" style="width: 100%; background: var(--primary); color: white; padding: 20px; border-radius: 15px; font-weight: 800; border: none; cursor: pointer;">VERIFIKASI AKSES</button>
-            <p onclick="closeM('m-login')" style="margin-top: 20px; cursor: pointer; color: #94a3b8; font-weight: 700; font-size: 12px;">BATAL</p>
+    <section>
+        <div class="title"><h2>Informasi & FAQ</h2><div></div></div>
+        <div style="max-width:800px; margin:auto;">
+            <div class="faq-item"><button class="faq-h" onclick="tFaq(this)">Mekanisme Kemitraan? <i class="fas fa-plus"></i></button><div class="faq-c">Verifikasi Farm NKV -> Aktivasi Digital ID -> Akses Market Hub.</div></div>
+            <div class="faq-item"><button class="faq-h" onclick="tFaq(this)">Keamanan Data Strategis? <i class="fas fa-plus"></i></button><div class="faq-c">Patuh UU PDP No. 27/2022 dengan enkripsi AES-256 pada server cloud pemerintah/lokal.</div></div>
         </div>
+    </section>
+
+    <footer>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+            <div>
+                <b>Fresh<span>Egg</span></b>
+                <p style="font-size:10px; color:var(--s); margin-top:10px;">NATIONAL SUPPLY CHAIN INTELLIGENCE</p>
+                <p style="font-size:12px; margin-top:20px;">Support: 08121515633</p>
+            </div>
+            <div style="text-align:right;">
+                <p style="font-size:10px; color:var(--s);">VERIFIKASI SISTEM:</p>
+                <p style="font-size:12px; font-weight:900;">NKV COMPLIANT | HALAL CERTIFIED</p>
+            </div>
+        </div>
+        <div class="legal">
+            <b>LEGAL DISCLAIMER:</b> Sistem FreshEgg Indonesia dilindungi oleh UU ITE dan UU Perlindungan Data Pribadi (PDP). Segala data yang disajikan dalam Dashboard bersifat rahasia dan hanya untuk keperluan analisa kedaulatan pangan nasional. Penggunaan data tanpa izin otoritas akan diproses sesuai hukum pidana Republik Indonesia.
+        </div>
+    </footer>
+
+    <div id="m-login" class="modal"><div class="m-box"><h3>Portal Internal</h3><input type="password" id="pk" placeholder="PASSKEY" style="width:100%; padding:15px; margin:20px 0; border-radius:10px; border:1px solid #ddd; text-align:center;"><button onclick="goLogin()" style="width:100%; padding:15px; background:var(--p); color:#fff; border:none; border-radius:10px; font-weight:900;">VERIFIKASI</button><p onclick="closeM('m-login')" style="margin-top:20px; font-size:10px; cursor:pointer;">BATAL</p></div></div>
+    <div id="m-daftar" class="modal"><div class="m-box"><h3>Kemitraan Strategis</h3><div style="display:grid; gap:10px; margin-top:20px;"><button onclick="window.open('https://wa.me/628121515633')" style="padding:15px; border:1px solid var(--p); border-radius:10px; font-weight:900; background:#fff; color:var(--p);">DAFTAR FARM / CARGO</button></div><p onclick="closeM('m-daftar')" style="margin-top:20px; font-size:10px; cursor:pointer;">TUTUP</p></div></div>
+    <div id="m-prakata" class="modal"><div class="m-box" style="text-align:justify;"><h3>Pra-Kata</h3><p style="font-size:13px; margin-top:20px; font-style:italic; line-height:1.6;">"Kedaulatan pangan adalah kedaulatan data. FreshEgg hadir untuk mentransformasi keringat peternak menjadi aset digital yang terukur bagi Indonesia."</p><button onclick="closeM('m-prakata')" style="width:100%; padding:15px; background:var(--d); color:#fff; border:none; border-radius:10px; font-weight:900; margin-top:20px;">SAYA MENGERTI</button></div></div>
+
+    <div id="portal">
+        <div class="p-nav">
+            <button onclick="sTab('neraca')" class="tab-btn" id="t-neraca">NERACA</button>
+            <button onclick="sTab('farm')" class="tab-btn" id="t-farm">FARM</button>
+            <button onclick="location.reload()" style="background:#ef4444; color:#fff;" class="tab-btn">KELUAR</button>
+        </div>
+        <iframe id="ifr" src="" style="width:100%; height:calc(100vh - 70px); border:none;"></iframe>
     </div>
 
-    <div id="m-prakata" class="modal">
-        <div class="modal-content" style="max-width: 700px; text-align: left;">
-            <h2 style="color: var(--primary); margin-bottom: 20px;">PRA-KATA</h2>
-            <p style="font-size: 18px; line-height: 1.8; color: #1e293b; font-style: italic;">"Data adalah Kedaulatan. FreshEgg hadir untuk memastikan bahwa setiap gram protein yang diproduksi oleh peternak rakyat tercatat, terlindungi, dan terdistribusi dengan adil untuk kemanusiaan."</p>
-            <button onclick="closeM('m-prakata')" style="margin-top: 40px; width: 100%; padding: 20px; background: var(--dark); color: white; border-radius: 15px; font-weight: 800; border: none; cursor: pointer;">LANJUTKAN</button>
-        </div>
-    </div>
-
-    <div id="internal-portal">
-        <div class="portal-nav">
-            <button id="tab-neraca" class="tab-btn active" onclick="sTab('neraca')">NASIONAL</button>
-            <button id="tab-farm" class="tab-btn" onclick="sTab('farm')">FARM DATA</button>
-            <button class="tab-btn" style="background: #ef4444; color: white;" onclick="location.reload()">LOGOUT</button>
-        </div>
-        <iframe id="ifr" src="" style="width: 100%; height: calc(100vh - 80px); border: none;"></iframe>
-    </div>
-
-    <a href="https://wa.me/628121515633" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/628121515633" class="wa"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         function openM(id){document.getElementById(id).style.display='flex';}
         function closeM(id){document.getElementById(id).style.display='none';}
-        function goLogin(){if(document.getElementById('pk').value==='FRESHEGG2026'){document.getElementById('internal-portal').style.display='block';sTab('neraca');}else{alert('Akses Ditolak');}}
+        function tFaq(b){let c=b.nextElementSibling; c.style.display=c.style.display==='block'?'none':'block';}
+        function goLogin(){if(document.getElementById('pk').value==='FRESHEGG2026'){document.getElementById('portal').style.display='block';sTab('neraca');}else{alert('Ditolak');}}
         function sTab(t){
             let l={'neraca':'https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/edit?usp=sharing','farm':'https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/edit?usp=sharing'};
             document.getElementById('ifr').src=l[t];
-            document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-            document.getElementById('tab-'+t).classList.add('active');
         }
     </script>
 </body>
