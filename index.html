@@ -1,4 +1,4 @@
-j<!DOCTYPE html>
+50j<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -128,13 +128,29 @@ j<!DOCTYPE html>
         </div>
     </div>
 
-    <div id="m-daftar" class="hidden fixed inset-0 bg-black/90 z-[10001] flex items-center justify-center p-6 text-center">
+        <div id="m-daftar" class="hidden fixed inset-0 bg-black/90 z-[10001] flex items-center justify-center p-6 text-center">
         <div class="bg-white p-10 rounded-[2.5rem] w-full max-w-sm shadow-2xl">
             <h2 class="text-orange-600 font-black text-2xl uppercase mb-6 italic">Registrasi Mitra</h2>
+            <p class="text-[10px] font-bold text-slate-400 uppercase mb-6 italic text-center">Pilih Kategori Pendaftaran:</p>
+            
             <div class="flex flex-col gap-3">
-                <button onclick="window.open('https://forms.gle/x2FsLf4WJPMbRd4c8')" class="w-full bg-slate-100 hover:bg-orange-600 hover:text-white p-4 rounded-xl font-black uppercase text-[10px] transition-all">Pendaftaran Farm (Hulu)</button>
-                <button onclick="window.open('https://forms.gle/Yzzu4pWJriaDSedW7')" class="w-full bg-slate-100 hover:bg-orange-600 hover:text-white p-4 rounded-xl font-black uppercase text-[10px] transition-all">Pendaftaran Cargo (Logistik)</button>
-                <button onclick="window.open('<!DOCTYPE html>
+                <button onclick="window.open('https://forms.gle/x2FsLf4WJPMbRd4c8', '_blank')" class="w-full bg-slate-100 hover:bg-orange-600 hover:text-white p-4 rounded-xl font-black uppercase text-[10px] transition-all text-left">
+                    <i class="fas fa-seedling mr-2 text-orange-500"></i> Pendaftaran Farm (Hulu)
+                </button>
+                
+                <button onclick="window.open('https://forms.gle/Yzzu4pWJriaDSedW7', '_blank')" class="w-full bg-slate-100 hover:bg-orange-600 hover:text-white p-4 rounded-xl font-black uppercase text-[10px] transition-all text-left">
+                    <i class="fas fa-truck mr-2 text-orange-500"></i> Pendaftaran Cargo (Logistik)
+                </button>
+                
+                <button onclick="window.open('https://forms.gle/Yzzu4pWJriaDSedW7', '_blank')" class="w-full bg-slate-100 hover:bg-orange-600 hover:text-white p-4 rounded-xl font-black uppercase text-[10px] transition-all text-left">
+                    <i class="fas fa-store mr-2 text-orange-500"></i> Pendaftaran Buyer (Hilir)
+                </button>
+            </div>
+
+            <button onclick="toggleModal('daftar')" class="mt-8 text-slate-400 font-bold text-[10px] uppercase tracking-widest border-t pt-4 w-full">Kembali</button>
+        </div>
+    </div>
+
 <html lang="id">
 <head>
     <meta charset="UTF-8">
