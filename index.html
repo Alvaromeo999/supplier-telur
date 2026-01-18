@@ -10,7 +10,7 @@
         body { background:#f1f5f9; color:#0f172a; overflow-x:hidden; }
         .hidden { display:none !important; }
         
-        /* NAVBAR GAGAH */
+        /* NAVBAR */
         nav { background:#fff; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; border-bottom:5px solid #ea580c; position:sticky; top:0; z-index:1000; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
         .logo b { font-size:26px; text-transform:uppercase; font-style:italic; }
         .logo b span { color:#ea580c; }
@@ -21,8 +21,8 @@
         .btn-mitra { background:#fff; color:#ea580c; border:2px solid #ea580c; }
         .btn-login { background:#0f172a; color:#fff; }
 
-        /* HERO COMMAND CENTER */
-        header { background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80'); background-size:cover; padding:100px 5%; text-align:center; color:#fff; border-bottom:12px solid #ea580c; }
+        /* HERO SECTION */
+        header { background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url('assets/img/farm.png') center/cover; padding:100px 5%; text-align:center; color:#fff; border-bottom:12px solid #ea580c; }
         header h1 { font-size:50px; text-transform:uppercase; font-style:italic; line-height:1; letter-spacing:-2px; }
         header h1 span { color:#ea580c; }
         header p { font-size:14px; margin:15px 0 35px; letter-spacing:2px; color:#cbd5e1; font-family:Arial; font-style:italic; font-weight: bold; }
@@ -31,30 +31,20 @@
         .btn-cargo { background:#fff; color:#0f172a; padding:15px 30px; border-radius:15px; text-decoration:none; font-size:12px; border-bottom:5px solid #cbd5e1; }
         .btn-download { background:#ea580c; color:#fff; padding:15px 30px; border-radius:15px; text-decoration:none; font-size:12px; border-bottom:5px solid #9a3412; }
 
-        /* MAIN LAYOUT */
+        /* 3 PILAR & CSR */
         .main-container { max-width:1200px; margin:50px auto; padding:0 20px; display:grid; grid-template-columns: 1fr 1fr; gap:30px; }
-        
-        /* 3 PILAR STRATEGIS */
         .section-box h2 { border-left:10px solid #ea580c; padding-left:15px; margin-bottom:20px; text-transform:uppercase; font-style:italic; font-size:22px; }
         .pilar-item { background:#fff; padding:20px; border-radius:15px; margin-bottom:15px; border: 1px solid #e2e8f0; }
         .pilar-item h4 { color:#ea580c; font-size:14px; margin-bottom:5px; text-transform: uppercase; }
         .pilar-item p { font-size:11px; color:#64748b; font-family:Arial; font-weight:bold; }
 
-        /* EGG-DONATION BALOK MERAH */
         .csr-card { background:#dc2626; color:#fff; padding:40px; border-radius:30px; border-bottom:15px solid #991b1b; display:flex; flex-direction:column; justify-content:center; }
         .csr-card i { font-size:50px; margin-bottom:15px; }
         .csr-card h2 { font-size:30px; text-transform:uppercase; font-style:italic; margin-bottom:10px; }
         .csr-card p { font-size:13px; font-family:Arial; line-height:1.6; font-weight:bold; margin-bottom:20px; }
         .csr-badge { background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px; font-size: 11px; text-align: center; }
 
-        /* FAQ */
-        .faq-section { background:#fff; padding:50px 5%; text-align:center; border-top: 1px solid #e2e8f0; }
-        .faq-container { max-width:800px; margin:30px auto; text-align:left; }
-        .faq-item { border:2px solid #e2e8f0; border-radius:12px; margin-bottom:10px; overflow: hidden; }
-        .faq-btn { width:100%; padding:18px; background:none; border:none; text-align:left; font-weight:900; font-size:11px; cursor:pointer; display:flex; justify-content:space-between; text-transform: uppercase; }
-        .faq-content { padding:18px; font-size:12px; color:#64748b; border-top:1px solid #e2e8f0; display:none; font-family:Arial; font-style:italic; font-weight: bold; }
-
-        /* FOOTER & DISCLAIMER */
+        /* FOOTER & LEGAL */
         footer { background:#0f172a; color:#fff; padding:50px 5%; border-top:10px solid #ea580c; }
         .legal-disclaimer { background:rgba(255,255,255,0.05); padding:25px; border-radius:15px; margin-top:25px; border-left:5px solid #ea580c; }
         .legal-disclaimer h4 { color:#ea580c; font-size:12px; margin-bottom:8px; text-transform: uppercase; }
@@ -63,10 +53,7 @@
         /* MODALS */
         .modal { position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:5000; display:none; justify-content:center; align-items:center; }
         .m-content { background:#fff; padding:35px; border-radius:20px; width:90%; max-width:380px; text-align:center; }
-        .m-content h2 { text-transform: uppercase; font-style: italic; font-size: 20px; margin-bottom: 15px; }
-        .m-content input { width:100%; padding:15px; margin-bottom:20px; border:2px solid #e2e8f0; border-radius:10px; font-size:18px; text-align:center; }
         
-        /* INTERNAL PORTAL */
         #internal-portal { position:fixed; inset:0; background:#fff; z-index:6000; display:none; }
         .p-nav { background:#0f172a; padding:12px; display:flex; justify-content:center; gap:8px; border-bottom:5px solid #ea580c; }
         .wa-glow { position:fixed; bottom:25px; right:25px; background:#22c55e; color:#fff; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; font-size:30px; z-index:10000; text-decoration:none; box-shadow:0 0 20px rgba(34,197,94,0.5); animation: pulse 2s infinite; }
@@ -89,79 +76,45 @@
         <p>REVOLUSI DISTRIBUSI PROTEIN NASIONAL REAL-TIME</p>
         <div class="hero-actions">
             <a href="https://freshegg.web.id/cargo-dashboard" class="btn-cargo"><i class="fas fa-truck-loading"></i> SISTEM KARGO (QR VERIFY)</a>
-            <a href="brosur_freshegg.png" download="Brosur_FreshEgg_Strategis" class="btn-download"><i class="fas fa-file-download"></i> DOWNLOAD BROSUR</a>
+            <a href="assets/img/brosur_freshegg.png" download="Brosur_FreshEgg_Strategis.png" class="btn-download"><i class="fas fa-file-download"></i> DOWNLOAD BROSUR</a>
         </div>
     </header>
 
     <div class="main-container">
         <div class="section-box">
             <h2>3 Pilar Operasional</h2>
-            <div class="pilar-item">
-                <h4>1. Integrated Farm</h4>
-                <p>Konsolidasi produksi peternak rakyat Wonogiri dengan standarisasi NKV & Halal guna menjamin stok hulu.</p>
-            </div>
-            <div class="pilar-item">
-                <h4>2. Cargo Intelligence</h4>
-                <p>Otomasi logistik berbasis digital QR-Verify guna mengeliminasi inefisiensi dan spekulasi tengkulak.</p>
-            </div>
-            <div class="pilar-item">
-                <h4>3. Strategic Buyer</h4>
-                <p>Kepastian serapan pasar (offtaker) oleh industri dan pemerintah untuk menjaga stabilitas harga produsen.</p>
-            </div>
+            <div class="pilar-item"><h4>1. Integrated Farm</h4><p>Konsolidasi produksi peternak rakyat Wonogiri dengan standarisasi NKV & Halal guna menjamin stok hulu.</p></div>
+            <div class="pilar-item"><h4>2. Cargo Intelligence</h4><p>Otomasi logistik berbasis digital QR-Verify guna mengeliminasi inefisiensi dan spekulasi tengkulak.</p></div>
+            <div class="pilar-item"><h4>3. Strategic Buyer</h4><p>Kepastian serapan pasar (offtaker) oleh industri dan pemerintah untuk menjaga stabilitas harga produsen.</p></div>
         </div>
 
         <div class="csr-card">
             <i class="fas fa-hand-holding-heart"></i>
             <h2>Egg-Donation</h2>
             <p>Setiap kg transaksi komersial secara sistemik menyisihkan margin untuk donasi protein balita stunting di Wonogiri. Misi kemanusiaan yang terukur dan transparan.</p>
-            <div class="csr-badge">
-                TARGET IMPACT: 200 KG TELUR / 3.200 BALITA STUNTING PER HARI
-            </div>
-        </div>
-    </div>
-
-    <div class="faq-section">
-        <h2 style="text-transform: uppercase; font-style: italic;">Informasi Strategis (FAQ)</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-btn" onclick="tFaq(this)">MEKANISME KEMITRAAN? <i class="fas fa-plus"></i></button>
-                <div class="faq-content">Hubungi Admin WhatsApp, verifikasi standar NKV unit Farm atau Armada Cargo, dan aktivasi ID Digital FreshEgg.</div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-btn" onclick="tFaq(this)">KEAMANAN DATA (UU PDP NO. 27/2022)? <i class="fas fa-plus"></i></button>
-                <div class="faq-content">Sistem patuh sepenuhnya pada regulasi perlindungan data. Seluruh aktivitas tercatat dalam audit log keamanan siber nasional.</div>
-            </div>
+            <div class="csr-badge">TARGET IMPACT: 200 KG TELUR / 3.200 BALITA STUNTING PER HARI</div>
         </div>
     </div>
 
     <footer>
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
-            <div>
-                <b>Fresh<span>Egg</span></b>
-                <p style="font-size:11px; margin-top:8px; font-weight: bold; color: #64748b;">PILOT PROJECT: WONOGIRI 2026</p>
-            </div>
-            <div style="text-align: right;">
-                <p style="font-size: 10px; color: #ea580c; font-weight: bold;">NKV COMPLIANT | HALAL CERTIFIED</p>
-                <p style="font-size: 10px; font-weight: bold; margin-top: 5px;">SUPPORT: 0812 1515 633</p>
-            </div>
+            <div><b>Fresh<span>Egg</span></b><p style="font-size:11px; margin-top:8px; font-weight: bold; color: #64748b;">PILOT PROJECT: WONOGIRI 2026</p></div>
+            <div style="text-align: right;"><p style="font-size: 10px; color: #ea580c; font-weight: bold;">NKV COMPLIANT | HALAL CERTIFIED</p><p style="font-size: 10px; font-weight: bold; margin-top: 5px;">SUPPORT: 0812 1515 633</p></div>
         </div>
-        
         <div class="legal-disclaimer">
             <h4>LEGAL DISCLAIMER & DISCLOSURE</h4>
-            <p>Sistem FreshEgg dilindungi UU ITE & UU PDP. Segala bentuk manipulasi atau penggunaan data strategis pangan nasional tanpa otorisasi akan diproses hukum sesuai regulasi Pidana Republik Indonesia. Seluruh aktivitas sistem dipantau secara real-time melalui audit log keamanan siber.</p>
+            <p>Sistem FreshEgg dilindungi UU ITE & UU PDP. Segala bentuk manipulasi atau penggunaan data strategis pangan nasional tanpa otorisasi akan diproses hukum sesuai regulasi Pidana Republik Indonesia.</p>
         </div>
     </footer>
 
     <div id="m-login" class="modal"><div class="m-content"><h2>Security Portal</h2><input type="password" id="pk" placeholder="ENTER PASSKEY"><button class="btn btn-login" style="width:100%; padding:15px;" onclick="goLogin()">VERIFIKASI</button><p onclick="closeM('m-login')" style="cursor:pointer; margin-top:15px; font-size:10px; font-weight:bold; color:#999;">BATAL</p></div></div>
-    
-    <div id="m-prakata" class="modal"><div class="m-content"><h2>Pra-Kata</h2><p style="font-size:13px; font-family:Arial; font-style:italic; line-height:1.6; margin-bottom: 20px; font-weight: bold;">"Ketahanan pangan adalah kedaulatan data. FreshEgg mentransformasi keringat peternak rakyat menjadi aset digital yang terukur untuk Indonesia."</p><button class="btn btn-login" style="width:100%;" onclick="closeM('m-prakata')">SAYA MENGERTI</button></div></div>
-    
-    <div id="m-daftar" class="modal"><div class="m-content"><h2>Kemitraan</h2><button class="btn btn-mitra" style="width:100%; padding:15px; margin-top:15px;" onclick="window.open('https://wa.me/628121515633?text=Halo%20FreshEgg,%20saya%20ingin%20mendaftar%20kemitraan.')">HUBUNGI ADMIN WHATSAPP</button><p onclick="closeM('m-daftar')" style="cursor:pointer; margin-top:15px; font-size:10px; font-weight:bold; color:#999;">TUTUP</p></div></div>
+    <div id="m-prakata" class="modal"><div class="m-content"><h2>Pra-Kata</h2><p style="font-size:13px; font-family:Arial; font-style:italic; line-height:1.6; margin-bottom: 20px; font-weight: bold;">"Ketahanan pangan adalah kedaulatan data."</p><button class="btn btn-login" style="width:100%;" onclick="closeM('m-prakata')">SAYA MENGERTI</button></div></div>
+    <div id="m-daftar" class="modal"><div class="m-content"><h2>Kemitraan</h2><button class="btn btn-mitra" style="width:100%; padding:15px; margin-top:15px;" onclick="window.open('https://wa.me/628121515633')">HUBUNGI ADMIN</button><p onclick="closeM('m-daftar')" style="cursor:pointer; margin-top:15px; font-size:10px; font-weight:bold; color:#999;">TUTUP</p></div></div>
 
     <div id="internal-portal">
         <div class="p-nav">
-            <button class="btn btn-mitra" onclick="sTab('neraca')">NERACA NASIONAL</button>
-            <button class="btn btn-mitra" onclick="sTab('farm')">DATA FARM</button>
+            <button class="btn btn-mitra" onclick="sTab('neraca')">NERACA</button>
+            <button class="btn btn-mitra" onclick="sTab('farm')">FARM</button>
             <button class="btn" style="background:red; color:#fff;" onclick="location.reload()">LOGOUT</button>
         </div>
         <iframe id="ifr" src="" style="width:100%; height:calc(100vh - 70px); border:none;"></iframe>
@@ -172,13 +125,12 @@
     <script>
         function openM(id){document.getElementById(id).style.display='flex';}
         function closeM(id){document.getElementById(id).style.display='none';}
-        function tFaq(b){let c=b.nextElementSibling; c.style.display=c.style.display==='block'?'none':'block';}
         function goLogin(){
             if(document.getElementById('pk').value==='FRESHEGG2026'){
                 document.getElementById('m-login').style.display='none';
                 document.getElementById('internal-portal').style.display='block';
                 sTab('neraca');
-            } else { alert('Akses Ditolak: Passkey Salah'); }
+            } else { alert('Passkey Salah'); }
         }
         function sTab(t){
             let l={'neraca':'https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/edit?usp=sharing','farm':'https://docs.google.com/spreadsheets/d/1Oz9UwHJgxh50LRDyrUa7waFd-3Q2fws9hgKhgIa22Q4/edit?usp=sharing'};
