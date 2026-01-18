@@ -20,6 +20,41 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-900 m-0 p-0 overflow-x-hidden">
 
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="openPrakata()" style="padding: 15px 30px; font-size: 18px; background-color: #e67e22; color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        📖 BACA: Pra-Kata FreshEgg
+    </button>
+</div>
+
+<div id="modalPrakata" style="display:none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); overflow: auto;">
+    <div style="background-color: white; margin: 5% auto; padding: 40px; border-radius: 15px; width: 80%; max-width: 700px; line-height: 1.8; font-family: 'Georgia', serif; position: relative;">
+        <span onclick="closePrakata()" style="position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer;">&times;</span>
+        
+        <h2 style="text-align: center; color: #d35400; font-family: 'Arial';">Pra-Kata: Mengapa FreshEgg?</h2>
+        <hr>
+        <p><i>Bapak/Ibu yang terhormat,</i></p>
+        <p>
+            Ketahanan pangan bukan sekadar soal ketersediaan stok di gudang, melainkan tentang <b>Kedaulatan Data</b>. Selama ini, rantai pasok protein kita bergerak dalam "kegelapan" informasi—di mana peternak kecil seringkali menjadi korban spekulasi harga dan inefisiensi logistik.
+        </p>
+        <p>
+            <b>FreshEgg</b> hadir bukan sekadar sebagai aplikasi, melainkan sebuah misi <b>Alih Teknologi</b>. Kami mengubah catatan kertas yang manual menjadi <i>Real-time Intelligence</i>. Kami mentransformasi keringat peternak rakyat menjadi aset digital yang bankable dan terukur.
+        </p>
+        <p>
+            Dengan target <b>10 Ton per hari</b>, kami tidak hanya menyeimbangkan neraca pasar, tetapi secara otomatis mengamankan asupan protein bagi ribuan balita stunting melalui sistem <i>Egg-Donation</i> yang terverifikasi. 
+        </p>
+        <p>
+            Mari melihat masa depan kedaulatan pangan Indonesia—di mana teknologi bekerja untuk keadilan, dan setiap gram produksi berkontribusi pada kemanusiaan.
+        </p>
+        <p style="text-align: right; font-weight: bold;">Salam Kedaulatan Pangan,<br><br>Founder FreshEgg Indonesia</p>
+    </div>
+</div>
+
+<script>
+function openPrakata() { document.getElementById('modalPrakata').style.display = "block"; }
+function closePrakata() { document.getElementById('modalPrakata').style.display = "none"; }
+</script>
+  
     <div id="internal-portal">
         <div class="bg-white p-4 flex flex-wrap justify-center gap-3 border-b-4 border-orange-600 shadow-xl">
             <button onclick="switchTab('farm')" id="tab-farm" class="px-5 py-2 rounded-xl text-[10px] uppercase font-black bg-gray-200 tab-active">Farm Monitoring</button>
